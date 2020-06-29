@@ -13,9 +13,8 @@ completo al programa, incluido su nombre. En la primera línea del archivo, debe
 programa en el que se encuentra el bloque principal de ejecución de la aplicación. Las líneas
 subsiguientes, contendrán aquellos programas que correspondan a librerías o módulos
 codificados por el usuario, y que también formen parte de la aplicación en cuestión.
-|                 :---:                   |
-|  Ejemplo de contenido de programas.txt  |
-|                 ---                     |
+
+| :---: Ejemplo de contenido de programas.txt  |              |
 |                 :---                    |
 |c:\\aplicacion\\programa_principal.py    |
 |c:\\aplicacion\\m_ingresos.py            |
