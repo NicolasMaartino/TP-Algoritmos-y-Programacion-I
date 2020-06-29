@@ -1,4 +1,4 @@
-# Enunciado Trabajo Práctico Grupal
+## Enunciado Trabajo Práctico Grupal
 ###### Objetivo
 Escribir una aplicación en Python, que permita analizar y evaluar el diseño modular aplicado, a
 programas escritos en Python, así como también la utilización de ciertas normas relacionadas
@@ -16,7 +16,8 @@ codificados por el usuario, y que también formen parte de la aplicación en cue
 
 |  Ejemplo de contenido de programas.txt  |
 |                 :---:                   |
-| c:\\aplicacion\\programa_principal.py   |
+|                 :---                    |
+|c:\\aplicacion\\programa_principal.py    |
 |c:\\aplicacion\\m_ingresos.py            |
 |c:\\aplicacion\\m_calculos.py            |
 |c:\\aplicacion\\m_impresiones.py         |
