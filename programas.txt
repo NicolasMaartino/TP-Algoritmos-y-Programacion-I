@@ -1,1 +1,1 @@
-E:\AlgoritmosyProgramacionI\TP1\programaprincipal.py
+/home/nicolas/Escritorio/TP1/programaprincipal.py
