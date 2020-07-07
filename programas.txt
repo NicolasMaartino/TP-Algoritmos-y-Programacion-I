@@ -2,4 +2,4 @@
 /home/nicolas/Escritorio/TP1/funciones_archivos.py
 /home/nicolas/Escritorio/Programación/Generala/funciones_principales.py
 /home/nicolas/Escritorio/Programación/Generala/funciones_auxiliares.py
-/home/nicolas/Escritorio/Programación/Generala/main.py
+
