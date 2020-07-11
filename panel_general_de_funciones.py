@@ -16,64 +16,110 @@ def leer_archivo(archivo):
         linea = " , , , "
     return linea.split(",")
 
-def organizar_archivo(ar_fuente):
+def listar_archivo(archivo):
+    """[Autor: Lucia]"""
+    """[Ayuda: convierte al archivo en una lista donde cada elemento es una linea del mismo]"""
+    lista_ar = []
+    linea = leer_archivo(archivo)
+    while (linea[0] != ' '):
+        lista_ar.append(linea)
+        linea = leer_archivo(archivo)
+    return lista_ar
+
+def organizar_archivo(lista_ar):
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
         donde las claves son los atributos de las columnas]"""
-    ar_fuente = open('fuente_unico1.csv', 'r')
     funciones = {}
-    funcion_fu = leer_archivo(ar_fuente) #fu: fuente unico
-    while (funcion_fu[0] != ' '):
-        funciones[funcion_fu[0]] = {}
-        funciones[funcion_fu[0]]["Parametros"] = funcion_fu[1].strip("()")
-        funciones[funcion_fu[0]]["Modulo"] = funcion_fu[2]
-        funciones[funcion_fu[0]]["Lineas"] = len(funcion_fu) - 2
-        funciones[funcion_fu[0]]["Invocaciones"] = 0
-        funcion_fu = leer_archivo(ar_fuente)
-    ar_fuente.close()
+    for funcion in lista_ar:
+        funciones[funcion[0]] = {}
+        funciones[funcion[0]]["Parametros"] = funcion[1]
+        funciones[funcion[0]]["Lineas"] = len(funcion) - 2 #Por los parametros y el modulo
+        funciones[funcion[0]]["Invocaciones"] = 0
+        funciones[funcion[0]]["Returns"] = 0
+        funciones[funcion[0]]["If/elif"] = 0
+        funciones[funcion[0]]["for"] = 0
+        funciones[funcion[0]]["while"] = 0
+        funciones[funcion[0]]["Break"] = 0
+        funciones[funcion[0]]["Exit"] = 0
+        funciones[funcion[0]]["Coment"] = 0
+        funciones[funcion[0]]["Ayuda"] = True
+        funciones[funcion[0]]["Autor"] = ""
     return funciones
 
-def invocaciones(ar_fuente, dic):
+def invocaciones(lista_ar, dic):
     """[Autor: Lucia]"""
     """[Ayuda: Cuenta la cantidad de veces que fue invocada cada funcion]"""
-    ar_fuente = open('fuente_unico1.csv', 'r')
-    funcion_fu = leer_archivo(ar_fuente)
-    while (funcion_fu[0] != ' '):
-        for key in dic:
-            for i in range(0, len(funcion_fu)):
-                if key in funcion_fu[i]:
-                    dic[key]["Invocaciones"] +=1
-        funcion_fu = leer_archivo(ar_fuente)
-    ar_fuente.close()
+
+    for key in dic:
+        for funcion in lista_ar: 
+            for i in range(2, len(funcion)):
+                dic[key]["Invocaciones"] += funcion[i].count(key)
+
     return dic
 
-def returns(ar_fuente, dic):
+def returns(lista_ar, dic):
     """[Autor: Lucia]"""
     """[Ayuda: Cuenta la cantidad de veces que aparece un return]"""
-    ar_fuente = open('fuente_unico1.csv', 'r')
-    funcion_fu = leer_archivo(ar_fuente)
-    while (funcion_fu[0] != ' '):
-        for key in dic:
-            for i in range(0, len(funcion_fu)):
-                dic[key]["Returns"] = funcion_fu[i].count("return")
-        funcion_fu = leer_archivo(ar_fuente)
-    ar_fuente.close()
+    
+    for funcion in lista_ar:
+        for i in range(3, len(funcion)):
+            dic[funcion[0]]["Returns"] += funcion[i].count("return")
+
     return dic
 
-def if_elif(ar_fuente, dic):
+def if_elif(lista_ar, dic):
     """[Autor: Lucia]"""
     """[Ayuda: Cuenta la cantidad de veces que aparece un if o un elif]"""
-    ar_fuente = open('fuente_unico1.csv', 'r')
-    funcion_fu = leer_archivo(ar_fuente)
-    while (funcion_fu[0] != ' '):
-        for key in dic:
-            for i in range(0, len(funcion_fu)):
-                dic[key]["If/elif"] = funcion_fu[i].count("if") + funcion_fu[i].count("elif")
-        funcion_fu = leer_archivo(ar_fuente)
-    ar_fuente.close()
+
+    for funcion in lista_ar:
+        for i in range(3, len(funcion)):
+            dic[funcion[0]]["If/elif"] += funcion[i].count("if") + funcion[i].count("elif")
     return dic
+
+def fors(lista_ar, dic):
+    """[Autor: Lucia]"""
+    """[Ayuda: Cuenta la cantidad de fors que hay en una funcion]"""
     
+    for funcion in lista_ar:
+        for i in range(3, len(funcion)):
+            dic[funcion[0]]["for"] += funcion[i].count("for")
+    return dic
+            
+def whiles(lista_ar, dic):
+    """[Autor: Lucia]"""
+    """[Ayuda: Cuenta la cantidad de whiles que hay en cada función]"""
+    
+    for funcion in lista_ar:
+        for i in range(3, len(funcion)):
+            dic[funcion[0]]["while"] += funcion[i].count("while")
+    return dic
+
+def breaks(lista_ar, dic):
+    """[Autor: Lucia]"""
+    """[Ayuda: Cuenta la cantidad de breaks que hay en cada función]"""
+    
+    for funcion in lista_ar:
+        for i in range(3, len(funcion)):
+            dic[funcion[0]]["Break"] += funcion[i].count("break")
+    return dic
+
+def exits(lista_ar, dic):
+    """[Autor: Lucia]"""
+    """[Ayuda: Cuenta la cantidad de exits que hay en cada función]"""
+    
+    for funcion in lista_ar:
+        for i in range(3, len(funcion)):
+            dic[funcion[0]]["Exit"] += funcion[i].count("exit")
+    return dic
+
+def lineas_coment(lista_ar, dic):
+    
+
 ar_fuente = open('fuente_unico1.csv', 'r')
-diccionario = organizar_archivo(ar_fuente)
-print(if_elif(ar_fuente, diccionario))
+
+lista_fu = listar_archivo(ar_fuente)
+lista_com = listar_archivo(ar_coment)
+diccionario_ar = organizar_archivo(lista_fu)
+print(exits(lista_fu, diccionario_ar))
 ar_fuente.close()
