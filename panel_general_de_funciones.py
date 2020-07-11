@@ -43,7 +43,7 @@ def organizar_archivo(lista_ar):
         funciones[funcion[0]]["Break"] = 0
         funciones[funcion[0]]["Exit"] = 0
         funciones[funcion[0]]["Coment"] = 0
-        funciones[funcion[0]]["Ayuda"] = True
+        funciones[funcion[0]]["Ayuda"] = ""
         funciones[funcion[0]]["Autor"] = ""
     return funciones
 
@@ -114,12 +114,34 @@ def exits(lista_ar, dic):
     return dic
 
 def lineas_coment(lista_ar, dic):
-    
+    """[Autor: Lucia]"""
+    """[Ayuda: cuenta las lineas de comentarios que no sean de autor o ayuda]"""
+    for funcion in lista_ar:
+        if (len(funcion) > 3):
+            dic[funcion[0]]["Coment"] += len(funcion) -3
+    return dic
+
+def ayuda(lista_ar, dic):
+    """[Autor: Lucia]"""
+    """[Ayuda: verifica si hay o no un comentario de ayuda dentro de la función]"""
+    for funcion in lista_ar:
+        if (funcion[2] == ''):
+            dic[funcion[0]]["Ayuda"] = "No"
+        else:
+            dic[funcion[0]]["Ayuda"] = "Si"
+    return dic
+
+def autor(lista_ar, dic):
+    """[Autor: Lucia]"""
+    """[Ayuda: Indica el nombre del autor de la función]"""
+    for funcion in lista_ar:
+        dic[funcion[0]]["Autor"] = funcion[1]
+    return dic
+            
 
 ar_fuente = open('fuente_unico1.csv', 'r')
-
 lista_fu = listar_archivo(ar_fuente)
-lista_com = listar_archivo(ar_coment)
+#lista_com = listar_archivo(ar_coment)
 diccionario_ar = organizar_archivo(lista_fu)
 print(exits(lista_fu, diccionario_ar))
 ar_fuente.close()
