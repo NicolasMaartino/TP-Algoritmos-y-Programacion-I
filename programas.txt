@@ -1,4 +1,3 @@
-/home/nicolas/Escritorio/TP1/merge.py
-/home/nicolas/Escritorio/TP1/generales.py
-/home/nicolas/Escritorio/TP1/archivos.py
-
+C:\Users\lucialiceri\OneDrive - fi.uba.ar\FIUBA\ALGO I - Guarna\TP grupal\TP1\merge.py
+C:\Users\lucialiceri\OneDrive - fi.uba.ar\FIUBA\ALGO I - Guarna\TP grupal\TP1\generales.py
+C:\Users\lucialiceri\OneDrive - fi.uba.ar\FIUBA\ALGO I - Guarna\TP grupal\TP1\archivos.py
