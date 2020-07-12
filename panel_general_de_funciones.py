@@ -33,7 +33,7 @@ def organizar_archivo(lista_ar):
     funciones = {}
     for funcion in lista_ar:
         funciones[funcion[0]] = {}
-        funciones[funcion[0]]["Parametros"] = funcion[1]
+        funciones[funcion[0]]["Parametros"] = funcion[1].strip('()')
         funciones[funcion[0]]["Lineas"] = len(funcion) - 2 #Por los parametros y el modulo
         funciones[funcion[0]]["Invocaciones"] = 0
         funciones[funcion[0]]["Returns"] = 0
@@ -139,9 +139,10 @@ def autor(lista_ar, dic):
     return dic
             
 
-ar_fuente = open('fuente_unico1.csv', 'r')
+ar_fuente = open('fuente_unico2.csv', 'r')
+ar_coment = open('comentarios2.csv', 'r')
 lista_fu = listar_archivo(ar_fuente)
-#lista_com = listar_archivo(ar_coment)
+lista_com = listar_archivo(ar_coment)
 diccionario_ar = organizar_archivo(lista_fu)
-print(exits(lista_fu, diccionario_ar))
+print(autor(lista_com, diccionario_ar))
 ar_fuente.close()
