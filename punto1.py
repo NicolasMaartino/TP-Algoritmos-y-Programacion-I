@@ -1,32 +1,6 @@
 #!/usr/bin/env python3
 from mezcla import merge
-def merge_multiple (lista_archivos):
-    """ Autor : Alejandro """
-    """ Ayuda : Prevee si hay dos archivos a mezclar o mas """
-    divido =  len(lista_archivos)//2
-    lista_nueva = lista_archivos[0:divido]
-    if len(lista_nueva) == 1:
-        merge(lista_archivos[0], lista_archivos[1])
-    elif len(lista_nueva) == 2:
-        merge(lista_nueva[0],lista_nueva[1])
-    elif len(lista_nueva) == 3:
-        mezcla_1 = merge_multiple(lista_nueva)
-        mezcla_2 = merge_multiple(lista_nueva[divido:len(lista_nueva)])
-        mezcla_final = merge_multiple([mezcla_1,mezcla_2])
-    else:
-        mezcla_3 = merge_multiple(lista_nueva)
-        mezcla_4 = merge_multiple(lista_nueva[divido:len(lista_nueva)])
-        mezcla_final = merge_multiple([mezcla_3,mezcla_4])
-def separa_comentarios_fuentes (lista_archivos):
-    comentarios = []
-    fuente = []
-    for ruta in lista_archivos:
-        if "comentarios" in ruta:
-            comentarios.append(ruta)
-        else:
-            fuente.append(ruta)
-    merge_multiple(comentarios)
-    merge_multiple(fuente)
+
 def leer_linea_string (archivo):
     """ Autor : Nicolas"""
     """ Ayuda : lee una linea de un archivo y devuelve un string """
@@ -73,7 +47,7 @@ def analiza_codigo () :
                 lista_archivos.append(ruta_fuente)
                 lista_archivos.append(ruta_comentarios)
             ruta = leer_linea_string(rutas)
-    separa_comentarios_fuentes(lista_archivos)
+    merge(lista_archivos) #HACE MEZCLA
     return lista_archivos
 def ordenamiento_insercion (lista) :
     """ Autor : Nicolas"""
