@@ -1,5 +1,5 @@
 buscar_dato,Nicolas,Se le pasa una lista con datos a buscar en la linea del archivo
 ordenamiento_insercion,Nicolas,Algoritmo de ordenamiento por insercion visto en clase
-reemplazar_string,Nicolas,Con la funcion replace reemplazaremos los datos del parametro reemplazar
+reemplazar_string,Nicolas,Con la funcion replace reemplazaremos los datos del parametro reemplazar, otro comentario
 reemplazar_toda_la_lista,Nicolas,Reemplaza en una lista todos sus elementos
-unir_linea,Nicolas,Junta las lineas con el metodo join
+unir_linea,Nicolas,Junta las lineas con el metodo join, comentario 1, comentario2

@@ -3,6 +3,7 @@ Panel general de Funciones
 Mediante esta opción se debe mostrar por pantalla, una tabla con la siguiente información
 por columna.
 """
+import tabla
 
 def leer_archivo(archivo):
     """
@@ -137,12 +138,25 @@ def autor(lista_ar, dic):
     for funcion in lista_ar:
         dic[funcion[0]]["Autor"] = funcion[1]
     return dic
-            
 
-ar_fuente = open('fuente_unico2.csv', 'r')
-ar_coment = open('comentarios2.csv', 'r')
-lista_fu = listar_archivo(ar_fuente)
-lista_com = listar_archivo(ar_coment)
-diccionario_ar = organizar_archivo(lista_fu)
-print(autor(lista_com, diccionario_ar))
+def unir(dic, lista_fu, lista_com):
+    invocaciones(lista_fu, dic)
+    returns(lista_fu, dic)
+    if_elif(lista_fu, dic)
+    fors(lista_fu, dic)
+    whiles(lista_fu, dic)
+    breaks(lista_fu,dic)
+    exits(lista_fu, dic)
+    lineas_coment(lista_com, dic)
+    ayuda(lista_com, dic)
+    autor(lista_com, dic)
+    return dic
+
+ar_fuente = open('fuente_unico3.csv', 'r')
+ar_coment = open('comentarios3.csv', 'r')
+lista_fuente = listar_archivo(ar_fuente)
+lista_coment = listar_archivo(ar_coment)
+diccionario_ar = organizar_archivo(lista_fuente)
+tabla.imprimir(unir(diccionario_ar, lista_fuente, lista_coment))
 ar_fuente.close()
+ar_coment.close()
