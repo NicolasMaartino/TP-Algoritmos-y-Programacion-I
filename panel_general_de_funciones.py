@@ -6,10 +6,8 @@ por columna.
 import tabla
 
 def leer_archivo(archivo):
-    """
-    [Autor: Lucia]
-    [Ayuda: Esta funcion lee el archivo y borra el salto de linea]
-    """
+    """[Autor: Lucia]"""
+    """[Ayuda: Esta funcion lee el archivo y borra el salto de linea]"""
     linea = archivo.readline()
     if linea:
         linea = linea.strip("\n")
@@ -34,6 +32,7 @@ def organizar_archivo(lista_ar):
     funciones = {}
     for funcion in lista_ar:
         funciones[funcion[0]] = {}
+        funciones[funcion[0]]["Nombre"] = "{}.{}".format(funcion[0], funcion[2])
         funciones[funcion[0]]["Parametros"] = funcion[1].strip('()')
         funciones[funcion[0]]["Lineas"] = len(funcion) - 2 #Por los parametros y el modulo
         funciones[funcion[0]]["Invocaciones"] = 0
@@ -140,6 +139,8 @@ def autor(lista_ar, dic):
     return dic
 
 def unir(dic, lista_fu, lista_com):
+    """[Autor: Lucia]"""
+    """[Ayuda: Une todas las funciones contadoras con el diccionario]"""
     invocaciones(lista_fu, dic)
     returns(lista_fu, dic)
     if_elif(lista_fu, dic)
@@ -152,11 +153,14 @@ def unir(dic, lista_fu, lista_com):
     autor(lista_com, dic)
     return dic
 
+
+
 ar_fuente = open('fuente_unico3.csv', 'r')
 ar_coment = open('comentarios3.csv', 'r')
 lista_fuente = listar_archivo(ar_fuente)
 lista_coment = listar_archivo(ar_coment)
 diccionario_ar = organizar_archivo(lista_fuente)
+print(diccionario_ar)
 tabla.imprimir(unir(diccionario_ar, lista_fuente, lista_coment))
 ar_fuente.close()
 ar_coment.close()
