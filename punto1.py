@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 from mezcla import merge
-
+def separa_comentarios_fuentes (lista_archivos):
+    comentarios = []
+    fuente = []
+    for ruta in lista_archivos:
+        if "comentarios" in ruta:
+            comentarios.append(ruta)
+        else:
+            fuente.append(ruta)
+    merge(comentarios)
+    merge(fuente)
 def leer_linea_string (archivo):
     """ Autor : Nicolas"""
     """ Ayuda : lee una linea de un archivo y devuelve un string """
@@ -47,7 +56,7 @@ def analiza_codigo () :
                 lista_archivos.append(ruta_fuente)
                 lista_archivos.append(ruta_comentarios)
             ruta = leer_linea_string(rutas)
-    merge(lista_archivos) #HACE MEZCLA
+    separa_comentarios_fuentes(lista_archivos)
     return lista_archivos
 def ordenamiento_insercion (lista) :
     """ Autor : Nicolas"""
@@ -117,6 +126,4 @@ def unir_linea (linea,condicion_union) :
     """  Autor : Nicolas"""
     """ Ayuda : Junta las lineas con el metodo join """
     return condicion_union.join(linea).replace(","," ")
-
-
-analiza_codigo()
+    analiza_codigo()
