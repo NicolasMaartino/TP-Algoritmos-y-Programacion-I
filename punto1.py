@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 from mezcla import merge
 def separa_comentarios_fuentes (lista_archivos):
+    """ Autor : Alejandro"""
+    """ Ayuda : separa de la lista, comentarios-fuente """
     comentarios = []
-    fuente = []
+    fuente_unico = []
     for ruta in lista_archivos:
         if "comentarios" in ruta:
             comentarios.append(ruta)
         else:
-            fuente.append(ruta)
+            fuente_unico.append(ruta)
     merge(comentarios)
-    merge(fuente)
+    merge(fuente_unico)
 def leer_linea_string (archivo):
     """ Autor : Nicolas"""
     """ Ayuda : lee una linea de un archivo y devuelve un string """
@@ -125,5 +127,5 @@ def seccion_comentarios (lectura,lista_comentarios,lista_fuente) :
 def unir_linea (linea,condicion_union) :
     """  Autor : Nicolas"""
     """ Ayuda : Junta las lineas con el metodo join """
-    return condicion_union.join(linea).replace(","," ")
-    analiza_codigo()
+    return condicion_union.join(linea).replace(","," ")   
+analiza_codigo()
