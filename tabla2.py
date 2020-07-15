@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 def imprimir(dicc_desarrolladores,total_lineas):
-    with open("participacion","w") as informe:
+    with open("participacion.txt","w") as informe:
         total_funciones = 0
         linea = '-'*50
         print('\n\tInforme de Desarrollo por Autor\n')
