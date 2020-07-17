@@ -8,6 +8,10 @@ def leer_archivos_csv (archivocsv):
     return linea.rstrip('\n').split(',') if linea else ""
     
 def informacion_desarrolladores():
+    """Autor : Alejandro"""
+    """Ayuda : Trae de Comentarios.csv y Fuente_Unico.csv nombre de funciones,autor, cantidad de lineas
+                y cantidad de funciones. Luego del mismo modo que se muestra en pantalla es puesto en un
+                archivo de texto plano""" 
     total_lineas = 0
     dicc_desarrolladores = {}
     with open("comentarios.csv","r") as comentarios,\
