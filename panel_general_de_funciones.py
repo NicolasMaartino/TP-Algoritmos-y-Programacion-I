@@ -117,6 +117,7 @@ def unir(dic, lista_fu, lista_com):
     autor(lista_com, dic)
     return dic
 
+#------------------------ Progrmama principal ------------------------#
 
 ar_fuente = open('fuente_unico3.csv', 'r')
 ar_coment = open('comentarios3.csv', 'r')
