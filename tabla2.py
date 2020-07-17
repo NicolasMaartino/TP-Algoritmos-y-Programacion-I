@@ -14,7 +14,7 @@ def imprimir(dicc_desarrolladores,total_lineas):
             cant_funciones_desarrollador = 0
             print('\nAutor:  {}\n'.format(autor))
             informe.write('\nAutor:  {}\n'.format(autor))
-            print('\tFunción\t\tLineas')
+            print('\tFunción\t\t\tLineas')
             informe.write('\tFunción\t\tLineas'+'\n')
             informe.write(linea+'\n')
             lista_funciones = sorted(funciones, key= lambda funcion:funcion[1])
@@ -22,7 +22,7 @@ def imprimir(dicc_desarrolladores,total_lineas):
             for data in lista_funciones:
                 cant_funciones_desarrollador += 1
                 acum_lineas += data[1]
-                print("\t{}\t{}".format(data[0],data[1]))
+                print("\t{}\t\t{}".format(data[0],data[1]))
                 informe.write("{}\t\t{}".format(data[0],data[1])+'\n')
                 porcentaje=(acum_lineas*100)//total_lineas
             print("\t{} Funciones-lineas\t{}\t{}%".format(cant_funciones_desarrollador,acum_lineas,porcentaje))
