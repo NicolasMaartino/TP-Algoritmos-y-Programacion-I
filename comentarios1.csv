@@ -1,8 +1,0 @@
-analiza_codigo,Nicolas,Guardara codigo como lo pide el enunciado,# Esta funcion guardará cada archivo ordenado en una lista,# aaj,# Este indice lo creo para distinguir los archivos,# Abro ruta dentro de programas.txt
-analizo_funcion,Nicolas,Analizara la funcion para enviarla a las listas correspondientes
-guarda_archivo_mezcla,Alejandro,Lee archivo_aux.csv  extrae la informacion y realiza la mezcla respectiva para luego eliminar archivo_aux.csv
-linea_ayuda_autor,Nicolas,Se le pasa una lista con las palabras encontradas y se fija si realmente alguna esta
-mezcla,Alejandro,Mezcla Archivos CSV's
-seccion_comentarios,Nicolas,Este es el sector que corresponderia al analisis de la linea del archivo que corresponde a comentarios,# Esto es condición para que cuando encuentre la almohadilla salga del while
-separa_comentarios_fuentes,Alejandro,Esta función recibe una lista con comentarios y fuente  divide en dos listas acorde al nombre respectivo
-validar_linea,Nicolas,Va a validar las lineas del archivo para saber a cual de las dos salidas (comentarios y fuente unico) va a ir,# Aca iran a parar las funciones para fuente codigo,# Y aca las funciones para comentarios

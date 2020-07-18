@@ -1,5 +1,0 @@
-buscar_dato,(lista_datos ,generales.py,for indice in range(1 len(lista)):,valor = listaindice,i = indice-1,variable = True,while i >= 0 and variable == True:,if valor<listai:,listai+1 = listai,listai = valor,i = i-1,else:,variable = False,return lista
-listar_archivo,(archivo):,generales.py,Autor: Lucia,Ayuda: convierte al archivo en una lista donde cada elemento es una linea del mismo,lista_ar = ,linea = leer_linea(archivo " "),while (linea0 != ' '):,lista_ar.append(linea),linea = leer_linea(archivo " "),return lista_ar
-reemplazar_string,(reemplazar reemplazo string):,generales.py,con otro parametro reemplazo,for elemento in reemplazar:,string=string.replace(elemento reemplazo),return string
-tipo_archivos,(archivo):,generales.py,if "comentarios" in archivo:,archivo_unico = "comentarios.csv",else:,archivo_unico = "fuente_unico.csv",return archivo_unico
-unir_linea,(linea condicion_union),generales.py,return condicion_union.join(linea)
