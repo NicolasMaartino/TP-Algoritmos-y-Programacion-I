@@ -5,8 +5,8 @@ from generales import buscar_dato,unir_linea,reemplazar_toda_la_lista,reemplazar
 from archivos import *
 
 def guarda_archivo_mezcla (archivo_aux,lista_archivos):
-    """ Autor : Alejandro"""
-    """ Ayuda : Lee archivo_aux.csv, extrae la informacion y realiza la mezcla respectiva para luego eliminar archivo_aux.csv"""
+    """ Autor : Alejandro """
+    """ Ayuda : Lee archivo_aux.csv, extrae la informacion y realiza la mezcla respectiva para luego eliminar archivo_aux.csv """
     archivo_mezcla = tipo_archivos(lista_archivos[0])
     with open(archivo_mezcla,"w") as prestaciones:
         with open(archivo_aux,"r") as auxiliar:
@@ -32,8 +32,8 @@ def mezcla (lista_archivos):
     guarda_archivo_mezcla(archivo_aux,lista_archivos)
 
 def separa_comentarios_fuentes (lista_archivos):
-    """ Autor : Alejandro"""
-    """ Ayuda : Esta función recibe una lista con comentarios y fuente, divide en dos listas acorde al nombre respectivo"""
+    """ Autor : Alejandro """
+    """ Ayuda : Esta función recibe una lista con comentarios y fuente, divide en dos listas acorde al nombre respectivo """
     comentarios = []
     fuente_unico = []
     
@@ -47,8 +47,8 @@ def separa_comentarios_fuentes (lista_archivos):
     mezcla(fuente_unico)
 
 def linea_ayuda_autor (linea,linea_comentarios,linea_fuente,palabras_buscadas):
-    """[Autor : Nicolas] """
-    """[Ayuda : Se le pasa una lista con las palabras encontradas y se fija si realmente alguna esta]"""
+    """ [Autor : Nicolas] """
+    """ [Ayuda : Se le pasa una lista con las palabras encontradas y se fija si realmente alguna esta] """
     
     encontro = False
     i = 0
@@ -76,9 +76,9 @@ def linea_ayuda_autor (linea,linea_comentarios,linea_fuente,palabras_buscadas):
     return encontro,linea_fuente,linea_comentarios
 
 def validar_linea (nombre_modulo,archivo) :
-    """[Autor : Nicolas]"""
-    """[Ayuda : Va a validar las lineas del archivo para saber 
-        a cual de las dos salidas (comentarios y fuente unico) va a ir]"""
+    """ [Autor : Nicolas] """
+    """ [Ayuda : Va a validar las lineas del archivo para saber 
+        a cual de las dos salidas (comentarios y fuente unico) va a ir] """
     funciones_fuente = [] # Aca iran a parar las funciones para fuente codigo 
     funciones_comentarios = [] # Y aca las funciones para comentarios
     ultima_lectura = leer_linea(archivo," ")
@@ -97,17 +97,24 @@ def validar_linea (nombre_modulo,archivo) :
     
     return ordenamiento_insercion(funciones_fuente),ordenamiento_insercion(funciones_comentarios)
 def analizo_funcion (linea_fuente,linea_comentarios,archivo):
-    """[Autor : Nicolas ] """
-    """[Ayuda : Analizara la funcion para enviarla a las listas correspondientes]"""
+    """ [Autor : Nicolas ] """
+    """ [Ayuda : Analizara la funcion para enviarla a las listas correspondientes] """
     
     lectura=leer_linea(archivo," ")
     
     while lectura[0] != "def" and lectura[0]!='""""""':
         lectura = reemplazar_toda_la_lista(lectura,[',']," ")
+        cuento = lectura.count('"""')
+        i=0
+        while cuento  == 1:
+            i+=1
+            segunda_lectura=leer_linea(archivo," ")
+            lectura.extend(segunda_lectura)
+            cuento = lectura.count('"""')
         lectura = reemplazar_toda_la_lista(lectura,['"""',"[","]"],"")
         encontradas = buscar_dato(["Ayuda","Autor","#"],lectura)
         encontro,linea_fuente,linea_comentarios = linea_ayuda_autor(lectura,linea_comentarios,linea_fuente,encontradas)
-        
+    
         if encontro == False and lectura[0]:
             linea_fuente.append(unir_linea(lectura," "))
         
@@ -115,8 +122,8 @@ def analizo_funcion (linea_fuente,linea_comentarios,archivo):
     return linea_comentarios,linea_fuente,lectura
 
 def seccion_comentarios (lectura,lista_comentarios,lista_fuente) :
-    """[Autor : Nicolas] """
-    """[Ayuda : Este es el sector que corresponderia al analisis de la linea del archivo que corresponde a comentarios] """
+    """ [Autor : Nicolas] """
+    """ [Ayuda : Este es el sector que corresponderia al analisis de la linea del archivo que corresponde a comentarios] """
     
     i = 0
     encontro = False # Esto es condición para que cuando encuentre la almohadilla salga del while
@@ -138,8 +145,8 @@ def seccion_comentarios (lectura,lista_comentarios,lista_fuente) :
     
     return lista_fuente,lista_comentarios
 def analiza_codigo () :
-    """[ Autor : Nicolas]"""
-    """[Ayuda : Guardara codigo como lo pide el enunciado]"""
+    """ [ Autor : Nicolas] """
+    """ [Ayuda : Guardara codigo como lo pide el enunciado] """
     
     # Esta funcion guardará cada archivo ordenado en una lista
     
@@ -152,6 +159,7 @@ def analiza_codigo () :
         nombre_archivo = ruta.split("/").pop()
         
         # Abro ruta dentro de programas.txt
+        
         codigo = open(ruta,'r')
         fuente_unico,comentarios = validar_linea(nombre_archivo,codigo)
         ruta_fuente = "fuente_unico"+str(i) +".csv"
@@ -162,5 +170,7 @@ def analiza_codigo () :
         lista_archivos.append(ruta_comentarios)
         ruta = leer_linea_string(rutas)
     separa_comentarios_fuentes(lista_archivos)
-analiza_codigo()
+
+
+
 """"""
