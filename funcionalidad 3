@@ -37,7 +37,7 @@ def veces_invocaciones(linea):
     la clave como la funcion invocada y el valor
     como las veces que esta funcion fue invocada
     """
-    
+    fuente = open("D:/sofi/escritorio/fuente_unico.csv", 'rt')
     funciones = lista_de_funciones(fuente)
     veces_invocadas = {}
     
@@ -99,39 +99,70 @@ def tabla_0(invocaciones, funciones):
     total = {}
     
     for x in range(1,len(funciones)+1):
+        filas = ""
         for func_llama in invocaciones:
             if funciones[x-1] in invocaciones[func_llama]: 
-                filas += "|{:^5}|".format("x")
+                filas += "|{:^2}|".format("x")
             elif func_llama in invocaciones[funciones[x-1]]:
-                filas += "|{:^5}|".format(invocaciones[funciones[x-1]][func_llama])
+                filas += "|{:^2}|".format(invocaciones[funciones[x-1]][func_llama])
                 
-        
             else:
-                filas += "|{:^5}|".format("")
-                
+                filas += "|{:^2}|".format("")
+        nuevafila += filas
+        print(nuevafila)
+           
     return filas,total
 
-
-def tabla_1(invocaciones,tabla):
+def llamo_funcion(funciones,fuente):
     """
     Autor : Sofia Marchesini
-    Ayuda : Empiezo la primera parte de crear la tabla
+    Ayuda : creo una funcion para llamar a la funcion y que me facilite
+    las otras funciones
+    """
+    funciones = lista_de_funciones(fuente)
+    for funcion in funciones:
+        return funcion
+    
+    
+def tabla_1(invocaciones,tabla,funciones):
+    """
+    Autor : Sofia Marchesini
+    Ayuda : Empiezo a crear la tabla
     """
     
     fuente = open("D:/sofi/escritorio/fuente_unico.csv", 'rt')
-    funciones = lista_de_funciones(fuente)
-    filas,total = tabla_0(invocaciones, funciones)
     x = len(funciones)
     primera_fila = ""
+    t = 0
     
     for i in range(1,x+1):
         primera_fila += "{:^4}|".format(i)
-    tabla.write("_"*31 + "_____"*x + "\n")
+    tabla.write("-"*31 + "-----"*x + "\n")
     tabla.write("|{:<30}|".format("FUNCIONES") + primera_fila + "\n")
-    tabla.write("|" + "_"*30 + "|____"*x + "|\n")
+    tabla.write("|" + "-"*30 + "|----"*x + "|\n")
+    funcion = llamo_funcion(funciones,fuente)
+    filas = ""
+    for c in range(1,x+1):
+        filas,total = tabla_0(invocaciones, funciones)
+        tabla.write(("|{0:0}--{1:<8}".format(t,funcion + filas + "\n" )))
+        filas,total = tabla_0(invocaciones, funciones)
+        tabla.write("|{:<30}|".format( filas+"\n"))
+        tabla.write("|" + "-"*30 + "|----"*x + "|\n")
+        filas = ""
     
     
+    
+def imprimir_tabla():
+    """
+    Autor : Sofia Marchesini
+    Ayuda : imprimo la tabla y la copio al archivo analizador.txt
+    """
 
+    fuente = open("D:/sofi/escritorio/fuente_unico.csv", 'rt')
+    invocaciones = funciones_invocadas(fuente)
+    funciones = lista_de_funciones(fuente)
+    analizador = open('analizadores.txt','w+')
+    tabla_1(invocaciones,analizador,funciones)
     analizador.seek(0)
     linea = analizador.readline()
     fila = linea.rstrip()
@@ -139,27 +170,7 @@ def tabla_1(invocaciones,tabla):
         fila = linea.rstrip()
         print(fila)
         linea = analizador.readline()
-    return tabla 
-    
+    fuente.close()
+    analizador.close()
 
-def tabla(funciones):
-    i = 0
-    cadena = ''
-    linea = '-'*40
-    print('\t\tFunciones')
-    print(linea)
-    for invocacion in funciones.keys():
-        i += 1
-        l_num = [str(x) for x in funciones[invocacion].values()]
-        print("|{0:0}-{1:<8}|\t{2:>8}|".format(i,invocacion,"|".join(l_num)))
-
-fuente = open("fuente_unico.csv", 'rt')
-funciones = funciones_invocadas(fuente)
-tabla(funciones)
-
-fuente = open("D:/sofi/escritorio/fuente_unico.csv", 'rt')
-funciones = lista_de_funciones(fuente)
-linea = leo_archivo(fuente)
-invocaciones = funciones_invocadas(fuente)
-analizador = open('analizador.txt','w+')
-print(tabla_1(invocaciones,analizador))
+imprimir_tabla()
