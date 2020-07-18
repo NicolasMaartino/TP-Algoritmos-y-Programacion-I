@@ -1,7 +1,9 @@
+#!/usr/bin/env python3
+from generales import leer_archivo
+
 def buscar_funciones(archivo, funcion):
     """[Autor : Juan]"""
     """[Ayuda : Va buscando en los archivos la funcion que necesito]"""
-    from modulo_generico import leer_archivo
     linea=leer_archivo(archivo)
     while funcion!= linea[0]:
         if linea !=[""]:
@@ -22,7 +24,6 @@ def generar_archivo (lista,ruta) :
     """[Ayuda : Genera un archivo a traves de un iterable, y si lo necesitas te lo devuelve abierto]"""
     
     archivo = open(ruta,"w")
-   
     for funcion in lista:
         leyenda = ",".join(funcion)+"\n"
         grabar_archivo(archivo,leyenda)
