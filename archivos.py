@@ -12,6 +12,8 @@ def buscar_funciones (archivo, funcion):
     return linea
 
 def abrir_archivos (nombre_archivo,modo):
+    """[Autor : Nicolas]"""
+    """[Ayuda : Abre un archivo]"""
     archivo = open(nombre_archivo,modo)
     return archivo
 
