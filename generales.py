@@ -1,11 +1,12 @@
+from archivos import leer_linea
 def listar_archivo (archivo):
     """[Autor: Lucia]"""
     """[Ayuda: convierte al archivo en una lista donde cada elemento es una linea del mismo]"""
     lista_ar = []
-    linea = leer_archivo(archivo)
+    linea = leer_linea(archivo,",")
     while (linea[0] != ' '):
         lista_ar.append(linea)
-        linea = leer_archivo(archivo)
+        linea = leer_linea(archivo,",")
     return lista_ar
 
 def tipo_archivos (archivo):
