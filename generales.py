@@ -1,4 +1,4 @@
-def listar_archivo(archivo):
+def listar_archivo (archivo):
     """[Autor: Lucia]"""
     """[Ayuda: convierte al archivo en una lista donde cada elemento es una linea del mismo]"""
     lista_ar = []
@@ -8,7 +8,7 @@ def listar_archivo(archivo):
         linea = leer_archivo(archivo)
     return lista_ar
 
-def contador(elementos, lista_ar, dic):
+def contador (elementos, lista_ar, dic):
     """[Autor: Lucia]"""
     """[Ayuda: Cuenta la cantidad de veces que aparece el elemento que se le le pasa por parametro]"""
     for elemento in elementos:
@@ -16,12 +16,6 @@ def contador(elementos, lista_ar, dic):
         	for i in range(3, len(funcion)):
             		dic[funcion[0]][elemento] += funcion[i].count(elemento)
     return dic
-
-def leer_archivo(archivo):
-    """ Autor : Alejandro """
-    """ Ayuda : leer archivos .csv y devuelve una lista de cada linea del archivo """
-    linea = archivo.readline()
-    return linea.rstrip('\n').split(',') if linea else ""
 
 def tipo_archivos (archivo):
     """ Autor : Alejandro """

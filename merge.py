@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import csv
 from os import remove
-from generales import buscar_dato,unir_linea,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,leer_archivo,tipo_archivos 
+from generales import buscar_dato,unir_linea,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,tipo_archivos
 from archivos import *
 
 def guarda_archivo_mezcla (archivo_aux,lista_archivos):
@@ -24,11 +24,12 @@ def mezcla (lista_archivos):
     with open(archivo_aux,"w") as unificado:
         for archivo in lista_archivos:
             with open(archivo,'r') as arch:
-                linea = leer_archivo(arch)
-                while linea:
+                linea = leer_linea(arch,",")
+                while linea!=("","",""):
+                    print(linea)
                     entrada = csv.writer(unificado)
                     entrada.writerow(linea)
-                    linea = leer_archivo(arch)
+                    linea = leer_linea(arch,",")
     guarda_archivo_mezcla(archivo_aux,lista_archivos)
 
 def separa_comentarios_fuentes (lista_archivos):
@@ -79,7 +80,8 @@ def validar_linea (nombre_modulo,archivo) :
         a cual de las dos salidas (comentarios y fuente unico) va a ir]"""
     funciones_fuente = [] # Aca iran a parar las funciones para fuente codigo 
     funciones_comentarios = [] # Y aca las funciones para comentarios
-    ultima_lectura = leer_linea(archivo)
+    ultima_lectura = leer_linea(archivo," ")
+    print(ultima_lectura)
     while ultima_lectura[0] != '""""""':
         if ultima_lectura[0] == "def":
             #Analizaremos la funcion y la dividiremos en dos listas para saber a que archivo pertenecen.
@@ -88,17 +90,18 @@ def validar_linea (nombre_modulo,archivo) :
             linea_fuente = [nombre_funcion,parametros,nombre_modulo]
             linea_comentarios = [nombre_funcion] 
             linea_comentarios,linea_fuente,ultima_lectura = analizo_funcion(linea_fuente,linea_comentarios,archivo)
+            print(linea_fuente)
             funciones_fuente.append(linea_fuente)
             funciones_comentarios.append(linea_comentarios)
         else:
-            ultima_lectura=leer_linea(archivo)
+            ultima_lectura=leer_linea(archivo," ")
     
     return ordenamiento_insercion(funciones_fuente),ordenamiento_insercion(funciones_comentarios)
 def analizo_funcion (linea_fuente,linea_comentarios,archivo):
     """[Autor : Nicolas ] """
     """[Ayuda : Analizara la funcion para enviarla a las listas correspondientes]"""
     
-    lectura=leer_linea(archivo)
+    lectura=leer_linea(archivo," ")
     
     while lectura[0] != "def" and lectura[0]!='""""""':
         lectura = reemplazar_toda_la_lista(lectura,[',']," ")
@@ -109,8 +112,8 @@ def analizo_funcion (linea_fuente,linea_comentarios,archivo):
         if encontro == False and lectura[0]:
             linea_fuente.append(unir_linea(lectura," "))
         
-        lectura = leer_linea(archivo)
-    
+        lectura = leer_linea(archivo," ")
+    print(linea_fuente)
     return linea_comentarios,linea_fuente,lectura
 
 def seccion_comentarios (lectura,lista_comentarios,lista_fuente) :
@@ -161,6 +164,5 @@ def analiza_codigo () :
         lista_archivos.append(ruta_comentarios)
         ruta = leer_linea_string(rutas)
     separa_comentarios_fuentes(lista_archivos)
-    return lista_archivos
-
+analiza_codigo()
 """"""

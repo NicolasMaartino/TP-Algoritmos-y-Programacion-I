@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-from generales import leer_archivo
 
-def buscar_funciones(archivo, funcion):
+def buscar_funciones (archivo, funcion):
     """[Autor : Juan]"""
     """[Ayuda : Va buscando en los archivos la funcion que necesito]"""
     linea=leer_archivo(archivo)
@@ -36,14 +35,14 @@ def leer_linea_string (archivo) :
     
     return archivo.readline().strip()
 
-def leer_linea (archivo) :
+def leer_linea (archivo,corte) :
     
     """[Ayuda : lee una linea del archivo y devuelve una lista]"""
     
     # Esta a diferencia de la otra leer_linea ya corta por espacio con el split()
     
-    linea = archivo.readline().strip().split()
-    if linea:
+    linea = archivo.readline().strip().split(corte)
+    if linea[0]!="":
         devolver = linea
     else:
         devolver = "","",""
