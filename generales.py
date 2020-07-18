@@ -17,18 +17,20 @@ def contador(elementos, lista_ar, dic):
             		dic[funcion[0]][elemento] += funcion[i].count(elemento)
     return dic
 
-def separa_comentarios_fuentes (lista_archivos):
-    """ Autor : Alejandro"""
-    """ Ayuda : separa de la lista, comentarios-fuente """
-    comentarios = []
-    fuente_unico = []
-    for ruta in lista_archivos:
-        if "comentarios" in ruta:
-            comentarios.append(ruta)
-        else:
-            fuente_unico.append(ruta)
-    merge(comentarios)
-    merge(fuente_unico)
+def leer_archivo(archivo):
+    """ Autor : Alejandro """
+    """ Ayuda : leer archivos .csv y devuelve una lista de cada linea del archivo """
+    linea = archivo.readline()
+    return linea.rstrip('\n').split(',') if linea else ""
+
+def tipo_archivos (archivo):
+    """ Autor : Alejandro """
+    """ Ayuda : valida si el archivo recibido es comentarios o fuente_unico """
+    if "comentarios" in archivo:
+        archivo_unico = "comentarios.csv"
+    else:
+        archivo_unico = "fuente_unico.csv"
+    return archivo_unico
 
 def buscar_dato (lista_datos, linea):
     """[Autor : Nicolas]"""
