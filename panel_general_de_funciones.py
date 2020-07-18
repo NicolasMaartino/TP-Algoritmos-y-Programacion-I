@@ -4,7 +4,7 @@ Mediante esta opción se debe mostrar por pantalla, una tabla con la siguiente i
 por columna.
 """
 import tabla
-from generales import contador,lista_archivo
+from generales import listar_archivo
 def organizar_archivo(lista_ar):
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
@@ -17,7 +17,8 @@ def organizar_archivo(lista_ar):
         funciones[funcion[0]]["Lineas"] = len(funcion) - 2 #Por los parametros y el modulo
         funciones[funcion[0]]["Invocaciones"] = 0
         funciones[funcion[0]]["return"] = 0
-        funciones[funcion[0]]["If/elif"] = 0
+        funciones[funcion[0]]["if"] = 0
+        funciones[funcion[0]]["elif"] = 0
         funciones[funcion[0]]["for"] = 0
         funciones[funcion[0]]["while"] = 0
         funciones[funcion[0]]["break"] = 0
@@ -26,24 +27,16 @@ def organizar_archivo(lista_ar):
         funciones[funcion[0]]["Ayuda"] = ""
         funciones[funcion[0]]["Autor"] = ""
     return funciones
-def contador_1():
-    for i in range(3, len(funcion)):
-        dic[funcion[0]][elemento] += funcion[i].count(elemento)
-
 
 def contador (elementos, lista_ar, dic):
     """[Autor: Lucia]"""
     """[Ayuda: Cuenta la cantidad de veces que aparece el elemento que se le le pasa por parametro]"""
     for elemento in elementos:
-        if elemento != "if" and elemento !="elif":
-            for funcion in lista_ar:
-                contador_1()
-        else:
-            pass
+        for funcion in lista_ar:
+            for i in range(3, len(funcion)):
+                dic[funcion[0]][elemento] += funcion[i].count(elemento)
 
     return dic
-
-
 
 
 def invocaciones(lista_ar, dic):
@@ -102,3 +95,7 @@ def unir(dic, lista_fu, lista_com):
     ayuda(lista_com, dic)
     autor(lista_com, dic)
     return dic
+
+def panel_general():
+    tabla.imprimir_panel(dic)
+    

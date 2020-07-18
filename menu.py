@@ -1,5 +1,6 @@
 from merge import analiza_codigo
 from archivos import abrir_archivos
+from panel_general_de_funciones import panel_general
 def menu():
     analiza_codigo()
     fuente_codigo = abrir_archivos("fuente_unico.csv","r")
@@ -8,8 +9,7 @@ def menu():
     opcion = ingresar("Ingrese opción: ")
     while opcion:
         if opcion=="1":
-            pass
-            #funcion_1()
+            panel_general()
         elif opcion=="2":
             pass
             #funcion_2()
