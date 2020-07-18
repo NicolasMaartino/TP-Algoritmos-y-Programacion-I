@@ -26,7 +26,26 @@ def organizar_archivo(lista_ar):
         funciones[funcion[0]]["Ayuda"] = ""
         funciones[funcion[0]]["Autor"] = ""
     return funciones
-                
+def contador_1():
+    for i in range(3, len(funcion)):
+        dic[funcion[0]][elemento] += funcion[i].count(elemento)
+
+
+def contador (elementos, lista_ar, dic):
+    """[Autor: Lucia]"""
+    """[Ayuda: Cuenta la cantidad de veces que aparece el elemento que se le le pasa por parametro]"""
+    for elemento in elementos:
+        if elemento != "if" and elemento !="elif":
+            for funcion in lista_ar:
+                contador_1()
+        else:
+            pass
+
+    return dic
+
+
+
+
 def invocaciones(lista_ar, dic):
     """[Autor: Lucia]"""
     """[Ayuda: Cuenta la cantidad de veces que fue invocada cada funcion]"""
@@ -78,10 +97,7 @@ def unir(dic, lista_fu, lista_com):
     invocaciones(lista_fu, dic)
     contador("return", lista_fu, dic)
     if_elif(lista_fu, dic)
-    contador("for", lista_fu, dic)
-    contador("while", lista_fu, dic)
-    contador("break", lista_fu, dic)
-    contador("exit", lista_fu, dic)
+    contador(["for","while","break","exit","return","if","elif"], lista_fu, dic)
     lineas_coment(lista_com, dic)
     ayuda(lista_com, dic)
     autor(lista_com, dic)

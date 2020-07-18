@@ -8,15 +8,6 @@ def listar_archivo (archivo):
         linea = leer_archivo(archivo)
     return lista_ar
 
-def contador (elementos, lista_ar, dic):
-    """[Autor: Lucia]"""
-    """[Ayuda: Cuenta la cantidad de veces que aparece el elemento que se le le pasa por parametro]"""
-    for elemento in elementos:
-    	for funcion in lista_ar:
-        	for i in range(3, len(funcion)):
-            		dic[funcion[0]][elemento] += funcion[i].count(elemento)
-    return dic
-
 def tipo_archivos (archivo):
     """ Autor : Alejandro """
     """ Ayuda : valida si el archivo recibido es comentarios o fuente_unico """
