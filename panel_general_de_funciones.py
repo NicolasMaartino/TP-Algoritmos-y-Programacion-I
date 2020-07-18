@@ -50,15 +50,6 @@ def invocaciones(lista_ar, dic):
 
     return dic
 
-def if_elif(lista_ar, dic):
-    """[Autor: Lucia]"""
-    """[Ayuda: Cuenta la cantidad de veces que aparece un if o un elif]"""
-
-    for funcion in lista_ar:
-        for i in range(3, len(funcion)):
-            dic[funcion[0]]["If/elif"] += funcion[i].count("if") + funcion[i].count("elif")
-    return dic
-
 def lineas_coment(lista_ar, dic):
     """[Autor: Lucia]"""
     """[Ayuda: cuenta las lineas de comentarios que no sean de autor o ayuda]"""
@@ -88,8 +79,6 @@ def unir(dic, lista_fu, lista_com):
     """[Autor: Lucia]"""
     """[Ayuda: Une todas las funciones contadoras con el diccionario]"""
     invocaciones(lista_fu, dic)
-    contador("return", lista_fu, dic)
-    if_elif(lista_fu, dic)
     contador(["for","while","break","exit","return","if","elif"], lista_fu, dic)
     lineas_coment(lista_com, dic)
     ayuda(lista_com, dic)
