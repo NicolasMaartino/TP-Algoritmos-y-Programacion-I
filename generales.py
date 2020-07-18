@@ -1,7 +1,7 @@
 from archivos import leer_linea
 def listar_archivo (archivo):
-    """[Autor: Lucia]"""
-    """[Ayuda: convierte al archivo en una lista donde cada elemento es una linea del mismo]"""
+    """ [Autor : Lucia] """
+    """ [Ayuda : convierte al archivo en una lista donde cada elemento es una linea del mismo] """
     lista_ar = []
     linea = leer_linea(archivo,",")
     while (linea[0] != ' '):
@@ -19,8 +19,8 @@ def tipo_archivos (archivo):
     return archivo_unico
 
 def buscar_dato (lista_datos, linea):
-    """[Autor : Nicolas]"""
-    """[Ayuda : Se le pasa una lista con datos a buscar en la linea del archivo] """
+    """ [Autor : Nicolas] """
+    """ [Ayuda : Se le pasa una lista con datos a buscar en la linea del archivo] """
 
     encontradas = []
 
@@ -30,8 +30,8 @@ def buscar_dato (lista_datos, linea):
     return encontradas
 
 def reemplazar_toda_la_lista (lista,elementos_reemplazados,reemplazo):
-    """ [ Autor : Nicolas]"""
-    """  [Ayuda : Reemplaza en una lista todos sus elementos]"""
+    """ [ Autor : Nicolas] """
+    """  [Ayuda : Reemplaza en una lista todos sus elementos] """
 
     lista_reemplazada=[]
 
@@ -42,8 +42,8 @@ def reemplazar_toda_la_lista (lista,elementos_reemplazados,reemplazo):
 
 def ordenamiento_insercion (lista) :
 
-    """ [Autor : Nicolas]"""
-    """[ Ayuda : Algoritmo de ordenamiento por insercion visto en clase]"""
+    """ [Autor : Nicolas] """
+    """ [ Ayuda : Algoritmo de ordenamiento por insercion visto en clase] """
     for indice in range(1,len(lista)):
         valor = lista[indice]
         i = indice-1
@@ -59,15 +59,15 @@ def ordenamiento_insercion (lista) :
 
 def unir_linea (linea,condicion_union) :
 
-    """[Autor : Nicolas]"""
-    """[Ayuda : Junta las lineas con el metodo join]"""
+    """ [Autor : Nicolas] """
+    """ [Ayuda : Junta las lineas con el metodo join] """
     return condicion_union.join(linea)
 
 def reemplazar_string (reemplazar,reemplazo,string):
     
-    """[ Autor : Nicolas]"""
-    """[Ayuda : Con la funcion replace reemplazaremos los datos del parametro reemplazar
-        con otro parametro reemplazo]"""
+    """ [ Autor : Nicolas] """
+    """ [Ayuda : Con la funcion replace reemplazaremos los datos del parametro reemplazar
+        con otro parametro reemplazo] """
     
     for elemento in reemplazar:
         string=string.replace(elemento,reemplazo)

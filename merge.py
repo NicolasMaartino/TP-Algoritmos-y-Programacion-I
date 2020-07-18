@@ -66,11 +66,9 @@ def linea_ayuda_autor (linea,linea_comentarios,linea_fuente,palabras_buscadas):
             union= reemplazar_toda_la_lista(linea,['"""','[',']',"Ayuda",":"],"")
             union = unir_linea(union," ").strip()
             linea_comentarios.insert(2,union)
-        
-        elif palabras_buscadas[i] == "#":
+        elif palabras_buscadas[i] == '"""' or palabras_buscadas[i] == "#":
             encontro = True
             linea_fuente,linea_comentarios=seccion_comentarios(linea,linea_comentarios,linea_fuente)
-        
         i+=1
     
     return encontro,linea_fuente,linea_comentarios
@@ -78,7 +76,8 @@ def linea_ayuda_autor (linea,linea_comentarios,linea_fuente,palabras_buscadas):
 def validar_linea (nombre_modulo,archivo) :
     """ [Autor : Nicolas] """
     """ [Ayuda : Va a validar las lineas del archivo para saber 
-        a cual de las dos salidas (comentarios y fuente unico) va a ir] """
+        a cual de las dos salidas (comentarios y fuente unico) va a ir] 
+        """
     funciones_fuente = [] # Aca iran a parar las funciones para fuente codigo 
     funciones_comentarios = [] # Y aca las funciones para comentarios
     ultima_lectura = leer_linea(archivo," ")
@@ -96,6 +95,7 @@ def validar_linea (nombre_modulo,archivo) :
             ultima_lectura=leer_linea(archivo," ")
     
     return ordenamiento_insercion(funciones_fuente),ordenamiento_insercion(funciones_comentarios)
+
 def analizo_funcion (linea_fuente,linea_comentarios,archivo):
     """ [Autor : Nicolas ] """
     """ [Ayuda : Analizara la funcion para enviarla a las listas correspondientes] """
@@ -105,14 +105,16 @@ def analizo_funcion (linea_fuente,linea_comentarios,archivo):
     while lectura[0] != "def" and lectura[0]!='""""""':
         lectura = reemplazar_toda_la_lista(lectura,[',']," ")
         cuento = lectura.count('"""')
-        i=0
+        """ 
+        Preguntaré si abrió una triple comillas 
+        y nunca la cerró
+        """
         while cuento  == 1:
-            i+=1
             segunda_lectura=leer_linea(archivo," ")
             lectura.extend(segunda_lectura)
             cuento = lectura.count('"""')
-        lectura = reemplazar_toda_la_lista(lectura,['"""',"[","]"],"")
-        encontradas = buscar_dato(["Ayuda","Autor","#"],lectura)
+        lectura = reemplazar_toda_la_lista(lectura,["[","]"],"")
+        encontradas = buscar_dato(["Ayuda","Autor","#",'"""'],lectura)
         encontro,linea_fuente,linea_comentarios = linea_ayuda_autor(lectura,linea_comentarios,linea_fuente,encontradas)
     
         if encontro == False and lectura[0]:
@@ -140,6 +142,9 @@ def seccion_comentarios (lectura,lista_comentarios,lista_fuente) :
         
         elif elemento == "#" and i==0 :
             encontro = True
+            lista_comentarios.append(unir_linea(lectura," "))
+        elif elemento == '"""':
+            lectura = reemplazar_toda_la_lista(lectura,['"""'],"")
             lista_comentarios.append(unir_linea(lectura," "))
         i+=1
     

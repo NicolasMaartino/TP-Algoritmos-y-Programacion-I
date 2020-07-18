@@ -1,7 +1,11 @@
 from merge import analiza_codigo
 from archivos import abrir_archivos
 from panel_general_de_funciones import panel_general
+
 def menu():
+    """ Esta es la funcion de menu principal de nuestro programa.
+        Todo estara ejecutado desde aca.
+    """
     analiza_codigo()
     fuente_codigo = abrir_archivos("fuente_unico.csv","r")
     comentarios = abrir_archivos("comentarios.csv","r")
@@ -24,12 +28,6 @@ def menu():
             #funcion_5()
         texto_menu()
         opcion=ingresar("Ingrese una opción o en blanco para salir: ")
-
-
-
-
-
-
 
 def texto_menu():
     print("""            1- Panel general de funciones
