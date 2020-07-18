@@ -99,7 +99,6 @@ def tabla_0(invocaciones, funciones):
     total = {}
     
     for x in range(1,len(funciones)+1):
-        filas = ""
         for func_llama in invocaciones:
             if funciones[x-1] in invocaciones[func_llama]: 
                 filas += "|{:^2}|".format("x")
@@ -108,20 +107,8 @@ def tabla_0(invocaciones, funciones):
                 
             else:
                 filas += "|{:^2}|".format("")
-        nuevafila += filas
-        print(nuevafila)
            
     return filas,total
-
-def llamo_funcion(funciones,fuente):
-    """
-    Autor : Sofia Marchesini
-    Ayuda : creo una funcion para llamar a la funcion y que me facilite
-    las otras funciones
-    """
-    funciones = lista_de_funciones(fuente)
-    for funcion in funciones:
-        return funcion
     
     
 def tabla_1(invocaciones,tabla,funciones):
@@ -140,15 +127,16 @@ def tabla_1(invocaciones,tabla,funciones):
     tabla.write("-"*31 + "-----"*x + "\n")
     tabla.write("|{:<30}|".format("FUNCIONES") + primera_fila + "\n")
     tabla.write("|" + "-"*30 + "|----"*x + "|\n")
-    funcion = llamo_funcion(funciones,fuente)
-    filas = ""
-    for c in range(1,x+1):
-        filas,total = tabla_0(invocaciones, funciones)
-        tabla.write(("|{0:0}--{1:<8}".format(t,funcion + filas + "\n" )))
-        filas,total = tabla_0(invocaciones, funciones)
-        tabla.write("|{:<30}|".format( filas+"\n"))
-        tabla.write("|" + "-"*30 + "|----"*x + "|\n")
-        filas = ""
+
+    
+    for funcion in invocaciones.keys():
+        t+=1
+        tabla.write(("|{0:0}--{1:<8}".format(t,funcion + "\n" )))
+    
+    filas,total = tabla_0(invocaciones, funciones)
+    tabla.write("|{:<30}|".format( filas+"\n"))
+    tabla.write("|" + "-"*30 + "|----"*x + "|\n")
+
     
     
     
