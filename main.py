@@ -1,4 +1,7 @@
+from merge import analiza_codigo
+
 def menu():
+    fuente_codigo,comentarios=analiza_codigo()
     texto_menu()
     opcion=ingresar("Ingrese opción: ")
     while opcion:

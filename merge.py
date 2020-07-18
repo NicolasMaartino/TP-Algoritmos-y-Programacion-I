@@ -45,7 +45,7 @@ def validar_linea (nombre_modulo,archivo) :
             parametros = reemplazar_string(","," ",ultima_lectura[2])
             linea_fuente = [nombre_funcion,parametros,nombre_modulo]
             linea_comentarios = [nombre_funcion] 
-            linea_comentarios,linea_fuente,ultima_lectura=analizo_funcion(linea_fuente,linea_comentarios,archivo)
+            linea_comentarios,linea_fuente,ultima_lectura = analizo_funcion(linea_fuente,linea_comentarios,archivo)
             funciones_fuente.append(linea_fuente)
             funciones_comentarios.append(linea_comentarios)
         
@@ -135,6 +135,7 @@ def leer_archivos_csv (archivocsv):
     """ Ayuda : leer archivos .csv y devuelve una lista de cada linea del archivo """
     linea = archivocsv.readline()
     return linea.rstrip('\n').split(',') if linea else ""
+
 def tipo_archivos (archivo):
     """ Autor : Alejandro """
     """ Ayuda : valida si el archivo recibido es comentarios o fuente_unico """
@@ -143,6 +144,7 @@ def tipo_archivos (archivo):
     else:
         archivo_unico = "fuente_unico.csv"
     return archivo_unico
+
 def guarda_archivo (archivo_aux,lista_archivos):
     """ Autor : Alejandro"""
     """ Ayuda : Lee el archivo auxiliar y vuelve a generar otro, eliminando luego el anterior """
@@ -155,6 +157,7 @@ def guarda_archivo (archivo_aux,lista_archivos):
                 salida = csv.writer(prestaciones)
                 salida.writerow(fila)
     remove(archivo_aux)
+
 def merge (lista_archivos):
     """ Autor : Alejandro """
     """ Ayuda : Mezcla Archivos CSV's """

@@ -4,7 +4,7 @@ Mediante esta opción se debe mostrar por pantalla, una tabla con la siguiente i
 por columna.
 """
 import tabla
-
+from generales import contador,lista_archivo
 def organizar_archivo(lista_ar):
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
