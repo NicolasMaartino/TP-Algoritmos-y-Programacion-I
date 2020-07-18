@@ -11,6 +11,10 @@ def buscar_funciones (archivo, funcion):
             funcion=""
     return linea
 
+def abrir_archivos (nombre_archivo,modo):
+    archivo = open(nombre_archivo,modo)
+    return archivo
+
 def grabar_archivo (archivo,leyenda) :
     
     """[Autor : Nicolas]"""

@@ -26,7 +26,6 @@ def mezcla (lista_archivos):
             with open(archivo,'r') as arch:
                 linea = leer_linea(arch,",")
                 while linea!=("","",""):
-                    print(linea)
                     entrada = csv.writer(unificado)
                     entrada.writerow(linea)
                     linea = leer_linea(arch,",")
@@ -37,11 +36,13 @@ def separa_comentarios_fuentes (lista_archivos):
     """ Ayuda : Esta función recibe una lista con comentarios y fuente, divide en dos listas acorde al nombre respectivo"""
     comentarios = []
     fuente_unico = []
+    
     for ruta in lista_archivos:
         if "comentarios" in ruta:
             comentarios.append(ruta)
         else:
             fuente_unico.append(ruta)
+    
     mezcla(comentarios)
     mezcla(fuente_unico)
 
@@ -81,7 +82,6 @@ def validar_linea (nombre_modulo,archivo) :
     funciones_fuente = [] # Aca iran a parar las funciones para fuente codigo 
     funciones_comentarios = [] # Y aca las funciones para comentarios
     ultima_lectura = leer_linea(archivo," ")
-    print(ultima_lectura)
     while ultima_lectura[0] != '""""""':
         if ultima_lectura[0] == "def":
             #Analizaremos la funcion y la dividiremos en dos listas para saber a que archivo pertenecen.
@@ -90,7 +90,6 @@ def validar_linea (nombre_modulo,archivo) :
             linea_fuente = [nombre_funcion,parametros,nombre_modulo]
             linea_comentarios = [nombre_funcion] 
             linea_comentarios,linea_fuente,ultima_lectura = analizo_funcion(linea_fuente,linea_comentarios,archivo)
-            print(linea_fuente)
             funciones_fuente.append(linea_fuente)
             funciones_comentarios.append(linea_comentarios)
         else:
@@ -113,7 +112,6 @@ def analizo_funcion (linea_fuente,linea_comentarios,archivo):
             linea_fuente.append(unir_linea(lectura," "))
         
         lectura = leer_linea(archivo," ")
-    print(linea_fuente)
     return linea_comentarios,linea_fuente,lectura
 
 def seccion_comentarios (lectura,lista_comentarios,lista_fuente) :
