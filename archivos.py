@@ -3,10 +3,10 @@
 def buscar_funciones (archivo, funcion):
     """[Autor : Juan]"""
     """[Ayuda : Va buscando en los archivos la funcion que necesito]"""
-    linea=leer_archivo(archivo)
+    linea=leer_linea(archivo,",")
     while funcion!= linea[0]:
         if linea !=[""]:
-            linea=leer_archivo(archivo)
+            linea=leer_linea(archivo,",")
         else:
             funcion=""
     return linea
