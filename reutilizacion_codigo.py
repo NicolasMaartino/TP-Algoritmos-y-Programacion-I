@@ -26,14 +26,14 @@ def veces_invocadas(linea):
     como las veces que esta funcion fue invocada
     """
     funciones = lista_de_funciones()
-    veces_invocadas = {}
+    cant_invocaciones = {}
     for funcion in funciones:
         for palabras in linea[3:-1]:
-            if "{}(".format(funcion) in palabras and funcion not in veces_invocadas:
-                veces_invocadas[funcion] = 1
-            elif "{}(".format(funcion) in palabras and funcion in veces_invocadas:
-                veces_invocadas[funcion] += 1
-    return veces_invocadas
+            if "{}(".format(funcion) in palabras and funcion not in cant_invocaciones:
+                cant_invocaciones[funcion] = 1
+            elif "{}(".format(funcion) in palabras and funcion in cant_invocaciones:
+                cant_invocaciones[funcion] += 1
+    return cant_invocaciones
 
 
 def funciones_invocadas(fuente):
