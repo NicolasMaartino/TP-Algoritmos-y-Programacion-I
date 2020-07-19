@@ -9,6 +9,26 @@ def listar_archivo (archivo):
         linea = leer_linea(archivo,",")
     return lista_ar
 
+def item_necesario(linea,eliminar,condicion):
+    """[Autor : Nicolas]
+       [Ayuda : Esta funcion va a buscar un dato exacto y hara lo que necesites con el.
+          Convertira todo a un nuevo strin y una nueva lista que con el metodo extend
+          se unira a la lista final]
+    """
+    i=0
+    nueva_lista=[]
+    for elementos in linea:
+        nuevo_string=""
+        for letras in elementos:
+            if eliminar == letras:
+                nuevo_string+=condicion
+            else:
+                nuevo_string+=letras
+        lista=nuevo_string.split()
+        nueva_lista.extend(lista)
+        i+=1
+    return nueva_lista
+
 def tipo_archivos (archivo):
     """ Autor : Alejandro """
     """ Ayuda : valida si el archivo recibido es comentarios o fuente_unico """
