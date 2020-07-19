@@ -3,10 +3,10 @@ from archivos import leer_linea
 
 def lista_de_funciones():
     """
-    Autor : Sofia Marchesini
-    Ayuda : Esta funcion crea una lista de funciones compuesta por
+    [Autor : Sofia Marchesini]
+    [Ayuda : Esta funcion crea una lista de funciones compuesta por
     los nombres de todas las funciones que se encuentran
-    en el primer elemento de las lineas del archivo 
+    en el primer elemento de las lineas del archivo ]
     """
     fuente=open("fuente_unico.csv","r")
     linea = leer_linea(fuente,",")
@@ -20,10 +20,10 @@ def lista_de_funciones():
 
 def veces_invocadas(linea):
     """
-    Autor : Sofia Marchesini
-    Ayuda : esta funcion crea un dicionario compuesto por
+    [Autor : Sofia Marchesini]
+    [Ayuda : esta funcion crea un dicionario compuesto por
     la clave como la funcion invocada y el valor
-    como las veces que esta funcion fue invocada
+    como las veces que esta funcion fue invocada]
     """
     funciones = lista_de_funciones()
     cant_invocaciones = {}
@@ -38,12 +38,12 @@ def veces_invocadas(linea):
 
 def funciones_invocadas(fuente):
     """
-    Autor : Sofia Marchesini
-    Ayuda: esta funcion crea un diccionario con todas las funciones como claves.
+    [Autor : Sofia Marchesini]
+    [Ayuda: esta funcion crea un diccionario con todas las funciones como claves.
     El diccionario tendra como valor como un diccionario compuesto por la funcion
     que invoco , y el valor las veces invocada.
     Si no invoca ninguna funcion aparecera la lista vacia
-    funcion1 {funcion2 : n veces} , funcion 1 llama a funcion 2 n veces
+    funcion1 {funcion2 : n veces} , funcion 1 llama a funcion 2 n veces]
     
     """
     linea = leer_linea(fuente,",")
@@ -58,8 +58,8 @@ def funciones_invocadas(fuente):
 
 def crear_filas(invocaciones, funciones,total):
     """
-    Autor : Sofia Marchesini
-    Ayuda : Empiezo la primera parte de crear la tabla
+    [Autor : Sofia Marchesini]
+    [Ayuda : Empiezo la primera parte de crear la tabla]
     """
     nueva_fila = []
     y = len(funciones)
@@ -78,8 +78,8 @@ def crear_filas(invocaciones, funciones,total):
 
 def crear_tabla(invocaciones,tabla,funciones,fuente):
     """
-    Autor : Sofia Marchesini
-    Ayuda : Empiezo a crear la tabla
+    [Autor : Sofia Marchesini]
+    [Ayuda : Empiezo a crear la tabla]
     """
     x = len(funciones)
     primera_fila = ""
@@ -110,8 +110,8 @@ def crear_tabla(invocaciones,tabla,funciones,fuente):
 
 def imprimir_analizador():
     """
-    Autor : Sofia Marchesini
-    Ayuda : imprimo la tabla y la copio al archivo analizador.txt
+    [Autor : Sofia Marchesini]
+    [Ayuda : imprimo la tabla y la copio al archivo analizador.txt]
     """
     fuente=open("fuente_unico.csv","r")
     analizador = open('analizador.txt','w+')
