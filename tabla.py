@@ -21,19 +21,26 @@ def imprimir_panel(dic):
      for funcion in dic)))
     print (Tabla)
 
-def tabla(archivo):
+def tabla_consultas(archivo):
+    from generales import leer_archivo
     """[Autor : Juan Godoy]"""
     """[Ayuda : Funcion que acumula nombres de funciones para luego dibujarlas en una tabla]"""
     contador=0
     nueva_lista=[]
     linea=leer_archivo(archivo)
-    print("{}".format("Funciones:"))
+    print("{}".format("\tFunciones:\n".expandtabs(1)))
     while linea!=[""] or nueva_lista!=[""]:
         if contador!=5:
             nueva_lista.append(linea[0])
             contador+=1
         else:
-            print("\n{0}  {1}  {2}  {3}  {4}".format(nueva_lista[0], nueva_lista[1], nueva_lista[2], nueva_lista[3], nueva_lista[4]))
+            espaciador1=25-len(nueva_lista[0])
+            espaciador2=25-len(nueva_lista[1])
+            espaciador3=25-len(nueva_lista[2])
+            espaciador4=25-len(nueva_lista[3])
+            espaciador5=25-len(nueva_lista[4])
+            print(" |{0}{5}|{1}{6}|{2}{7}|{3}{8}|{4}{9}|".format(nueva_lista[0], nueva_lista[1], nueva_lista[2], nueva_lista[3],nueva_lista[4],
+                                                                 "\t".expandtabs(espaciador1),"\t".expandtabs(espaciador2),"\t".expandtabs(espaciador3),"\t".expandtabs(espaciador4), "\t".expandtabs(espaciador5)))
             nueva_lista=[]
             contador=0
             nueva_lista.append(linea[0])
