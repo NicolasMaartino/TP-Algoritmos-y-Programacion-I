@@ -8,6 +8,33 @@ def listar_archivo (archivo):
         lista_ar.append(linea)
         linea = leer_linea(archivo,",")
     return lista_ar
+def agregar_linea_especifica(indice,linea,lista):
+    """ [Autor : Nicolas]
+       [Ayuda : Agrega una linea especifica a una lista]
+    """
+    union = unir_linea(linea," ").strip()
+    lista.insert(indice,union)
+    return lista
+
+def item_necesario(linea,eliminar,condicion):
+    """[Autor : Nicolas]
+       [Ayuda : Esta funcion va a buscar un dato exacto y hara lo que necesites con el.
+          Convertira todo a un nuevo strin y una nueva lista que con el metodo extend
+          se unira a la lista final]
+    """
+    i=0
+    nueva_lista=[]
+    for elementos in linea:
+        nuevo_string=""
+        for letras in elementos:
+            if eliminar == letras:
+                nuevo_string+=condicion
+            else:
+                nuevo_string+=letras
+        lista=nuevo_string.split()
+        nueva_lista.extend(lista)
+        i+=1
+    return nueva_lista
 
 def tipo_archivos (archivo):
     """ Autor : Alejandro """
@@ -18,7 +45,7 @@ def tipo_archivos (archivo):
         archivo_unico = "fuente_unico.csv"
     return archivo_unico
 
-def buscar_dato (lista_datos, linea):
+def buscar_dato (lista_datos,linea):
     """ [Autor : Nicolas] """
     """ [Ayuda : Se le pasa una lista con datos a buscar en la linea del archivo] """
 
@@ -72,6 +99,20 @@ def reemplazar_string (reemplazar,reemplazo,string):
     for elemento in reemplazar:
         string=string.replace(elemento,reemplazo)
     return string
+
+def validacion_archivo_programas ():
+
+    """ [ Autor : Alejandro] """
+    """ [Ayuda : Con la funcion replace reemplazaremos los datos del parametro reemplazar
+        con otro parametro reemplazo] """
+
+    programas_txt = open("programas.txt")
+    linea = programas_txt.readline()
+    if not linea:
+        validacion = True
+    programas_txt.close()
+    return validacion
+    
 
 """"""
 
