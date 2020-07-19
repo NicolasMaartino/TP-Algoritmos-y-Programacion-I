@@ -5,6 +5,7 @@ por columna.
 """
 import tabla
 from generales import listar_archivo
+
 def organizar_archivo(lista_ar):
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
@@ -88,11 +89,12 @@ def unir(dic, lista_fu, lista_com):
 def panel_general(fuente_unico,comentarios):
     """[Autor: Lucia]"""
     """[Ayuda: ejecuta todo, es el main del programa]"""
-    print("La quedo")
+
     lista_fuente_unico = listar_archivo(fuente_unico) # Cambiarle el parametro de listar_archivo
     lista_comentarios = listar_archivo(comentarios) # importar el archivo
-    print("La quedo")
     diccionario = organizar_archivo(lista_fuente_unico)
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
     tabla.imprimir_panel(dic_final)
+
+""""""
     
