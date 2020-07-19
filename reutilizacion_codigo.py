@@ -68,12 +68,12 @@ def crear_filas(invocaciones, funciones,total):
         nueva_fila.append(filas)  
         for funcion in invocaciones:
             if funciones[x-1] in invocaciones[funcion]: 
-                filas.append("{:^4}|".format("x"))
+                filas.append("{:^2}|".format("x"))
             elif funcion in invocaciones[funciones[x-1]]:
-                filas.append("{:^4}|".format(invocaciones[funciones[x-1]][funcion]))
+                filas.append("{:^2}|".format(invocaciones[funciones[x-1]][funcion]))
                 total[funcion] += invocaciones[funciones[x-1]][funcion]
             else:
-                filas.append("{:^4}|".format(""))
+                filas.append("{:^2}|".format(""))
     return nueva_fila,total
 
 def crear_tabla(invocaciones,tabla,funciones):
@@ -93,20 +93,20 @@ def crear_tabla(invocaciones,tabla,funciones):
     nueva_fila,total = crear_filas(invocaciones, funciones,total)
 
     for i in range(1,x+1):
-        primera_fila += "{:^4}|".format(i)
-    tabla.write("-"*41 + "-----"*x + "\n")
-    tabla.write("|{:<40}|".format("FUNCIONES") + primera_fila + "\n")
+        primera_fila += "{:^2}|".format(i)
+    tabla.write("-"*26 + "---"*x + "\n")
+    tabla.write("|{:<25}|".format("FUNCIONES") + primera_fila + "\n")
         
     for filas,funcion in zip(nueva_fila,invocaciones.keys()):
         t+=1
-        tabla.write("|" + "-"*40 + "|----"*x + "|\n")
-        tabla.write("|{:<40}|".format(str(t)+ "-" + funcion.replace("$","")) +"".join(filas)+ "\n" )
-    tabla.write("|" + "-"*40 + "|----"*x + "|\n")
+        tabla.write("|" + "-"*25 + "|--"*x + "|\n")
+        tabla.write("|{:<25}|".format(str(t)+ "-" + funcion.replace("$","")) +"".join(filas)+ "\n" )
+    tabla.write("|" + "-"*25 + "|--"*x + "|\n")
     
     for valor in total.values():
-        nuevo += "{:^4}|".format(str(valor))        
-    tabla.write("|{:40}|".format("Total Invocaciones")  + nuevo + "\n")
-    tabla.write("|" + "-"*40 + "|----"*x + "|\n")
+        nuevo += "{:^2}|".format(str(valor))        
+    tabla.write("|{:25}|".format("Total Invocaciones")  + nuevo + "\n")
+    tabla.write("|" + "-"*25 + "|--"*x + "|\n")
 
 def imprimir_analizador():
     """
@@ -125,6 +125,7 @@ def imprimir_analizador():
         fila = analizador.readline().rstrip()
     analizador.close()
     fuente.close()
+
 
 
 """"""
