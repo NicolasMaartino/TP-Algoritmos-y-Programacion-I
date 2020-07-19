@@ -72,7 +72,7 @@ def imprimir_informacion_desarrollador(dicc_desarrolladores,total_lineas):
                 print("\t{}\t{}".format(data[0],data[1]))
                 informe.write("{}\t\t{}".format(data[0],data[1])+'\n')
                 porcentaje=(acum_lineas*100)//total_lineas
-            print("\t{} Funciones-lineas\t{}\t{}%".format(cant_funciones_desarrollador,acum_lineas,porcentaje))
+            print("\t{} Funciones--lineas\t{}\t{}%".format(cant_funciones_desarrollador,acum_lineas,porcentaje))
             informe.write("\t{}Funciones-Lineas\t{}\t{}%".format(cant_funciones_desarrollador,acum_lineas,porcentaje))
         print('\nTotal Funciones {} - Lineas {}'.format(total_funciones,total_lineas))
         informe.write('\n\nTotal Funciones {} - Lineas {}'.format(total_funciones,total_lineas)+'\n')
