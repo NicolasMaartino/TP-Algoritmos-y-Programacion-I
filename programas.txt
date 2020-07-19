@@ -1,2 +1,2 @@
-/home/nicolas/Escritorio/TP1/merge.py
-/home/nicolas/Escritorio/TP1/generales.py
+../TP1/merge.py
+../TP1/generales.py

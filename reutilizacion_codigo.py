@@ -76,7 +76,7 @@ def crear_filas(invocaciones, funciones,total):
                 filas.append("{:^4}|".format(""))
     return nueva_fila,total
 
-def crear_tabla(invocaciones,tabla,funciones,fuente):
+def crear_tabla(invocaciones,tabla,funciones):
     """
     [Autor : Sofia Marchesini]
     [Ayuda : Empiezo a crear la tabla]
@@ -117,7 +117,7 @@ def imprimir_analizador():
     analizador = open('analizador.txt','w+')
     invocaciones = funciones_invocadas(fuente)
     funciones = lista_de_funciones()
-    crear_tabla(invocaciones,analizador,funciones,fuente)
+    crear_tabla(invocaciones,analizador,funciones)
     analizador.seek(0)
     fila = analizador.readline().strip()
     while fila != "":
