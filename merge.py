@@ -84,12 +84,15 @@ def linea_ayuda_autor(linea, linea_comentarios , linea_fuente,palabras_buscadas)
     return linea_fuente,linea_comentarios
 
 def reunir_parametros(linea):
+    """ [Autor : Nicolas] """
+    """ [Ayuda : reune parametros ja 
+        """
+
     nueva_lista=[]
     for x in range (2,len(linea)):
         nueva_lista.extend([linea[x]])
     nueva_lista=item_necesario(nueva_lista,","," ")
     final = unir_linea(nueva_lista," ")
-    print(final)
     return final
             
 
