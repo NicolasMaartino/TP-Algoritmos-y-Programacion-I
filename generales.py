@@ -8,6 +8,13 @@ def listar_archivo (archivo):
         lista_ar.append(linea)
         linea = leer_linea(archivo,",")
     return lista_ar
+def agregar_linea_especifica(indice,linea,lista):
+    """ [Autor : Nicolas]
+       [Ayuda : Agrega una linea especifica a una lista]
+    """
+    union = unir_linea(linea," ").strip()
+    lista.insert(indice,union)
+    return lista
 
 def item_necesario(linea,eliminar,condicion):
     """[Autor : Nicolas]
@@ -38,7 +45,7 @@ def tipo_archivos (archivo):
         archivo_unico = "fuente_unico.csv"
     return archivo_unico
 
-def buscar_dato (lista_datos, linea):
+def buscar_dato (lista_datos,linea):
     """ [Autor : Nicolas] """
     """ [Ayuda : Se le pasa una lista con datos a buscar en la linea del archivo] """
 

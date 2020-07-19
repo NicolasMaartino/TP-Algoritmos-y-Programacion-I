@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 import csv
 from os import remove
-from generales import buscar_dato,unir_linea,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,tipo_archivos,item_necesario
+from generales import buscar_dato,unir_linea,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,tipo_archivos,item_necesario,agregar_linea_especifica
 from archivos import *
 
-def guarda_archivo_mezcla(archivo_aux,lista_archivos):
+def guarda_archivo_mezcla(archivo_aux, lista_archivos):
     """[Autor : Alejandro] 
      Ayuda : Lee archivo_aux.csv, extrae la informacion y realiza la mezcla respectiva 
      para luego eliminar archivo_aux.csv 
@@ -47,15 +47,7 @@ def separa_comentarios_fuentes(lista_archivos):
     mezcla(comentarios)
     mezcla(fuente_unico)
 
-def agregar_linea_especifica(indice,linea,linea_comentarios):
-    """ Autor : Nicolas
-        Ayuda : Agrega una linea especifica a una lista
-    """
-    union = unir_linea(linea," ").strip()
-    linea_comentarios.insert(indice,union)
-    return linea_comentarios
-
-def indice_lista_vacia(lista_datos,lista_borrar):
+def indice_lista_vacia(lista_datos, lista_borrar):
     """[Autor : Nicolas]
         Ayuda : Esta funcion recibira una lista con datos que podra
             ir borrando y cuando este vacia devolvera el indice donde se
@@ -68,7 +60,7 @@ def indice_lista_vacia(lista_datos,lista_borrar):
         i+=1
     return i
 
-def linea_ayuda_autor(linea,linea_comentarios,linea_fuente,palabras_buscadas):
+def linea_ayuda_autor(linea, linea_comentarios , linea_fuente,palabras_buscadas):
     """ [Autor : Nicolas] """
     """ [Ayuda : Se le pasa una lista con las palabras encontradas y se fija si realmente alguna esta] """        
     
@@ -91,7 +83,18 @@ def linea_ayuda_autor(linea,linea_comentarios,linea_fuente,palabras_buscadas):
     
     return linea_fuente,linea_comentarios
 
-def validar_linea(nombre_modulo,archivo) :
+def reunir_parametros(linea):
+    nueva_lista=[]
+    for x in range (2,len(linea)):
+        nueva_lista.extend([linea[x]])
+    nueva_lista=item_necesario(nueva_lista,","," ")
+    final = unir_linea(nueva_lista," ")
+    print(final)
+    return final
+            
+
+            
+def validar_linea(nombre_modulo, archivo) :
     """ [Autor : Nicolas] """
     """ [Ayuda : Va a validar las lineas del archivo para saber 
         a cual de las dos salidas (comentarios y fuente unico) va a ir] 
@@ -102,10 +105,11 @@ def validar_linea(nombre_modulo,archivo) :
     while ultima_lectura[0] != '""""""':
         if ultima_lectura[0] == "def":
             # Analizaremos la funcion y la dividiremos en dos listas para saber a que archivo pertenecen.
-            ultima_lectura=item_necesario(ultima_lectura,"("," (")
-            ultima_lectura=item_necesario(ultima_lectura,":","")
+            ultima_lectura = item_necesario(ultima_lectura,"("," (")
+            ultima_lectura = item_necesario(ultima_lectura,":","")
+            parametros=reunir_parametros(ultima_lectura)
             nombre_funcion = ultima_lectura[1]
-            parametros = reemplazar_string(","," ",ultima_lectura[2])
+            parametros = reemplazar_string(","," ",parametros)
             linea_fuente = [nombre_funcion,parametros,nombre_modulo]
             linea_comentarios = [nombre_funcion]
 
@@ -124,6 +128,8 @@ def analizo_funcion(linea_fuente,linea_comentarios,archivo):
 
     lectura=leer_linea(archivo," ")
     
+    #Si sale de este while, esta por empezar otra funcion o leyo el fin de archivo.
+
     while lectura[0] != "def" and lectura[0]!='""""""':
         lectura = reemplazar_toda_la_lista(lectura,[","]," ")
         #Las comas molestan en la lectura del archivo. Las eliminamos y ponemos un espacio en su lugar.
@@ -149,7 +155,7 @@ def analizo_funcion(linea_fuente,linea_comentarios,archivo):
         lectura = leer_linea(archivo," ")
     return linea_comentarios,linea_fuente,lectura
 
-def seccion_comentarios(lectura,lista_comentarios,lista_fuente) :
+def seccion_comentarios(lectura, lista_comentarios, lista_fuente) :
     """ [ Autor : Nicolas] """
     """
         [Ayuda : Este es el sector que corresponderia al analisis de la linea del archivo 
