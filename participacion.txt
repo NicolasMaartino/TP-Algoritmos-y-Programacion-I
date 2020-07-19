@@ -1,0 +1,43 @@
+
+	Informe de Desarrollo por Autor
+
+--------------------------------------------------
+
+Autor:  Nicolas
+                       Función		Lineas
+--------------------------------------------------
+                    unir_linea		1
+      agregar_linea_especifica		3
+             reemplazar_string		3
+                   buscar_dato		5
+      reemplazar_toda_la_lista		5
+            indice_lista_vacia		6
+             reunir_parametros		6
+        ordenamiento_insercion		12
+                item_necesario		13
+             linea_ayuda_autor		17
+               analizo_funcion		18
+           seccion_comentarios		18
+                 validar_linea		18
+                analiza_codigo		19
+	14 Funcion/es - Lineas		144  75%
+--------------------------------------------------
+
+Autor:  Alejandro
+                       Función		Lineas
+--------------------------------------------------
+                 tipo_archivos		5
+  validacion_archivo_programas		7
+         guarda_archivo_mezcla		9
+    separa_comentarios_fuentes		9
+                        mezcla		10
+	5 Funcion/es - Lineas		40  21%
+--------------------------------------------------
+
+Autor:  Lucia
+                       Función		Lineas
+--------------------------------------------------
+                listar_archivo		6
+	1 Funcion/es - Lineas		6  3%
+
+Total Funciones 20 - Lineas 190

@@ -29,8 +29,8 @@ def organizar_archivo(lista_ar):
     return funciones
 
 def contador (elementos, lista_ar, dic):
-    """[Autor: Lucia]"""
-    """[Ayuda: Cuenta la cantidad de veces que aparece el elemento que se le le pasa por parametro]"""
+    """[Autor: Lucia]
+        [Ayuda: Cuenta la cantidad de veces que aparece el elemento que se le le pasa por parametro]"""
     for elemento in elementos:
         for funcion in lista_ar:
             for i in range(3, len(funcion)):
@@ -40,8 +40,8 @@ def contador (elementos, lista_ar, dic):
 
 
 def invocaciones(lista_ar, dic):
-    """[Autor: Lucia]"""
-    """[Ayuda: Cuenta la cantidad de veces que fue invocada cada funcion]"""
+    """[Autor: Lucia]
+       [Ayuda: Cuenta la cantidad de veces que fue invocada cada funcion]"""
 
     for key in dic:
         for funcion in lista_ar: 
@@ -51,16 +51,16 @@ def invocaciones(lista_ar, dic):
     return dic
 
 def lineas_coment(lista_ar, dic):
-    """[Autor: Lucia]"""
-    """[Ayuda: cuenta las lineas de comentarios que no sean de autor o ayuda]"""
+    """[Autor: Lucia]
+       [Ayuda: cuenta las lineas de comentarios que no sean de autor o ayuda]"""
     for funcion in lista_ar:
         if (len(funcion) > 3):
             dic[funcion[0]]["Coment"] += len(funcion) -3
     return dic
 
 def ayuda(lista_ar, dic):
-    """[Autor: Lucia]"""
-    """[Ayuda: verifica si hay o no un comentario de ayuda dentro de la función]"""
+    """[Autor: Lucia]
+       [Ayuda: verifica si hay o no un comentario de ayuda dentro de la función]"""
     for funcion in lista_ar:
         if (funcion[2] == ''):
             dic[funcion[0]]["Ayuda"] = "No"

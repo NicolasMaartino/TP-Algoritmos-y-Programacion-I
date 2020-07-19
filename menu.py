@@ -8,6 +8,10 @@ from generales import validacion_archivo_programas
 
 
 def menu():
+    """ [Autor : N/N]
+        [Ayuda : Menu principal de nuestro programa]"""
+    
+    
     """ Esta es la funcion de menu principal de nuestro programa.
         Todo estara ejecutado desde aca.
     """
