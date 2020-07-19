@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from tabla2 import imprimir
+from tabla import carga_informacion_desarrollador
 
 def leer_archivos_csv (archivocsv):
     """ Autor : Alejandro """
@@ -22,6 +22,5 @@ def informacion_desarrolladores():
                     dicc_desarrolladores[linea_comentarios[1].strip()] = [[linea_fuente_unico[0],len(linea_fuente_unico[3:])]]
                 linea_fuente_unico = leer_archivos_csv(fuente_unico)
                 linea_comentarios = leer_archivos_csv(comentarios)
-    imprimir(dicc_desarrolladores,total_lineas)
+    carga_informacion_desarrollador(dicc_desarrolladores,total_lineas)
 
-informacion_desarrolladores()
