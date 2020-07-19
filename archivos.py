@@ -11,6 +11,22 @@ def buscar_funciones (archivo, funcion):
             funcion=""
     return linea
 
+def formateo_linea(lista):
+    """[Autor : Juan Godoy]"""
+    """[Ayuda : Funcion que hace que cada linea no tenga mas de 80 caracteres]"""
+    n=0
+    acumulador=0
+    nueva_lista=lista.split()
+    while len(nueva_lista)!=n:
+        acumulador+=len(nueva_lista[n])
+        n+=1
+        if acumulador<=70 and acumulador>50:
+            nueva_lista.insert(n, "\n")
+            acumulador=0
+    lista=" ".join(nueva_lista)
+    return lista
+
+
 def abrir_archivos (nombre_archivo,modo):
     """[Autor : Nicolas]"""
     """[Ayuda : Abre un archivo]"""

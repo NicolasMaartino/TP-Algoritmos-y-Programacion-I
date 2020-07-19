@@ -5,6 +5,7 @@ from panel_general_de_funciones import panel_general
 from informacion_desarrollador import informacion_desarrolladores
 from reutilizacion_codigo import imprimir_analizador
 from generales import validacion_archivo_programas
+from panelConsulta import panel_consultas
 
 
 def menu():
@@ -27,7 +28,7 @@ def menu():
                 panel_general(fuente_codigo,comentarios)
             elif opcion=="2":
                 pass
-                #funcion_2()
+                panel_consultas(fuente_codigo, comentarios)
             elif opcion=="3":
                 imprimir_analizador()
             elif opcion=="4":
