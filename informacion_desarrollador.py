@@ -8,6 +8,8 @@ def leer_archivos_csv (archivocsv):
     return linea.rstrip('\n').split(',') if linea else ""
     
 def informacion_desarrolladores():
+    """ [Autor : Alejandro]
+        [Ayuda : nose ]"""
     total_lineas = 0
     dicc_desarrolladores = {}
     with open("comentarios.csv","r") as comentarios,\
