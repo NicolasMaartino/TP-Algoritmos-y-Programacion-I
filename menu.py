@@ -3,7 +3,9 @@ from merge import analiza_codigo
 from archivos import abrir_archivos
 from panel_general_de_funciones import panel_general
 from informacion_desarrollador import informacion_desarrolladores
+from reutilizacion_codigo import imprimir_analizador
 from generales import validacion_archivo_programas
+
 
 def menu():
     """ Esta es la funcion de menu principal de nuestro programa.
@@ -23,8 +25,7 @@ def menu():
                 pass
                 #funcion_2()
             elif opcion=="3":
-                pass
-                #funcion_3()
+                imprimir_analizador()
             elif opcion=="4":
                 pass
                 #funcion_4()
