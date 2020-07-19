@@ -96,8 +96,8 @@ def panel_consultas():
     """[Autor : Juan]"""
     """[Ayuda : Funcion principal que pide el ingreso de una funcion y segun la opcion que elijas, imprime diversas cosas]"""
     from tabla_1 import tabla_consultas
-    fuente_unico=open("fuente_unico.txt", "r")
-    comentarios=open("comentarios.txt", "r")
+    fuente_unico=open("fuente_unico.csv", "r")
+    comentarios=open("comentarios.csv", "r")
     tabla_consultas(comentarios)
     valor_solicitado=input("\n Función: ")
     while valor_solicitado:
