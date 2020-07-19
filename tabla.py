@@ -1,3 +1,5 @@
+from archivos import leer_linea_string
+
 dic = {'generar_archivo': {'Nombre': 'generar_archivo.archivos.py', 'Parametros': 'lista ruta',
                            'Lineas': 6, 'Invocaciones': 0, 'return': 0, 'if': 1, 'elif':3, 'for': 0, 'while': 0, 'break': 0, 'exit': 0,
                            'Coment': 0, 'Ayuda': 'Si', 'Autor': 'Nicolas'}, 'grabar_archivo': {'Nombre': 'grabar_archivo.archivos.py',
@@ -47,33 +49,37 @@ def tabla_consultas(archivo):
         linea=leer_archivo(archivo)
     return
 
-def imprimir_informacion_desarrollador(dicc_desarrolladores,total_lineas):
+def imprimir_tabla_desarrollador(participacion):
+    informacion = open(participacion,'r')
+    linea = informacion.readline()
+    print(linea)
+    while linea != "":
+        print(linea)
+        linea = informacion.readline()
+    informacion.close()
+            
+def carga_informacion_desarrollador(dicc_desarrolladores,total_lineas):
     total_desarrollador = 0
-    with open("participacion.txt","w") as informe:
+    participacion = "participacion.txt"
+    with open(participacion,"w") as informe:
         total_funciones = 0
         linea = '-'*50
-        print('\n\tInforme de Desarrollo por Autor\n')
-        print(linea)
-        informe.write('\n\tInforme de Desarrollo por Autor\n'+'\n')
-        informe.write(linea)
+        informe.write('\n\tInforme de Desarrollo por Autor'+'\n')
         for autor,funciones in dicc_desarrolladores.items():
             acum_lineas = 0
             cant_funciones_desarrollador = 0
-            print('\nAutor:  {}\n'.format(autor))
-            informe.write('\nAutor:  {}\n'.format(autor))
-            print('\tFunción\t\tLineas')
-            informe.write('\tFunción\t\tLineas'+'\n')
+            informe.write('\n'+linea)
+            informe.write('\n\nAutor:  {}\n'.format(autor))
+            informe.write("{:>30}\t\t{}\n".format('Función','Lineas'))
             informe.write(linea+'\n')
             lista_funciones = sorted(funciones, key= lambda funcion:funcion[1])
             total_funciones += len(lista_funciones)
             for data in lista_funciones:
                 cant_funciones_desarrollador += 1
                 acum_lineas += data[1]
-                print("\t{}\t{}".format(data[0],data[1]))
-                informe.write("{}\t\t{}".format(data[0],data[1])+'\n')
+                informe.write("{:>30}\t\t{}".format(data[0],data[1])+'\n')
                 porcentaje=(acum_lineas*100)//total_lineas
-            print("\t{} Funciones--lineas\t{}\t{}%".format(cant_funciones_desarrollador,acum_lineas,porcentaje))
-            informe.write("\t{}Funciones-Lineas\t{}\t{}%".format(cant_funciones_desarrollador,acum_lineas,porcentaje))
-        print('\nTotal Funciones {} - Lineas {}'.format(total_funciones,total_lineas))
+            informe.write("\t{} Funcion/es - Lineas\t\t{}  {}%".format(cant_funciones_desarrollador,acum_lineas,porcentaje))
         informe.write('\n\nTotal Funciones {} - Lineas {}'.format(total_funciones,total_lineas)+'\n')
-        
+    imprimir_tabla_desarrollador(participacion)
+
