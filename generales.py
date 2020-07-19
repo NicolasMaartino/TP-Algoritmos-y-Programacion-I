@@ -108,6 +108,7 @@ def validacion_archivo_programas ():
 
     programas_txt = open("programas.txt")
     linea = programas_txt.readline()
+    validacion = False
     if not linea:
         validacion = True
     programas_txt.close()
