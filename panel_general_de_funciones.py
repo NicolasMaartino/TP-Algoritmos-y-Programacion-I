@@ -33,7 +33,7 @@ def contador (elementos, lista_ar, dic):
     """[Ayuda: Cuenta la cantidad de veces que aparece el elemento que se le le pasa por parametro]"""
     for elemento in elementos:
         for funcion in lista_ar:
-            for i in range(3, len(funcion)):
+            for i in range(3, len(funcion)): 
                 dic[funcion[0]][elemento] += funcion[i].count(elemento)
 
     return dic
@@ -86,5 +86,11 @@ def unir(dic, lista_fu, lista_com):
     return dic
 
 def panel_general():
-    tabla.imprimir_panel(dic)
+    """[Autor: Lucia]"""
+    """[Ayuda: ejecuta todo, es el main del programa]"""
+    lista_fuente_unico = listar_archivo(fuente_unico) # Cambiarle el parametro de listar_archivo
+    lista_comentarios = listar_archivo(comentarios) # importar el archivo
+    diccionario = organizar_archivo(lista_fuente_unico)
+    dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
+    tabla.imprimir_panel(dic_final)
     
