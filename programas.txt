@@ -1,2 +1,10 @@
 ../TP1/merge.py
 ../TP1/generales.py
+../TP1/archivos.py
+../TP1/main.py
+../TP1/menu.py
+../TP1/panelConsulta.py
+../TP1/panel_general_de_funciones.py
+../TP1/tabla.py
+../TP1/reutilizacion_codigo.py
+
