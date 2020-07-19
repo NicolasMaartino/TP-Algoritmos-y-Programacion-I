@@ -24,7 +24,7 @@ def menu():
         opcion = ingresar("Ingrese opción: ")
         while opcion:
             if opcion=="1":
-                panel_general()
+                panel_general(fuente_codigo,comentarios)
             elif opcion=="2":
                 pass
                 #funcion_2()
