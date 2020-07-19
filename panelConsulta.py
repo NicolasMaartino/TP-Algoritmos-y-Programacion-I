@@ -109,6 +109,7 @@ def panel_consultas():
         
     fuente_unico.close()
     comentarios.close()
-    
+
+""""""
     
 

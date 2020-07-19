@@ -1,5 +1,5 @@
 from archivos import leer_linea_string
-
+from generales import leer_linea
 dic = {'generar_archivo': {'Nombre': 'generar_archivo.archivos.py', 'Parametros': 'lista ruta',
                            'Lineas': 6, 'Invocaciones': 0, 'return': 0, 'if': 1, 'elif':3, 'for': 0, 'while': 0, 'break': 0, 'exit': 0,
                            'Coment': 0, 'Ayuda': 'Si', 'Autor': 'Nicolas'}, 'grabar_archivo': {'Nombre': 'grabar_archivo.archivos.py',
@@ -9,9 +9,9 @@ dic = {'generar_archivo': {'Nombre': 'generar_archivo.archivos.py', 'Parametros'
 def imprimir_panel(dic):
     """[Autor: Lucia]"""
     """[Ayuda: Crea la una tabla]"""
-    Tabla = """\
+    Tabla = """ \
 +-----------------------------------------------------------------------------------------------------------------------------------------------+
-|        FUNCION                Parametros   Líneas   Invocaciones   Returns   If/elif    for   while   Break   Exit   Coment  Ayuda    Autor   |
+|        FUNCION                Parametros---Líneas---Invocaciones---Returns---If/elif---for---while---Break---Exit---Coment---Ayuda---Autor   |
 ------------------------------------------------------------------------------------------------------------------------------------------------|
 {}
 +-----------------------------------------------------------------------------------------------------------------------------------------------+\
@@ -24,7 +24,6 @@ def imprimir_panel(dic):
     print (Tabla)
 
 def tabla_consultas(archivo):
-    from generales import leer_archivo
     """[Autor : Juan Godoy]"""
     """[Ayuda : Funcion que acumula nombres de funciones para luego dibujarlas en una tabla]"""
     contador=0
@@ -82,4 +81,7 @@ def carga_informacion_desarrollador(dicc_desarrolladores,total_lineas):
             informe.write("\t{} Funcion/es - Lineas\t\t{}  {}%".format(cant_funciones_desarrollador,acum_lineas,porcentaje))
         informe.write('\n\nTotal Funciones {} - Lineas {}'.format(total_funciones,total_lineas)+'\n')
     imprimir_tabla_desarrollador(participacion)
+
+
+""""""
 
