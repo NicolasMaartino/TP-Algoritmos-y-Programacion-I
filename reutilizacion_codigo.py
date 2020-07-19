@@ -56,14 +56,14 @@ def funciones_invocadas(fuente):
     return invocaciones
 
 
-def crear_filas(invocaciones, funciones,total):
+def crear_filas(invocaciones, funciones, total):
     """
     [Autor : Sofia Marchesini]
     [Ayuda : Empiezo la primera parte de crear la tabla]
     """
     nueva_fila = []
     y = len(funciones)
-    for x in range(1,y+1):
+    for x in range(1, y+1):
         filas = []
         nueva_fila.append(filas)  
         for funcion in invocaciones:
@@ -125,3 +125,4 @@ def imprimir_analizador():
         fila = analizador.readline().rstrip()
     analizador.close()
     fuente.close()
+
