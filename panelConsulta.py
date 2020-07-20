@@ -12,7 +12,7 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
     
     linea=leer_linea(archivo_funciones, ",")
     
-    while linea[0]!="":
+    while linea[0]:
         nombre_funcion=linea[0]
         archivo_funciones.seek(contador)
         archivo_comentarios.seek(contador)
@@ -34,25 +34,20 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
 def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
     """[Autor : Juan Godoy]"""
     """[ayuda : Segun la opcion que se elija, se imprime diferente informacion sobre las funciones]"""
-
-    if valor == "?todo" or valor == "#todo" or valor =="imprimir ?todo":
-        print("loop")
-        opcion_todo (valor, archivo_funciones, archivo_comentarios)
+    nombre_funcion=valor.replace(valor[-1], "")
+        
+    archivo_comentarios.seek(0)
+    archivo_funciones.seek(0)
+        
+    lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
+    lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
+        
+    if (valor.endswith("?")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
+        formato_interrogacion(lista_funciones, lista_comentarios)
+    elif (valor.endswith("#")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
+        formato_numeral(lista_funciones, lista_comentarios)
     else:
-        nombre_funcion=valor.replace(valor[-1], "")
-        
-        archivo_comentarios.seek(0)
-        archivo_funciones.seek(0)
-        
-        lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
-        lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
-        
-        if (valor.endswith("?")) and (lista_comentarios!=[""]) and (lista_funciones!=[""]):
-            formato_interrogacion(lista_funciones, lista_comentarios)
-        elif (valor.endswith("#")) and (lista_comentarios!=[""]) and (lista_funciones!=[""]):
-            formato_numeral(lista_funciones, lista_comentarios)
-        else:
-            print("\nPorfavor ingrese un nombre de funcion valido seguido de ? o #. \n")
+        print("\nPorfavor ingrese un nombre de funcion valido seguido de ? o #. \n")
     return 
         
         
@@ -69,7 +64,6 @@ def panel_consultas(fuente_unico, comentarios):
             opciones_funcion(valor_solicitado,fuente_unico, comentarios)
         valor_solicitado=input("\nFunción: ")
         
-
 
 """"""
 
