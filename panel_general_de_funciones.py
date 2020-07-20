@@ -6,7 +6,7 @@ por columna.
 import tabla
 from generales import listar_archivo
 
-def organizar_archivo(lista_ar):
+def org_archivo(lista_ar):
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
         donde las claves son los atributos de las columnas]"""
@@ -92,7 +92,7 @@ def panel_general(fuente_unico,comentarios):
 
     lista_fuente_unico = listar_archivo(fuente_unico) # Cambiarle el parametro de listar_archivo
     lista_comentarios = listar_archivo(comentarios) # importar el archivo
-    diccionario = organizar_archivo(lista_fuente_unico)
+    diccionario = org_archivo(lista_fuente_unico)
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
     tabla.imprimir_panel(dic_final)
 
