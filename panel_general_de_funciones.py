@@ -5,7 +5,7 @@ por columna.
 """
 import tabla
 from generales import listar_archivo
-
+from archivos import grabar_archivo
 def organizar_archivo(lista_ar):
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
@@ -86,6 +86,50 @@ def unir(dic, lista_fu, lista_com):
     autor(lista_com, dic)
     return dic
 
+def grabar_linea(valor,nombre,if_elif,archivo,valor_final):
+    
+    if nombre == "if" or nombre == "elif":
+        valor_final += valor
+        if_elif.remove(nombre)
+        if len(if_elif)==0:
+            leyenda = str(valor_final) + ","
+            grabar_archivo(archivo,leyenda)
+    elif nombre == "Parametros":
+        if len(valor) == 0:
+            valor = 0
+            leyenda = str(valor) + ","
+            grabar_archivo(archivo,leyenda)
+        else:
+            parametros = valor.count(" ")+1
+            leyenda = str(parametros) + ","
+            grabar_archivo(archivo,leyenda)
+    else:
+            
+        leyenda = str(valor) + ","
+        grabar_archivo(archivo,leyenda)
+    return if_elif
+
+
+def generar_archivo(dic):
+    
+    archivo = open("panel_general.csv","w")
+    lista = ["Funcion,","Parametros,","lineas,","invocaciones,","Returns,","If/Elif,","For,","While,","Break,","Exit,","Coment,","Ayuda,","Autor"]
+    for elemento in lista:
+        archivo.write(elemento)
+    archivo.write("\n")
+    for funcion_principal in dic:
+        if_elif = ["if","elif"]
+        valor_final = 0
+        for valores in dic[funcion_principal]:
+            valor = dic[funcion_principal][valores]
+            # Esta funcion ejecutara todo el proceso para meter la linea en el archivo
+            if_elif = grabar_linea(valor,valores,if_elif,archivo,valor_final)
+        archivo.write("\n")
+    archivo.close()
+
+
+
+
 def panel_general(fuente_unico,comentarios):
     """[Autor: Lucia]"""
     """[Ayuda: ejecuta todo, es el main del programa]"""
@@ -94,7 +138,10 @@ def panel_general(fuente_unico,comentarios):
     lista_comentarios = listar_archivo(comentarios) # importar el archivo
     diccionario = organizar_archivo(lista_fuente_unico)
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
+    print(dic_final)
+    generar_archivo(dic_final)
     tabla.imprimir_panel(dic_final)
+
 
 """"""
     
