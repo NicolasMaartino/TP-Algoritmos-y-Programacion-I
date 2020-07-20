@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import csv
+import codecs
 from os import remove
 from generales import buscar_dato,unir_linea,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,tipo_archivos,item_necesario,agregar_linea_especifica
 from archivos import *
@@ -26,11 +27,11 @@ def mezcla(lista_archivos):
     with open(archivo_aux,"w") as unificado:
         for archivo in lista_archivos:
             with open(archivo,'r') as arch:
-                linea = leer_linea(arch,",")
-                while linea!=("","",""):
+                linea = leer_linea(arch)
+                while linea:
                     entrada = csv.writer(unificado)
                     entrada.writerow(linea)
-                    linea = leer_linea(arch,",")
+                    linea = leer_linea(arch)
     guarda_archivo_mezcla(archivo_aux,lista_archivos)
 
 def separa_comentarios_fuentes(lista_archivos):
@@ -108,9 +109,9 @@ def validar_linea(nombre_modulo, archivo) :
         """
     funciones_fuente = [] # Aca iran a parar las funciones para fuente codigo 
     funciones_comentarios = [] # Y aca las funciones para comentarios
-    ultima_lectura = leer_linea(archivo," ")
-    while ultima_lectura[0] != '""""""':
-        if ultima_lectura[0] == "def":
+    ultima_lectura = leer_linea(archivo)
+    while ultima_lectura:
+        if "def" in (ultima_lectura[0]).strip():
             # Analizaremos la funcion y la dividiremos en dos listas para saber a que archivo pertenecen.
             ultima_lectura = item_necesario(ultima_lectura,"("," (")
             ultima_lectura = item_necesario(ultima_lectura,":","")
@@ -124,7 +125,7 @@ def validar_linea(nombre_modulo, archivo) :
             funciones_fuente.append(linea_fuente)
             funciones_comentarios.append(linea_comentarios)
         else:#Si no es un def no es una funcion.Probablemente sea un from o un bloque principal.El enunciado no pide analizarlo.
-            ultima_lectura=leer_linea(archivo," ")
+            ultima_lectura=leer_linea(archivo)
     return ordenamiento_insercion(funciones_fuente),ordenamiento_insercion(funciones_comentarios)
 
 def analizo_funcion(linea_fuente,linea_comentarios,archivo):
@@ -133,11 +134,12 @@ def analizo_funcion(linea_fuente,linea_comentarios,archivo):
     """
     """[Ayuda : Analizara la funcion para enviarla a las listas correspondientes] """
 
-    lectura = leer_linea(archivo," ")
+    lectura = leer_linea(archivo)
     
     #Si sale de este while, esta por empezar otra funcion o leyo el fin de archivo.
     palabras_faltantes = []
-    while lectura[0] != "def" and lectura[0]!='""""""':
+
+    while ("def" in (lectura[0]).strip()) and lectura:
         lectura = reemplazar_toda_la_lista(lectura,[","]," ")
         #Las comas molestan en la lectura del archivo. Las eliminamos y ponemos un espacio en su lugar.
         lectura = item_necesario(lectura,"]"," ")
@@ -156,7 +158,7 @@ def analizo_funcion(linea_fuente,linea_comentarios,archivo):
             de la triple comilla y en caso de que no haya corchete dejar un 
             espacio antes de la triple comilla.
             """
-            segunda_lectura=leer_linea(archivo," ")
+            segunda_lectura=leer_linea(archivo)
             segunda_lectura = item_necesario(segunda_lectura,"]"," ")
             segunda_lectura = item_necesario(segunda_lectura,"["," ")
             lectura.extend(segunda_lectura)
@@ -166,7 +168,7 @@ def analizo_funcion(linea_fuente,linea_comentarios,archivo):
         linea_fuente,linea_comentarios,palabras_faltantes = linea_ayuda_autor(lectura,linea_comentarios,linea_fuente,encontradas,palabras_faltantes)
         if len(encontradas) == 0 and lectura:
             linea_fuente.append(unir_linea(lectura," "))
-        lectura = leer_linea(archivo," ")
+        lectura = leer_linea(archivo)
     linea_comentarios =hay_autor_ayuda(palabras_faltantes,linea_comentarios)
     
     return linea_comentarios,linea_fuente,lectura
@@ -222,15 +224,15 @@ def analiza_codigo () :
     
     lista_archivos = []
     rutas = open("programas.txt", 'r')
-    ruta = leer_linea_string(rutas)
+    ruta = leer_linea(rutas)
     i = 0
     while ruta: #aaj
         i+=1 # Este indice lo creo para distinguir los archivos
-        nombre_archivo = ruta.split("/").pop()
+        nombre_archivo = (ruta[0]).split("/").pop()
         
         #Abro ruta dentro de programas.txt
         
-        codigo = open(ruta,'r')
+        codigo = open(ruta[0],'r',newline="")
         fuente_unico,comentarios = validar_linea(nombre_archivo,codigo)
         ruta_fuente = "fuente_unico"+str(i) +".csv"
         ruta_comentarios= "comentarios"+str(i) +".csv"

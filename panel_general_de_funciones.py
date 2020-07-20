@@ -1,3 +1,5 @@
+
+#!/usr/bin/env python3
 """
 Panel general de Funciones
 Mediante esta opción se debe mostrar por pantalla, una tabla con la siguiente información

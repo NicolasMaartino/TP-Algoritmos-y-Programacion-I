@@ -57,10 +57,16 @@ def leer_linea_string (archivo) :
 
     return archivo.readline().strip()
 
-def leer_linea (archivo,corte) :
+def leer_linea(archivo):
+    """ Autor : Alejandro """
+    """ Ayuda : leer archivos .csv y devuelve una lista de cada linea del archivo """
+    linea = archivo.readline()
+    return linea.rstrip('\n').split(',') if linea else ""
+
+"""def leer_linea (archivo,corte) :
     
-    """[Ayuda : lee una linea del archivo y devuelve una lista]"""
-    
+    [Ayuda : lee una linea del archivo y devuelve una lista]
+    [Autor : Nicolas]
     # Esta a diferencia de la otra leer_linea ya corta por espacio con el split()
     
     linea = archivo.readline().strip().split(corte)
@@ -68,7 +74,7 @@ def leer_linea (archivo,corte) :
         devolver = linea
     else:
         devolver = "","",""
-    """[Autor : Nicolas]"""
-    return devolver
+    
+    return devolver"""
 
 """"""

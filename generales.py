@@ -97,6 +97,7 @@ def reemplazar_string (reemplazar,reemplazo,string):
         con otro parametro reemplazo] """
     
     for elemento in reemplazar:
+        print(elemento)
         string=string.replace(elemento,reemplazo)
     return string
 

@@ -7,6 +7,16 @@ from reutilizacion_codigo import imprimir_analizador
 from generales import validacion_archivo_programas
 from panelConsulta import panel_consultas
 
+def texto_menu():
+    print("""            1- Panel general de funciones
+            2-Consulta de funciones
+            3-Analizador de reutilización de código
+            4-Árbol de invocación
+            5-Información por desarrollador""")
+
+def ingresar(leyenda):
+    return input(leyenda)
+
 
 def menu():
     """ [Autor : N/N]
@@ -40,17 +50,6 @@ def menu():
             opcion=ingresar("Ingrese una opción o en blanco para salir: ")
     else:
         print("\n\t\tATENCION [!]\n\n\tProgramas.txt ESTA VACIO\n")
-
-def texto_menu():
-    print("""            1- Panel general de funciones
-            2-Consulta de funciones
-            3-Analizador de reutilización de código
-            4-Árbol de invocación
-            5-Información por desarrollador""")
-
-def ingresar(leyenda):
-    return input(leyenda)
-
 
 menu()
 
