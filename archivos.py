@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 def buscar_funciones (archivo, funcion):
-    """[Autor : Juan]"""
+    """[Autor : Juan Godoy]"""
     """[Ayuda : Va buscando en los archivos la funcion que necesito]"""
     linea=leer_linea(archivo,",")
     while funcion!= linea[0]:
