@@ -5,7 +5,7 @@ def buscar_funciones (archivo, funcion):
     """[Ayuda : Va buscando en los archivos la funcion que necesito]"""
     linea=leer_archivo(archivo)
     while funcion!= linea[0]:
-        if linea !=[""]:
+        if linea[0] !="":
             linea=leer_archivo(archivo)
         else:
             funcion=""

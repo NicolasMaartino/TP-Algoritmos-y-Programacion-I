@@ -46,9 +46,9 @@ def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
         lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
         lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
         
-        if (valor.endswith("?")) and (lista_comentarios!=[""]) and (lista_funciones!=[""]):
+        if (valor.endswith("?")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
             formato_interrogacion(lista_funciones, lista_comentarios)
-        elif (valor.endswith("#")) and (lista_comentarios!=[""]) and (lista_funciones!=[""]):
+        elif (valor.endswith("#")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
             formato_numeral(lista_funciones, lista_comentarios)
         else:
             print("\nPorfavor ingrese un nombre de funcion valido seguido de ? o #. \n")
