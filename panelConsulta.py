@@ -1,9 +1,10 @@
 
+from archivos import leer_linea,buscar_funciones
+from tabla import formato_interrogacion,formato_numeral,imprimir_todo,tabla_consultas
+
 def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
-    """[Autor: Juan Godoy]"""
+    """[Autor: Juan]"""
     """[Ayuda : Funcion que imprime todo lo relacionado con las funciones ?todo, #todo, e imprimir ?todo]"""
-    from archivos import leer_linea, buscar_funciones
-    from tabla import formato_interrogacion, formato_numeral, imprimir_todo
     ayuda_funciones=open("ayuda_funciones.txt", "w") 
     contador=0
     archivo_funciones.seek(0)
@@ -33,9 +34,9 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
 def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
     """[Autor : Juan Godoy]"""
     """[ayuda : Segun la opcion que se elija, se imprime diferente informacion sobre las funciones]"""
-    from tabla import formato_interrogacion, formato_numeral
-    from archivos import buscar_funciones
+
     if valor == "?todo" or valor == "#todo" or valor =="imprimir ?todo":
+        print("loop")
         opcion_todo (valor, archivo_funciones, archivo_comentarios)
     else:
         nombre_funcion=valor.replace(valor[-1], "")
@@ -46,9 +47,9 @@ def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
         lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
         lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
         
-        if (valor.endswith("?")) and (lista_comentarios!=[""]) and (lista_funciones!=[""]):
+        if (valor.endswith("?")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
             formato_interrogacion(lista_funciones, lista_comentarios)
-        elif (valor.endswith("#")) and (lista_comentarios!=[""]) and (lista_funciones!=[""]):
+        elif (valor.endswith("#")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
             formato_numeral(lista_funciones, lista_comentarios)
         else:
             print("\nPorfavor ingrese un nombre de funcion valido seguido de ? o #. \n")
@@ -58,7 +59,7 @@ def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
 def panel_consultas(fuente_unico, comentarios):
     """[Autor : Juan]"""
     """[Ayuda : Funcion principal que pide el ingreso de una funcion y segun la opcion que elijas, imprime diversas cosas]"""
-    from tabla import tabla_consultas
+    
     tabla_consultas(comentarios)
     valor_solicitado=input("\nFunción: ")
     while valor_solicitado:
@@ -68,6 +69,15 @@ def panel_consultas(fuente_unico, comentarios):
             opciones_funcion(valor_solicitado,fuente_unico, comentarios)
         valor_solicitado=input("\nFunción: ")
         
+
+
+""""""
+
+
+
+
+
+
 
     
 

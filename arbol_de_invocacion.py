@@ -38,14 +38,17 @@ def cant_lineas(lista_ar_fu, dic):
     return dic
 
 def esquema(dic, lista_ar, main):
-    for key in dic.keys():
-        for funcion in lista_ar:
-            print("{}({}) --> {}  ".format(dic[main[0]], dic[main[0]]["lineas"], dic[main[0]][funcion[0]]))
+    print("{}({}) --> {}  ".format(main[0], dic[main[0]]["lineas"], list(dic[main[0]].keys())[0]))
+    
     
 fuente_unico = open("fuente_unico.csv", "r") # Borrar y pasar como parametro
 lista_ar = listar_archivo(fuente_unico)
 fuente_unico.close()
 fuente_unico = open("fuente_unico.csv", "r")
 diccionario = funciones_invocadas(fuente_unico)
-cant_lineas(lista_ar, diccionario)
+dic2 = cant_lineas(lista_ar, diccionario)
 fuente_unico.close()
+main_2 = busca_main(dic2)
+esquema(dic2,lista_ar, main_2)
+
+""""""

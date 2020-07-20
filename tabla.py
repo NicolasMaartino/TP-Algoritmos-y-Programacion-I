@@ -1,5 +1,4 @@
-from archivos import leer_linea_string
-from generales import leer_linea
+from archivos import leer_linea_string, leer_linea
 dic = {'generar_archivo': {'Nombre': 'generar_archivo.archivos.py', 'Parametros': 'lista ruta',
                            'Lineas': 6, 'Invocaciones': 0, 'return': 0, 'if': 1, 'elif':3, 'for': 0, 'while': 0, 'break': 0, 'exit': 0,
                            'Coment': 0, 'Ayuda': 'Si', 'Autor': 'Nicolas'}, 'grabar_archivo': {'Nombre': 'grabar_archivo.archivos.py',
@@ -26,7 +25,6 @@ def imprimir_panel(dic):
 def tabla_consultas(archivo):
     """[Autor : Juan Godoy]"""
     """[Ayuda : Funcion que acumula nombres de funciones para luego dibujarlas en una tabla]"""
-    from archivos import leer_linea
     contador=0
     nueva_lista=[]
     linea=leer_linea(archivo, ",")
