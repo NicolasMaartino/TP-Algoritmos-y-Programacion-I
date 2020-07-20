@@ -138,7 +138,6 @@ def panel_general(fuente_unico,comentarios):
     lista_comentarios = listar_archivo(comentarios) # importar el archivo
     diccionario = organizar_archivo(lista_fuente_unico)
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
-    print(dic_final)
     generar_archivo(dic_final)
     tabla.imprimir_panel(dic_final)
 
