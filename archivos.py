@@ -6,10 +6,7 @@ def buscar_funciones (archivo, funcion):
     linea=leer_linea(archivo,",")
     while funcion!= linea[0]:
         if linea[0] !="":
-            linea=leer_archivo(archivo)
-        if linea !=[""]:
-            linea=leer_linea(archivo,",")
-
+            linea=leer_linea(archivo, ",")
         else:
             funcion=""
     return linea
