@@ -64,9 +64,7 @@ def panel_consultas(fuente_unico, comentarios):
             opciones_funcion(valor_solicitado,fuente_unico, comentarios)
         valor_solicitado=input("\nFunción: ")
         
-fuente=open("fuente.csv", "r",encoding="utf-8")
-coment=open("coment.csv", "r", encoding="utf-8")
-panel_consultas(fuente, coment)
+
 """"""
 
 
