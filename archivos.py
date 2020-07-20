@@ -57,33 +57,11 @@ def generar_archivo (lista,ruta) :
 def leer_linea_string (archivo) :
     """[ Autor : Nicolas]"""
     """[Ayuda : lee una linea de un archivo y devuelve un string]"""
-
     return archivo.readline().strip()
 
 def leer_linea(archivo):
     """ Autor : Alejandro """
     """ Ayuda : leer archivos .csv y devuelve una lista de cada linea del archivo """
+
     linea = archivo.readline()
     return linea.rstrip('\n').split(',') if linea else ""
-
-"""def leer_linea (archivo,corte) :
-    
-    [Ayuda : lee una linea del archivo y devuelve una lista]
-    [Autor : Nicolas]
-    # Esta a diferencia de la otra leer_linea ya corta por espacio con el split()
-    
-    linea = archivo.readline()
-    if linea:
-        devolver = linea
-    else:
-<<<<<<< HEAD
-        devolver = "","",""
-    
-    return devolver"""
-=======
-        devolver = ""
-    """[Autor : Nicolas]"""
-    return devolver
->>>>>>> fae5f9cec5d5b8e74bcfc9462e3fb10c71a386a0
-
-""""""
