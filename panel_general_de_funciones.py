@@ -5,6 +5,7 @@ por columna.
 """
 import tabla
 from generales import listar_archivo
+
 def organizar_archivo(lista_ar):
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
@@ -29,19 +30,19 @@ def organizar_archivo(lista_ar):
     return funciones
 
 def contador (elementos, lista_ar, dic):
-    """[Autor: Lucia]"""
-    """[Ayuda: Cuenta la cantidad de veces que aparece el elemento que se le le pasa por parametro]"""
+    """[Autor: Lucia]
+        [Ayuda: Cuenta la cantidad de veces que aparece el elemento que se le le pasa por parametro]"""
     for elemento in elementos:
         for funcion in lista_ar:
-            for i in range(3, len(funcion)):
+            for i in range(3, len(funcion)): 
                 dic[funcion[0]][elemento] += funcion[i].count(elemento)
 
     return dic
 
 
 def invocaciones(lista_ar, dic):
-    """[Autor: Lucia]"""
-    """[Ayuda: Cuenta la cantidad de veces que fue invocada cada funcion]"""
+    """[Autor: Lucia]
+       [Ayuda: Cuenta la cantidad de veces que fue invocada cada funcion]"""
 
     for key in dic:
         for funcion in lista_ar: 
@@ -51,16 +52,16 @@ def invocaciones(lista_ar, dic):
     return dic
 
 def lineas_coment(lista_ar, dic):
-    """[Autor: Lucia]"""
-    """[Ayuda: cuenta las lineas de comentarios que no sean de autor o ayuda]"""
+    """[Autor: Lucia]
+       [Ayuda: cuenta las lineas de comentarios que no sean de autor o ayuda]"""
     for funcion in lista_ar:
         if (len(funcion) > 3):
             dic[funcion[0]]["Coment"] += len(funcion) -3
     return dic
 
 def ayuda(lista_ar, dic):
-    """[Autor: Lucia]"""
-    """[Ayuda: verifica si hay o no un comentario de ayuda dentro de la función]"""
+    """[Autor: Lucia]
+       [Ayuda: verifica si hay o no un comentario de ayuda dentro de la función]"""
     for funcion in lista_ar:
         if (funcion[2] == ''):
             dic[funcion[0]]["Ayuda"] = "No"
@@ -85,6 +86,15 @@ def unir(dic, lista_fu, lista_com):
     autor(lista_com, dic)
     return dic
 
-def panel_general():
-    tabla.imprimir_panel(dic)
+def panel_general(fuente_unico,comentarios):
+    """[Autor: Lucia]"""
+    """[Ayuda: ejecuta todo, es el main del programa]"""
+
+    lista_fuente_unico = listar_archivo(fuente_unico) # Cambiarle el parametro de listar_archivo
+    lista_comentarios = listar_archivo(comentarios) # importar el archivo
+    diccionario = organizar_archivo(lista_fuente_unico)
+    dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
+    tabla.imprimir_panel(dic_final)
+
+""""""
     

@@ -1,5 +1,5 @@
 from archivos import leer_linea_string
-
+from generales import leer_linea
 dic = {'generar_archivo': {'Nombre': 'generar_archivo.archivos.py', 'Parametros': 'lista ruta',
                            'Lineas': 6, 'Invocaciones': 0, 'return': 0, 'if': 1, 'elif':3, 'for': 0, 'while': 0, 'break': 0, 'exit': 0,
                            'Coment': 0, 'Ayuda': 'Si', 'Autor': 'Nicolas'}, 'grabar_archivo': {'Nombre': 'grabar_archivo.archivos.py',
@@ -9,9 +9,9 @@ dic = {'generar_archivo': {'Nombre': 'generar_archivo.archivos.py', 'Parametros'
 def imprimir_panel(dic):
     """[Autor: Lucia]"""
     """[Ayuda: Crea la una tabla]"""
-    Tabla = """\
+    Tabla = """ \
 +-----------------------------------------------------------------------------------------------------------------------------------------------+
-|        FUNCION                Parametros   Líneas   Invocaciones   Returns   If/elif    for   while   Break   Exit   Coment  Ayuda    Autor   |
+|        FUNCION                Parametros---Líneas---Invocaciones---Returns---If/elif---for---while---Break---Exit---Coment---Ayuda---Autor   |
 ------------------------------------------------------------------------------------------------------------------------------------------------|
 {}
 +-----------------------------------------------------------------------------------------------------------------------------------------------+\
@@ -24,29 +24,62 @@ def imprimir_panel(dic):
     print (Tabla)
 
 def tabla_consultas(archivo):
-    from generales import leer_archivo
     """[Autor : Juan Godoy]"""
     """[Ayuda : Funcion que acumula nombres de funciones para luego dibujarlas en una tabla]"""
+    from archivos import leer_linea
     contador=0
     nueva_lista=[]
-    linea=leer_archivo(archivo)
+    linea=leer_linea(archivo, ",")
     print("{}".format("\tFunciones:\n".expandtabs(1)))
-    while linea!=[""] or nueva_lista!=[""]:
+    print(" ----------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    while linea[0]!="" or nueva_lista[0]!="":
         if contador!=5:
             nueva_lista.append(linea[0])
             contador+=1
         else:
-            espaciador1=25-len(nueva_lista[0])
-            espaciador2=25-len(nueva_lista[1])
-            espaciador3=25-len(nueva_lista[2])
-            espaciador4=25-len(nueva_lista[3])
-            espaciador5=25-len(nueva_lista[4])
+            espaciador1=32-len(nueva_lista[0])
+            espaciador2=32-len(nueva_lista[1])
+            espaciador3=32-len(nueva_lista[2])
+            espaciador4=32-len(nueva_lista[3])
+            espaciador5=32-len(nueva_lista[4])
             print(" |{0}{5}|{1}{6}|{2}{7}|{3}{8}|{4}{9}|".format(nueva_lista[0], nueva_lista[1], nueva_lista[2], nueva_lista[3],nueva_lista[4],
                                                                  "\t".expandtabs(espaciador1),"\t".expandtabs(espaciador2),"\t".expandtabs(espaciador3),"\t".expandtabs(espaciador4), "\t".expandtabs(espaciador5)))
             nueva_lista=[]
             contador=0
             nueva_lista.append(linea[0])
-        linea=leer_archivo(archivo)
+        linea=leer_linea(archivo, ",")
+    print(" ----------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    return
+
+def imprimir_todo(archivo, lista_funcion, lista_comentarios):
+    """[Autor : Juan Godoy]"""
+    """[Ayuda : imprime en un archivo .txt lo relacionado con la opcion ?]"""
+    if len(lista_funcion[1])>80 or len(lista_comentarios[2]):
+        lista_funcion[1]=formateo_linea(lista_funcion[1])
+        lista_comentarios[2]=formateo_linea(lista_comentarios[2])
+    archivo.write("-------------------------------------------------\n")
+    archivo.write("Función: {0}\r\nAyuda: {1}\r\nParametros: {2}\r\nModulo: {3}\r\nAutor: {4}\n".format(lista_funcion[0], lista_comentarios[2], lista_funcion[1], lista_funcion[2], lista_comentarios[1]))
+    archivo.write("-------------------------------------------------\n")
+
+
+def formato_interrogacion(lista_funciones, lista_comentarios):
+    print("-------------------------------------------------")
+    print("Función: {0}\r\nAyuda: {1}\r\nParametros: {2}\r\nModulo: {3}\r\nAutor: {4}".format(lista_funciones[0], lista_comentarios[2], lista_funciones[1], lista_funciones[2], lista_comentarios[1]))
+    print("-------------------------------------------------")
+    return
+
+
+def formato_numeral(lista_funciones, lista_comentarios):
+    n=3
+    m=2
+    print("-------------------------------------------------")
+    print("Función: {0}\nParametros: {1}\nModulo: {2}\nAutor: {3}\nDescripcion:{4}\nExtra: ".format(lista_funciones[0],lista_funciones[1],lista_funciones[2],lista_comentarios[1],lista_comentarios[2]))
+    while (len(lista_funciones)!=n):
+        print(lista_funciones[n])
+        n+=1
+    while len(lista_comentarios)!=m:
+        print(lista_comentarios[m])
+        m+=1
     return
 
 def imprimir_tabla_desarrollador(participacion):
@@ -82,4 +115,7 @@ def carga_informacion_desarrollador(dicc_desarrolladores,total_lineas):
             informe.write("\t{} Funcion/es - Lineas\t\t{}  {}%".format(cant_funciones_desarrollador,acum_lineas,porcentaje))
         informe.write('\n\nTotal Funciones {} - Lineas {}'.format(total_funciones,total_lineas)+'\n')
     imprimir_tabla_desarrollador(participacion)
+
+
+""""""
 

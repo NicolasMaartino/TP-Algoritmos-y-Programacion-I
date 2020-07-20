@@ -4,7 +4,7 @@ def listar_archivo (archivo):
     """ [Ayuda : convierte al archivo en una lista donde cada elemento es una linea del mismo] """
     lista_ar = []
     linea = leer_linea(archivo,",")
-    while (linea[0] != ' '):
+    while (linea[0] != ''):
         lista_ar.append(linea)
         linea = leer_linea(archivo,",")
     return lista_ar
