@@ -26,11 +26,11 @@ def mezcla(lista_archivos):
     with open(archivo_aux,"w") as unificado:
         for archivo in lista_archivos:
             with open(archivo,'r') as arch:
-                linea = leer_linea(arch,",")
-                while linea!=("","",""):
+                linea = leer_linea(arch,",").strip().split(",")
+                while linea[0]!="":
                     entrada = csv.writer(unificado)
                     entrada.writerow(linea)
-                    linea = leer_linea(arch,",")
+                    linea = leer_linea(arch,",").strip().split(",")
     guarda_archivo_mezcla(archivo_aux,lista_archivos)
 
 def separa_comentarios_fuentes(lista_archivos):
@@ -109,8 +109,9 @@ def validar_linea(nombre_modulo, archivo) :
     funciones_fuente = [] # Aca iran a parar las funciones para fuente codigo 
     funciones_comentarios = [] # Y aca las funciones para comentarios
     ultima_lectura = leer_linea(archivo," ")
-    while ultima_lectura[0] != '""""""':
-        if ultima_lectura[0] == "def":
+    while ultima_lectura:
+        ultima_lectura = ultima_lectura.strip().split()
+        if len(ultima_lectura)>0 and ultima_lectura[0] == "def":
             # Analizaremos la funcion y la dividiremos en dos listas para saber a que archivo pertenecen.
             ultima_lectura = item_necesario(ultima_lectura,"("," (")
             ultima_lectura = item_necesario(ultima_lectura,":","")
@@ -119,7 +120,6 @@ def validar_linea(nombre_modulo, archivo) :
             parametros = reemplazar_string(","," ",parametros)
             linea_fuente = [nombre_funcion,parametros,nombre_modulo]
             linea_comentarios = [nombre_funcion]
-
             linea_comentarios,linea_fuente,ultima_lectura = analizo_funcion(linea_fuente,linea_comentarios,archivo)
             funciones_fuente.append(linea_fuente)
             funciones_comentarios.append(linea_comentarios)
@@ -136,8 +136,10 @@ def analizo_funcion(linea_fuente,linea_comentarios,archivo):
     lectura = leer_linea(archivo," ")
     
     #Si sale de este while, esta por empezar otra funcion o leyo el fin de archivo.
+    
     palabras_faltantes = []
-    while lectura[0] != "def" and lectura[0]!='""""""':
+    while lectura and "def"!= lectura[0:3] :
+        lectura= lectura.strip().split()
         lectura = reemplazar_toda_la_lista(lectura,[","]," ")
         #Las comas molestan en la lectura del archivo. Las eliminamos y ponemos un espacio en su lugar.
         lectura = item_necesario(lectura,"]"," ")
@@ -156,7 +158,8 @@ def analizo_funcion(linea_fuente,linea_comentarios,archivo):
             de la triple comilla y en caso de que no haya corchete dejar un 
             espacio antes de la triple comilla.
             """
-            segunda_lectura=leer_linea(archivo," ")
+            segunda_lectura=leer_linea(archivo," ").strip().split()
+            segunda_lectura = item_necesario(segunda_lectura,",","")
             segunda_lectura = item_necesario(segunda_lectura,"]"," ")
             segunda_lectura = item_necesario(segunda_lectura,"["," ")
             lectura.extend(segunda_lectura)
@@ -230,7 +233,7 @@ def analiza_codigo () :
         
         #Abro ruta dentro de programas.txt
         
-        codigo = open(ruta,'r')
+        codigo = open(ruta,'r',newline="\n")
         fuente_unico,comentarios = validar_linea(nombre_archivo,codigo)
         ruta_fuente = "fuente_unico"+str(i) +".csv"
         ruta_comentarios= "comentarios"+str(i) +".csv"
@@ -241,7 +244,5 @@ def analiza_codigo () :
         ruta = leer_linea_string(rutas)
     separa_comentarios_fuentes(lista_archivos)
     for archivo in lista_archivos:
+        #Elimino los archivos del merge para dejar solo el final
         remove(archivo)
-
-
-""""""
