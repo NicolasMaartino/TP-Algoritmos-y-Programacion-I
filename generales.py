@@ -114,10 +114,6 @@ def validacion_archivo_programas ():
         validacion = True
     programas_txt.close()
     return validacion
-    
-
-""""""
-
 
 
 

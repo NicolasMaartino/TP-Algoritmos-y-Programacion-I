@@ -6,7 +6,10 @@ def buscar_funciones (archivo, funcion):
     linea=leer_linea(archivo,",")
     while funcion!= linea[0]:
         if linea[0] !="":
-            linea=leer_linea(archivo, ",")
+            linea=leer_archivo(archivo)
+        if linea !=[""]:
+            linea=leer_linea(archivo,",")
+
         else:
             funcion=""
     return linea
@@ -69,12 +72,18 @@ def leer_linea(archivo):
     [Autor : Nicolas]
     # Esta a diferencia de la otra leer_linea ya corta por espacio con el split()
     
-    linea = archivo.readline().strip().split(corte)
-    if linea[0]!="":
+    linea = archivo.readline()
+    if linea:
         devolver = linea
     else:
+<<<<<<< HEAD
         devolver = "","",""
     
     return devolver"""
+=======
+        devolver = ""
+    """[Autor : Nicolas]"""
+    return devolver
+>>>>>>> fae5f9cec5d5b8e74bcfc9462e3fb10c71a386a0
 
 """"""

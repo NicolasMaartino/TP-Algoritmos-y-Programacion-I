@@ -1,1 +1,14 @@
+<<<<<<< HEAD
 ../TP1/reutilizacion_codigo.py
+=======
+../TP1-master/main.py
+../TP1-master/generales.py
+../TP1-master/merge.py
+../TP1-master/panelConsulta.py
+../TP1-master/menu.py
+../TP1-master/informacion_desarrollador.py
+../TP1-master/tabla.py
+../TP1-master/archivos.py
+../TP1-master/panel_general_de_funciones.py
+../TP1-master/reutilizacion_codigo.py
+>>>>>>> fae5f9cec5d5b8e74bcfc9462e3fb10c71a386a0
