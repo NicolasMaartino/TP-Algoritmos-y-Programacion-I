@@ -1,0 +1,3 @@
+opcion_todo,Juan Godoy,Funcion que imprime todo lo relacionado con las funciones ?todo # todo e imprimir ?todo
+opciones_funcion,Juan Godoy,Segun la opcion que se elija se imprime diferente informacion sobre las funciones,# . \n")
+panel_consultas,Juan Godoy,Funcion principal que pide el ingreso de una funcion y segun la opcion que elijas imprime diversas cosas
