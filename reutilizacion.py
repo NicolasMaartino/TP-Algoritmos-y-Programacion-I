@@ -1,20 +1,5 @@
 #!/usr/bin/env python3
-def leo_archivo(archivo,corte) :
-    
-    """
-    [Autor : Sofia Marchesini]
-    [Ayuda : lee una linea del archivo y devuelve una lista]
-    """
-    
-    linea = archivo.readline().strip().split(corte)
-    if linea[0]!="":
-        devolver = linea
-    else:
-        devolver = "","",""
-    
-    return devolver
-
-
+from archivos import leer_linea_clasico
 def lista_de_funciones():
     """
     [Autor : Sofia Marchesini]
@@ -23,11 +8,11 @@ def lista_de_funciones():
     en el primer elemento de las lineas del archivo ]
     """
     fuente=open("fuente_unico.csv","r")
-    linea = leo_archivo(fuente,",")
+    linea = leer_linea_clasico(fuente,",")
     funciones = []
     while linea!=("","",""):
         funciones.append(linea[0])
-        linea = leo_archivo(fuente,",")
+        linea = leer_linea_clasico(fuente,",")
     fuente.close()
     return funciones
 
@@ -60,12 +45,12 @@ def funciones_invocadas(fuente):
     funcion1 {funcion2 : n veces} , funcion 1 llama a funcion 2 n veces]
     
     """
-    linea = leo_archivo(fuente,",")
+    linea = leer_linea_clasico(fuente,",")
     invocaciones = {}
     while linea !=("","",""):
         funcion_1 = linea[0]   
         invocaciones[funcion_1] = veces_invocadas(linea)
-        linea = leo_archivo(fuente,",")
+        linea = leer_linea_clasico(fuente,",")
 
     return invocaciones
 
