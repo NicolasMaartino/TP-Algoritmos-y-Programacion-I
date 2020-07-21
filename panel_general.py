@@ -98,8 +98,9 @@ def unir(dic, lista_fu, lista_com):
     return dic
 
 def procesa_linea(valor,nombre,if_elif,archivo,valor_final):
-    """[Autor : Nicolas]
-       [Ayuda : Funcion que graba la linea segun condiciones]"""
+    """[Autor : Nicolas]"""
+    """[Ayuda : Funcion que graba la linea segun condiciones]"""
+    print(valor)
     if nombre == "if" or nombre == "elif":
         valor_final += valor
         if_elif.remove(nombre)
@@ -134,6 +135,7 @@ def generar_archivo(dic):
         if_elif = ["if","elif"]
         valor_final = 0
         for valores in dic[funcion_principal]:
+            print(dic[funcion_principal])
             valor = dic[funcion_principal][valores]
             # Esta funcion ejecutara todo el proceso para meter la linea en el archivo
             if_elif = procesa_linea(valor,valores,if_elif,archivo,valor_final)
@@ -153,8 +155,3 @@ def panel_general(fuente_unico,comentarios):
     generar_archivo(dic_final)
     tabla.imprimir_panel(dic_final)
 
-fu = open("fuente_unico2.csv", "r")
-com = open("comentarios2.csv", "r")
-panel_general(fu, com)
-fu.close()
-com.close()

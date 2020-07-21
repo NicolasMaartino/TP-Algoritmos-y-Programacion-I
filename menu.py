@@ -8,7 +8,7 @@ from generales import validar_programa
 from panelConsulta import panel_consultas
 
 def texto_menu():
-    print("""            1- Panel general de funciones
+    print("""            1-Panel general de funciones
             2-Consulta de funciones
             3-Analizador de reutilización de código
             4-Árbol de invocación
@@ -62,4 +62,6 @@ def menu():
         comentarios.close()
     else:
         print("\n\t\tATENCION [!]\n\n\tProgramas.txt ESTA VACIO\n")
+
+menu()
 
