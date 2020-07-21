@@ -11,7 +11,7 @@ def organizar_archivo(lista_ar):
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
         donde las claves son los atributos de las columnas]"""
-    funciones = {}
+    funciones ={}
     for funcion in lista_ar:
         funciones[funcion[0]] = {}
         funciones[funcion[0]]["Nombre"] = "{}.{}".format(funcion[0], funcion[2])

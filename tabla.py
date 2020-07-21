@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 #!/usr/bin/env python3
 from archivos import leer_linea_string, leer_linea, leer_linea_clasico
-=======
-from archivos import leer_linea_string, leer_linea, leer_linea_clasico,formateo_linea
->>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
 dic = {'generar_archivo': {'Nombre': 'generar_archivo.archivos.py', 'Parametros': 'lista ruta',
                            'Lineas': 6, 'Invocaciones': 0, 'return': 0, 'if': 1, 'elif':3, 'for': 0, 'while': 0, 'break': 0, 'exit': 0,
                            'Coment': 0, 'Ayuda': 'Si', 'Autor': 'Nicolas'}, 'grabar_archivo': {'Nombre': 'grabar_archivo.archivos.py',
@@ -47,7 +43,7 @@ def tabla_consultas(archivo):
             espaciador4=32-len(nueva_lista[3])
             espaciador5=32-len(nueva_lista[4])
             print(" |{0}{5}|{1}{6}|{2}{7}|{3}{8}|{4}{9}|".format(nueva_lista[0], nueva_lista[1], nueva_lista[2], nueva_lista[3],nueva_lista[4],
-                                                                 "\t".expandtabs(espaciador1),"\t".expandtabs(espaciador2),"\t".expandtabs(espaciador3),"\t".expandtabs(espaciador4), "\t".expandtabs(espaciador5)))
+                                                                "\t".expandtabs(espaciador1),"\t".expandtabs(espaciador2),"\t".expandtabs(espaciador3),"\t".expandtabs(espaciador4), "\t".expandtabs(espaciador5)))
             nueva_lista=[]
             contador=0
             nueva_lista.append(linea[0])
@@ -59,7 +55,6 @@ def imprimir_todo(archivo, lista_funcion, lista_comentarios):
     """[Autor : Juan Godoy]"""
     """[Ayuda : imprime en un archivo .txt lo relacionado con la opcion ?]"""
     if len(lista_funcion[1])>80 or len(lista_comentarios[2])>80:
-<<<<<<< HEAD
         lista_funcion[1]=formateo_linea(lista_funcion[1])
         lista_comentarios[2]=formateo_linea(lista_comentarios[2])
     archivo.write("-------------------------------------------------\n")
@@ -95,8 +90,6 @@ def imprimir_todo(archivo, lista_funcion, lista_comentarios):
     """[Autor : Juan Godoy]"""
     """[Ayuda : imprime en un archivo .txt lo relacionado con la opcion ?]"""
     if len(lista_funcion[1])>80 or len(lista_comentarios[2]):
-=======
->>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
         lista_funcion[1]=formateo_linea(lista_funcion[1])
         lista_comentarios[2]=formateo_linea(lista_comentarios[2])
     archivo.write("-------------------------------------------------\n")

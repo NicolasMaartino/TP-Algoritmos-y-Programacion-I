@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 from merge import analiza_codigo
 from archivos import abrir_archivos
 from panel_general_de_funciones import panel_general
@@ -6,7 +7,6 @@ from informacion_desarrollador import informacion_desarrolladores
 from reutilizacion_codigo import imprimir_analizador
 from generales import validacion_archivo_programas
 from panelConsulta import panel_consultas
-<<<<<<< HEAD
 
 def texto_menu():
     print("""            1- Panel general de funciones
@@ -18,9 +18,6 @@ def texto_menu():
 def ingresar(leyenda):
     return input(leyenda)
 
-=======
-import os
->>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
 
 def menu():
     """ [Autor : N/N]
@@ -49,11 +46,7 @@ def menu():
                 panel_general(fuente_codigo,comentarios)
                 enter = input("Ingrese enter para continuar")
             elif opcion=="2":
-<<<<<<< HEAD
                 panel_consultas(fuente_codigo, comentarios)
-=======
-                panel_consultas(fuente_codigo, comentarios) 
->>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
             elif opcion=="3":
                 imprimir_analizador()
                 enter = input("Ingrese enter para continuar")
@@ -69,18 +62,6 @@ def menu():
     else:
         print("\n\t\tATENCION [!]\n\n\tProgramas.txt ESTA VACIO\n")
 
-<<<<<<< HEAD
 menu()
 
 """"""
-=======
-def texto_menu():
-    print("""            1- Panel general de funciones
-            2-Consulta de funciones
-            3-Analizador de reutilización de código
-            4-Árbol de invocación
-            5-Información por desarrollador""")
-
-def ingresar(leyenda):
-    return input(leyenda)
->>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
