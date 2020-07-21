@@ -31,7 +31,6 @@ invocaciones,Lucia,Cuenta la cantidad de veces que fue invocada cada funcion
 item_necesario,Nicolas,Esta funcion va a buscar un dato exacto y hara lo que necesites con el. Convertira todo a un nuevo strin y una nueva lista que con el metodo extend se unira a la lista final
 leer_archivos_csv,Alejandro,leer archivos .csv y devuelve una lista de cada linea del archivo
 leer_linea,Nicolas,lee una linea del archivo y devuelve una lista,# Esta a diferencia de la otra leer_linea ya corta por espacio con el split()
-leer_linea,Sofia Marchesini,lee una linea del archivo y devuelve una lista
 leer_linea_clasico,N/N,lee una linea del archivo y devuelve una tupla
 leer_linea_string,Nicolas,lee una linea de un archivo y devuelve un string
 linea_ayuda_autor,Nicolas,Se le pasa una lista con las palabras encontradas y se fija si realmente alguna esta
@@ -47,6 +46,7 @@ ordenamiento_insercion,Nicolas,Algoritmo de ordenamiento por insercion visto en 
 organizar_archivo,Lucia,Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro donde las claves son los atributos de las columnas,# Por los parametros y el modulo
 panel_consultas,Juan Godoy,Funcion principal que pide el ingreso de una funcion y segun la opcion que elijas imprime diversas cosas
 panel_general,Lucia,ejecuta todo es el main del programa,# Cambiarle el parametro de listar_archivo,# importar el archivo
+parametros,Lucia,Cuenta la cantidad de parametros
 procesa_linea,Nicolas,Funcion que graba la linea segun condiciones
 proceso_archivos,Nicolas,Va a validar las lineas del archivo para saber a cual de las dos salidas (comentarios y fuente unico) va a ir,# Aca iran a parar las funciones para fuente codigo,# Y aca las funciones para comentarios,# Analizaremos la funcion y la dividiremos en dos listas para saber a que archivo pertenecen.
 reemplazar_string,Nicolas,Con la funcion replace reemplazaremos los datos del parametro reemplazar con otro parametro reemplazo
