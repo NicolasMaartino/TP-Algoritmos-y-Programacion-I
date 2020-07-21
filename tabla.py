@@ -26,6 +26,7 @@ def tabla_consultas(archivo):
     """[Autor : Juan Godoy]"""
     """[Ayuda : Funcion que acumula nombres de funciones para luego dibujarlas en una tabla]"""
     contador=0
+    archivo.seek(0)
     nueva_lista=[]
     linea=leer_linea_clasico(archivo, ",")
     print("{}".format("\tFunciones:\n".expandtabs(1)))

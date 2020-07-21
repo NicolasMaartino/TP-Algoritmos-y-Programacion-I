@@ -1,5 +1,5 @@
 
-from archivos import leer_linea_clasico,buscar_funciones,
+from archivos import leer_linea_clasico,buscar_funciones
 from tabla import formato_interrogacion,formato_numeral,imprimir_todo,tabla_consultas
 
 def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
