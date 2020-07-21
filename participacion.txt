@@ -67,7 +67,7 @@ Autor:  Alejandro
              leer_archivos_csv		2
                  tipo_archivos		5
   imprimir_tabla_desarrollador		7
-  validacion_archivo_programas		8
+              validar_programa		8
                guardar_archivo		9
             separador_archivos		9
                         mezcla		10

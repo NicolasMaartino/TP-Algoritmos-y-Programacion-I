@@ -40,6 +40,15 @@ def contador (elementos, lista_ar, dic):
 
     return dic
 
+def parametros(lista_ar, dic):
+    """[Autor: Lucia]"""
+    """[Ayuda: Cuenta la cantidad de parametros]"""
+    for key in dic:
+        if dic[key]["Parametros"] == "":
+            dic[key]["Parametros"] = 0
+        else:
+            cant = dic[key]["Parametros"].count(" ")
+            dic[key]["Parametros"] = cant + 1
 
 def invocaciones(lista_ar, dic):
     """[Autor: Lucia]
@@ -64,7 +73,7 @@ def ayuda(lista_ar, dic):
     """[Autor: Lucia]
        [Ayuda: verifica si hay o no un comentario de ayuda dentro de la función]"""
     for funcion in lista_ar:
-        if (funcion[2] == ''):
+        if (funcion[2] == 'N/N'):
             dic[funcion[0]]["Ayuda"] = "No"
         else:
             dic[funcion[0]]["Ayuda"] = "Si"
@@ -82,13 +91,15 @@ def unir(dic, lista_fu, lista_com):
     """[Ayuda: Une todas las funciones contadoras con el diccionario]"""
     invocaciones(lista_fu, dic)
     contador(["for","while","break","exit","return","if","elif"], lista_fu, dic)
+    parametros(lista_fu, dic)
     lineas_coment(lista_com, dic)
     ayuda(lista_com, dic)
     autor(lista_com, dic)
     return dic
 
-def grabar_linea(valor,nombre,if_elif,archivo,valor_final):
-    
+def procesa_linea(valor,nombre,if_elif,archivo,valor_final):
+    """[Autor : Nicolas]
+       [Ayuda : Funcion que graba la linea segun condiciones]"""
     if nombre == "if" or nombre == "elif":
         valor_final += valor
         if_elif.remove(nombre)
@@ -112,7 +123,8 @@ def grabar_linea(valor,nombre,if_elif,archivo,valor_final):
 
 
 def generar_archivo(dic):
-    
+    """[Autor : Nicolas]
+       [Ayuda : Genera la escritura del archivo panel_general]"""
     archivo = open("panel_general.csv","w")
     lista = ["Funcion,","Parametros,","lineas,","invocaciones,","Returns,","If/Elif,","For,","While,","Break,","Exit,","Coment,","Ayuda,","Autor"]
     for elemento in lista:
@@ -124,20 +136,25 @@ def generar_archivo(dic):
         for valores in dic[funcion_principal]:
             valor = dic[funcion_principal][valores]
             # Esta funcion ejecutara todo el proceso para meter la linea en el archivo
-            if_elif = grabar_linea(valor,valores,if_elif,archivo,valor_final)
+            if_elif = procesa_linea(valor,valores,if_elif,archivo,valor_final)
         archivo.write("\n")
     archivo.close()
-
-
 
 
 def panel_general(fuente_unico,comentarios):
     """[Autor: Lucia]"""
     """[Ayuda: ejecuta todo, es el main del programa]"""
-
+    fuente_unico.seek(0)
+    comentarios.seek(0)
     lista_fuente_unico = listar_archivo(fuente_unico) # Cambiarle el parametro de listar_archivo
     lista_comentarios = listar_archivo(comentarios) # importar el archivo
     diccionario = organizar_archivo(lista_fuente_unico)
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
     generar_archivo(dic_final)
     tabla.imprimir_panel(dic_final)
+
+fu = open("fuente_unico2.csv", "r")
+com = open("comentarios2.csv", "r")
+panel_general(fu, com)
+fu.close()
+com.close()

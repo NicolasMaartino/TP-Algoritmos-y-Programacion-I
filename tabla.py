@@ -16,7 +16,7 @@ def imprimir_panel(dic):
 {}
 +-----------------------------------------------------------------------------------------------------------------------------------------------+\ 
 """
-    Tabla = (Tabla.format('\n'.join('|{0:30}\t{1:5}\t{2:8}\t{3:5}\t{4:9}\t{5:4}\t{6:4}\t{7:3}\t{8:3}\t{9:3}\t{10:3}\t{11:1}\t{12:8}|'.format(dic[funcion]["Nombre"], dic[funcion]["Parametros"].count(" "), dic[funcion]["Lineas"],
+    Tabla = (Tabla.format('\n'.join('|{0:30}\t{1:5}\t{2:8}\t{3:5}\t{4:9}\t{5:4}\t{6:4}\t{7:3}\t{8:3}\t{9:3}\t{10:3}\t{11:1}\t{12:8}|'.format(dic[funcion]["Nombre"], dic[funcion]["Parametros"], dic[funcion]["Lineas"],
                                             dic[funcion]["Invocaciones"], dic[funcion]["return"],
                                                                                  dic[funcion]["if"] + dic[funcion]["elif"], dic[funcion]["for"], dic[funcion]["while"], dic[funcion]["break"], dic[funcion]["exit"], dic[funcion]["Coment"],
                                                                                                                       dic[funcion]["Ayuda"], dic[funcion]["Autor"])

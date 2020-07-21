@@ -4,7 +4,11 @@ from merge import archivos
 from panel_general import panel_general
 from desarrollo_autor import informacion_desarrolladores
 from reutilizacion import imprimir_analizador
+<<<<<<< HEAD
 from generales import validacion_archivo_programas
+=======
+from generales import validar_programa
+>>>>>>> 1ad5cd1c7f32dcafabf03b7ba10b05af02d3eed0
 from panelConsulta import panel_consultas
 
 def texto_menu():
@@ -26,7 +30,7 @@ def menu():
     """ Esta es la funcion de menu principal de nuestro programa.
         Todo estara ejecutado desde aca.
     """
-    vacio=validacion_archivo_programas()
+    vacio=validar_programa()
     if vacio!=True:
         archivos()
         fuente_codigo = open("fuente_unico.csv","r")

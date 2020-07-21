@@ -5,7 +5,7 @@ def listar_archivo (archivo):
     lista_ar = []
     linea = (leer_linea(archivo,","))
     while linea:
-        lista_ar.append(linea.split(","))
+        lista_ar.append(linea.rstrip("\n").split(","))
         linea = leer_linea(archivo,",")
     return lista_ar
 
@@ -101,7 +101,7 @@ def reemplazar_string (reemplazar,reemplazo,string):
         string=string.replace(elemento,reemplazo)
     return string
 
-def validacion_archivo_programas ():
+def validar_programa ():
 
     """ [ Autor : Alejandro] """
     """ [Ayuda : Preguntaremos si hay alguna ruta en programas.txt] """
@@ -111,7 +111,6 @@ def validacion_archivo_programas ():
     validacion = False
     if not linea:
         validacion = True
-    archivo.seek(0)
     archivo.close()
     return validacion
 
