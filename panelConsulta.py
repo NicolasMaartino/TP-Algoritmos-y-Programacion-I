@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/usr/bin/env python3
+=======
+
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
 from archivos import leer_linea_clasico,buscar_funciones
 from tabla import formato_interrogacion,formato_numeral,imprimir_todo,tabla_consultas
 

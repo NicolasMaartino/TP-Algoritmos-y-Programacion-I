@@ -1,0 +1,63 @@
+-------------------------------------------------
+Función: abrir_archivos
+Ayuda: Abre un archivo
+Parametros: (nombre_archivo modo)
+Modulo: archivos.py
+Autor: Nicolas
+-------------------------------------------------
+-------------------------------------------------
+Función: agregar_linea_especifica
+Ayuda: Agrega una linea especifica a una lista
+Parametros: (indice linea lista)
+Modulo: generales.py
+Autor: Nicolas
+-------------------------------------------------
+-------------------------------------------------
+Función: analiza_codigo
+Ayuda: Guardara codigo como lo pide el enunciado
+Parametros: ()
+Modulo: merge.py
+Autor: Nicolas
+-------------------------------------------------
+-------------------------------------------------
+Función: analizo_funcion
+Ayuda: Analizara la funcion para enviarla a las listas correspondientes
+Parametros: (linea_fuente linea_comentarios archivo)
+Modulo: merge.py
+Autor: Nicolas
+-------------------------------------------------
+-------------------------------------------------
+Función: autor
+Ayuda: Indica el nombre del autor de la función
+Parametros: (lista_ar dic)
+Modulo: panel_general_de_funciones.py
+Autor: Lucia
+-------------------------------------------------
+-------------------------------------------------
+Función: ayuda
+Ayuda: verifica si hay o no un comentario de ayuda dentro de la función
+Parametros: (lista_ar dic)
+Modulo: panel_general_de_funciones.py
+Autor: Lucia
+-------------------------------------------------
+-------------------------------------------------
+Función: buscar_dato
+Ayuda: Se le pasa una lista con datos a buscar en la linea del archivo
+Parametros: (lista_datos linea)
+Modulo: generales.py
+Autor: Nicolas
+-------------------------------------------------
+-------------------------------------------------
+Función: buscar_funciones
+Ayuda: Va buscando en los archivos la funcion que necesito
+Parametros: (archivo funcion)
+Modulo: archivos.py
+Autor: Juan Godoy
+-------------------------------------------------
+-------------------------------------------------
+Función: carga_informacion_desarrollador
+Ayuda: N/N
+Parametros: (dicc_desarrolladores total_lineas)
+Modulo: tabla.py
+Autor: N/N
+-------------------------------------------------

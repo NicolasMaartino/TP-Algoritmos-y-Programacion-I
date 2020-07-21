@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 #!/usr/bin/env python3
 from archivos import leer_linea_string, leer_linea, leer_linea_clasico
+=======
+from archivos import leer_linea_string, leer_linea, leer_linea_clasico,formateo_linea
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
 dic = {'generar_archivo': {'Nombre': 'generar_archivo.archivos.py', 'Parametros': 'lista ruta',
                            'Lineas': 6, 'Invocaciones': 0, 'return': 0, 'if': 1, 'elif':3, 'for': 0, 'while': 0, 'break': 0, 'exit': 0,
                            'Coment': 0, 'Ayuda': 'Si', 'Autor': 'Nicolas'}, 'grabar_archivo': {'Nombre': 'grabar_archivo.archivos.py',
@@ -55,6 +59,7 @@ def imprimir_todo(archivo, lista_funcion, lista_comentarios):
     """[Autor : Juan Godoy]"""
     """[Ayuda : imprime en un archivo .txt lo relacionado con la opcion ?]"""
     if len(lista_funcion[1])>80 or len(lista_comentarios[2])>80:
+<<<<<<< HEAD
         lista_funcion[1]=formateo_linea(lista_funcion[1])
         lista_comentarios[2]=formateo_linea(lista_comentarios[2])
     archivo.write("-------------------------------------------------\n")
@@ -90,6 +95,8 @@ def imprimir_todo(archivo, lista_funcion, lista_comentarios):
     """[Autor : Juan Godoy]"""
     """[Ayuda : imprime en un archivo .txt lo relacionado con la opcion ?]"""
     if len(lista_funcion[1])>80 or len(lista_comentarios[2]):
+=======
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
         lista_funcion[1]=formateo_linea(lista_funcion[1])
         lista_comentarios[2]=formateo_linea(lista_comentarios[2])
     archivo.write("-------------------------------------------------\n")
@@ -98,6 +105,8 @@ def imprimir_todo(archivo, lista_funcion, lista_comentarios):
 
 
 def formato_interrogacion(lista_funciones, lista_comentarios):
+    """[Autor: Juan Godoy]"""
+    """[Ayuda : Un formato visual para las opciones con interrogacion]"""
     print("-------------------------------------------------")
     print("Función: {0}\r\nAyuda: {1}\r\nParametros: {2}\r\nModulo: {3}\r\nAutor: {4}".format(lista_funciones[0], lista_comentarios[2], lista_funciones[1], lista_funciones[2], lista_comentarios[1]))
     print("-------------------------------------------------")
@@ -105,6 +114,8 @@ def formato_interrogacion(lista_funciones, lista_comentarios):
 
 
 def formato_numeral(lista_funciones, lista_comentarios):
+    """[Autor : Juan Godoy]"""
+    """[Ayuda : Formato visual para las opciones numeral]"""
     n=3
     m=2
     print("-------------------------------------------------")

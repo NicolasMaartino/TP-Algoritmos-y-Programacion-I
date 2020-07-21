@@ -25,7 +25,11 @@ Autor:  Nicolas
                  validar_linea		19
              linea_ayuda_autor		21
                analizo_funcion		24
+<<<<<<< HEAD
 	19 Funcion/es - Lineas		170  27%
+=======
+	19 Funcion/es - Lineas		170  28%
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
 --------------------------------------------------
 
 Autor:  Lucia
@@ -38,10 +42,14 @@ Autor:  Lucia
                          ayuda		6
                 imprimir_panel		6
                 listar_archivo		6
-                 panel_general		6
                           unir		6
+                 panel_general		7
              organizar_archivo		18
+<<<<<<< HEAD
 	10 Funcion/es - Lineas		65  10%
+=======
+	10 Funcion/es - Lineas		66  11%
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
 --------------------------------------------------
 
 Autor:  Juan Godoy
@@ -49,7 +57,10 @@ Autor:  Juan Godoy
 --------------------------------------------------
          formato_interrogacion		4
                  imprimir_todo		6
+<<<<<<< HEAD
                  imprimir_todo		6
+=======
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
               buscar_funciones		7
                panel_consultas		8
                 formateo_linea		11
@@ -57,7 +68,11 @@ Autor:  Juan Godoy
               opciones_funcion		16
                    opcion_todo		17
                tabla_consultas		24
+<<<<<<< HEAD
 	10 Funcion/es - Lineas		110  18%
+=======
+	9 Funcion/es - Lineas		104  17%
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
 --------------------------------------------------
 
 Autor:  N/N
@@ -65,31 +80,46 @@ Autor:  N/N
 --------------------------------------------------
                       ingresar		1
                           main		3
-         formato_interrogacion		4
           detectar_autor_ayuda		5
                hay_autor_ayuda		5
                     texto_menu		5
   imprimir_tabla_desarrollador		7
             leer_linea_clasico		7
+<<<<<<< HEAD
                formato_numeral		11
                generar_archivo		13
                   grabar_linea		19
 carga_informacion_desarrollador		23
                           menu		25
 	13 Funcion/es - Lineas		128  21%
+=======
+               generar_archivo		13
+                  grabar_linea		19
+carga_informacion_desarrollador		23
+                          menu		33
+	11 Funcion/es - Lineas		121  20%
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
 --------------------------------------------------
 
 Autor:  Sofia Marchesini
                        Función		Lineas
 --------------------------------------------------
+<<<<<<< HEAD
                     leer_linea		6
+=======
+                   leo_archivo		6
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
            funciones_invocadas		7
             lista_de_funciones		8
                veces_invocadas		9
            imprimir_analizador		12
                    crear_filas		14
                    crear_tabla		22
+<<<<<<< HEAD
 	7 Funcion/es - Lineas		78  12%
+=======
+	7 Funcion/es - Lineas		78  13%
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
 --------------------------------------------------
 
 Autor:  Alejandro
@@ -104,4 +134,8 @@ Autor:  Alejandro
    informacion_desarrolladores		15
 	7 Funcion/es - Lineas		57  9%
 
+<<<<<<< HEAD
 Total Funciones 66 - Lineas 608
+=======
+Total Funciones 63 - Lineas 596
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b

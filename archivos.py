@@ -83,4 +83,8 @@ def leer_linea_clasico (archivo,corte) :
     """[Autor : N/N]"""
     return devolver
 
+<<<<<<< HEAD
 """"""
+=======
+""""""
+>>>>>>> 0b03654256ae6e48cb23e9957916c7410054b17b
