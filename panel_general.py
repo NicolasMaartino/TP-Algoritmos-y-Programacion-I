@@ -64,7 +64,7 @@ def ayuda(lista_ar, dic):
     """[Autor: Lucia]
        [Ayuda: verifica si hay o no un comentario de ayuda dentro de la función]"""
     for funcion in lista_ar:
-        if (funcion[2] == ''):
+        if (funcion[2] == 'N/N'):
             dic[funcion[0]]["Ayuda"] = "No"
         else:
             dic[funcion[0]]["Ayuda"] = "Si"
@@ -87,8 +87,9 @@ def unir(dic, lista_fu, lista_com):
     autor(lista_com, dic)
     return dic
 
-def grabar_linea(valor,nombre,if_elif,archivo,valor_final):
-    
+def procesa_linea(valor,nombre,if_elif,archivo,valor_final):
+    """[Autor : Nicolas]
+       [Ayuda : Funcion que graba la linea segun condiciones]"""
     if nombre == "if" or nombre == "elif":
         valor_final += valor
         if_elif.remove(nombre)
@@ -112,7 +113,8 @@ def grabar_linea(valor,nombre,if_elif,archivo,valor_final):
 
 
 def generar_archivo(dic):
-    
+    """[Autor : Nicolas]
+       [Ayuda : Genera la escritura del archivo panel_general]"""
     archivo = open("panel_general.csv","w")
     lista = ["Funcion,","Parametros,","lineas,","invocaciones,","Returns,","If/Elif,","For,","While,","Break,","Exit,","Coment,","Ayuda,","Autor"]
     for elemento in lista:
@@ -124,7 +126,7 @@ def generar_archivo(dic):
         for valores in dic[funcion_principal]:
             valor = dic[funcion_principal][valores]
             # Esta funcion ejecutara todo el proceso para meter la linea en el archivo
-            if_elif = grabar_linea(valor,valores,if_elif,archivo,valor_final)
+            if_elif = procesa_linea(valor,valores,if_elif,archivo,valor_final)
         archivo.write("\n")
     archivo.close()
 
