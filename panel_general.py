@@ -40,6 +40,16 @@ def contador (elementos, lista_ar, dic):
 
     return dic
 
+def parametros(lista_ar, dic):
+    """[Autor: Lucia]"""
+    """[Ayuda: Cuenta la cantidad de parametros]"""
+    for key in dic:
+        for funcion in lista_ar:
+            if dic[key]["Parametros"] == "":
+                 dic[key]["Parametros"] = 0
+            else:
+                cant = dic[key]["Parametros"].count(" ")
+                dic[key]["Parametros"] = cant + 1
 
 def invocaciones(lista_ar, dic):
     """[Autor: Lucia]
@@ -82,6 +92,7 @@ def unir(dic, lista_fu, lista_com):
     """[Ayuda: Une todas las funciones contadoras con el diccionario]"""
     invocaciones(lista_fu, dic)
     contador(["for","while","break","exit","return","if","elif"], lista_fu, dic)
+    parametros(lista_fu, dic)
     lineas_coment(lista_com, dic)
     ayuda(lista_com, dic)
     autor(lista_com, dic)
