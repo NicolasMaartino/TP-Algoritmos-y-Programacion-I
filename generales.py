@@ -5,7 +5,7 @@ def listar_archivo (archivo):
     lista_ar = []
     linea = (leer_linea(archivo,","))
     while linea:
-        lista_ar.append(linea.split(","))
+        lista_ar.append(linea.rstrip("\n").split(","))
         linea = leer_linea(archivo,",")
     return lista_ar
 

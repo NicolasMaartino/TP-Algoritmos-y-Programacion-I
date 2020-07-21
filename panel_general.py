@@ -44,12 +44,11 @@ def parametros(lista_ar, dic):
     """[Autor: Lucia]"""
     """[Ayuda: Cuenta la cantidad de parametros]"""
     for key in dic:
-        for funcion in lista_ar:
-            if dic[key]["Parametros"] == "":
-                 dic[key]["Parametros"] = 0
-            else:
-                cant = dic[key]["Parametros"].count(" ")
-                dic[key]["Parametros"] = cant + 1
+        if dic[key]["Parametros"] == "":
+            dic[key]["Parametros"] = 0
+        else:
+            cant = dic[key]["Parametros"].count(" ")
+            dic[key]["Parametros"] = cant + 1
 
 def invocaciones(lista_ar, dic):
     """[Autor: Lucia]
@@ -142,8 +141,6 @@ def generar_archivo(dic):
     archivo.close()
 
 
-
-
 def panel_general(fuente_unico,comentarios):
     """[Autor: Lucia]"""
     """[Ayuda: ejecuta todo, es el main del programa]"""
@@ -155,3 +152,9 @@ def panel_general(fuente_unico,comentarios):
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
     generar_archivo(dic_final)
     tabla.imprimir_panel(dic_final)
+
+fu = open("fuente_unico2.csv", "r")
+com = open("comentarios2.csv", "r")
+panel_general(fu, com)
+fu.close()
+com.close()
