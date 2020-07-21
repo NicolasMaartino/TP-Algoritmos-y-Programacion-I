@@ -7,7 +7,7 @@ from archivos import *
 def guarda_archivo_mezcla(archivo_aux, lista_archivos):
     """[Autor : Alejandro] 
      Ayuda : Lee archivo_aux.csv, extrae la informacion y realiza la mezcla respectiva 
-     para luego eliminar archivo_aux.csv 
+    para luego eliminar archivo_aux.csv 
      """
     archivo_mezcla = tipo_archivos(lista_archivos[0])
     with open(archivo_mezcla,"w") as prestaciones:
