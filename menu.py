@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import os
 from merge import archivos
-from panel_general_de_funciones import panel_general
-from informacion_desarrollador import informacion_desarrolladores
-from reutilizacion_codigo import imprimir_analizador
+from panel_general import panel_general
+from desarrollo_autor import informacion_desarrolladores
+from reutilizacion import imprimir_analizador
 from generales import validacion_archivo_programas
 from panelConsulta import panel_consultas
 
