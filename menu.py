@@ -6,7 +6,7 @@ from informacion_desarrollador import informacion_desarrolladores
 from reutilizacion_codigo import imprimir_analizador
 from generales import validacion_archivo_programas
 from panelConsulta import panel_consultas
-
+import os
 
 def menu():
     """ [Autor : N/N]
@@ -22,20 +22,30 @@ def menu():
         fuente_codigo = abrir_archivos("fuente_unico.csv","r")
         comentarios = abrir_archivos("comentarios.csv","r")
         texto_menu()
-        opcion = ingresar("Ingrese opción: ")
+        opcion =input("Ingrese una opcion: ")
         while opcion:
-            if opcion=="1":
+            os.system("clear")
+            while opcion not in "12345":
+                texto_menu()
+                opcion=input("Ingrese una opcion valida o enter para salir: ")
+            if opcion == "":
+                print("Gracias por participar de nuestro programa")
+                exit()
+            elif opcion=="1":
                 panel_general(fuente_codigo,comentarios)
+                enter = input("Ingrese enter para continuar")
             elif opcion=="2":
-                pass
-                panel_consultas(fuente_codigo, comentarios)
+                panel_consultas(fuente_codigo, comentarios) 
             elif opcion=="3":
                 imprimir_analizador()
+                enter = input("Ingrese enter para continuar")
             elif opcion=="4":
                 pass
                 #funcion_4()
             elif opcion=="5":
                 informacion_desarrolladores()
+                enter = input("Ingrese enter para continuar")
+            os.system("clear")
             texto_menu()
             opcion=ingresar("Ingrese una opción o en blanco para salir: ")
     else:
@@ -50,8 +60,3 @@ def texto_menu():
 
 def ingresar(leyenda):
     return input(leyenda)
-
-
-menu()
-
-""""""

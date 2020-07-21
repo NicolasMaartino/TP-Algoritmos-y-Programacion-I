@@ -26,6 +26,7 @@ def tabla_consultas(archivo):
     """[Autor : Juan Godoy]"""
     """[Ayuda : Funcion que acumula nombres de funciones para luego dibujarlas en una tabla]"""
     contador=0
+    archivo.seek(0)
     nueva_lista=[]
     linea=leer_linea_clasico(archivo, ",")
     print("{}".format("\tFunciones:\n".expandtabs(1)))
@@ -52,7 +53,7 @@ def tabla_consultas(archivo):
 def imprimir_todo(archivo, lista_funcion, lista_comentarios):
     """[Autor : Juan Godoy]"""
     """[Ayuda : imprime en un archivo .txt lo relacionado con la opcion ?]"""
-    if len(lista_funcion[1])>80 or len(lista_comentarios[2]>80):
+    if len(lista_funcion[1])>80 or len(lista_comentarios[2])>80:
         lista_funcion[1]=formateo_linea(lista_funcion[1])
         lista_comentarios[2]=formateo_linea(lista_comentarios[2])
     archivo.write("-------------------------------------------------\n")

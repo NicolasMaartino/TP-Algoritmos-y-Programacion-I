@@ -5,15 +5,15 @@ analizo_funcion,Nicolas,Analizara la funcion para enviarla a las listas correspo
 autor,Lucia,Indica el nombre del autor de la función
 ayuda,Lucia,verifica si hay o no un comentario de ayuda dentro de la función
 buscar_dato,Nicolas,Se le pasa una lista con datos a buscar en la linea del archivo
-buscar_funciones,Juan,Va buscando en los archivos la funcion que necesito
+buscar_funciones,Juan Godoy,Va buscando en los archivos la funcion que necesito
 carga_informacion_desarrollador,N/N,N/N
 contador,Lucia,Cuenta la cantidad de veces que aparece el elemento que se le le pasa por parametro
 crear_filas,Sofia Marchesini,Empiezo la primera parte de crear la tabla
 crear_tabla,Sofia Marchesini,Empiezo a crear la tabla
 detectar_autor_ayuda,N/N,N/N
 formateo_linea,Juan Godoy,Funcion que hace que cada linea no tenga mas de 80 caracteres
-formato_interrogacion,N/N,N/N
-formato_numeral,N/N,N/N
+formato_interrogacion,Juan Godoy,Un formato visual para las opciones con interrogacion
+formato_numeral,Juan Godoy,Formato visual para las opciones numeral
 funciones_invocadas,Sofia Marchesini,esta funcion crea un diccionario con todas las funciones como claves. El diccionario tendra como valor como un diccionario compuesto por la funcion que invoco y el valor las veces invocada. Si no invoca ninguna funcion aparecera la lista vacia funcion1 {funcion2  n veces} funcion 1 llama a funcion 2 n veces
 generar_archivo,Nicolas,Genera un archivo a traves de un iterable y si lo necesitas te lo devuelve abierto
 generar_archivo,N/N,N/N,# Esta funcion ejecutara todo el proceso para meter la linea en el archivo
@@ -32,7 +32,9 @@ invocaciones,Lucia,Cuenta la cantidad de veces que fue invocada cada funcion
 item_necesario,Nicolas,Esta funcion va a buscar un dato exacto y hara lo que necesites con el. Convertira todo a un nuevo strin y una nueva lista que con el metodo extend se unira a la lista final
 leer_archivos_csv,Alejandro,leer archivos .csv y devuelve una lista de cada linea del archivo
 leer_linea,Nicolas,lee una linea del archivo y devuelve una lista,# Esta a diferencia de la otra leer_linea ya corta por espacio con el split()
+leer_linea_clasico,N/N,lee una linea del archivo y devuelve una tupla
 leer_linea_string,Nicolas,lee una linea de un archivo y devuelve un string
+leo_archivo,Sofia Marchesini,lee una linea del archivo y devuelve una lista
 linea_ayuda_autor,Nicolas,Se le pasa una lista con las palabras encontradas y se fija si realmente alguna esta
 lineas_coment,Lucia,cuenta las lineas de comentarios que no sean de autor o ayuda
 lista_de_funciones,Sofia Marchesini,Esta funcion crea una lista de funciones compuesta por los nombres de todas las funciones que se encuentran en el primer elemento de las lineas del archivo
@@ -40,11 +42,11 @@ listar_archivo,Lucia,convierte al archivo en una lista donde cada elemento es un
 main,N/N,Funcion que arrancara el programa
 menu,N/N,Menu principal de nuestro programa, Esta es la funcion de menu principal de nuestro programa. Todo estara ejecutado desde aca. ,# funcion_4()
 mezcla,Alejandro,Mezcla Archivos CSV's
-opcion_todo,Juan,Funcion que imprime todo lo relacionado con las funciones ?todo # todo e imprimir ?todo
+opcion_todo,Juan Godoy,Funcion que imprime todo lo relacionado con las funciones ?todo # todo e imprimir ?todo
 opciones_funcion,Juan Godoy,Segun la opcion que se elija se imprime diferente informacion sobre las funciones,"# . \n"")"
 ordenamiento_insercion,Nicolas,Algoritmo de ordenamiento por insercion visto en clase
 organizar_archivo,Lucia,Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro donde las claves son los atributos de las columnas,# Por los parametros y el modulo
-panel_consultas,Juan,Funcion principal que pide el ingreso de una funcion y segun la opcion que elijas imprime diversas cosas
+panel_consultas,Juan Godoy,Funcion principal que pide el ingreso de una funcion y segun la opcion que elijas imprime diversas cosas
 panel_general,Lucia,ejecuta todo es el main del programa,# Cambiarle el parametro de listar_archivo,# importar el archivo
 reemplazar_string,Nicolas,Con la funcion replace reemplazaremos los datos del parametro reemplazar con otro parametro reemplazo
 reemplazar_toda_la_lista,Nicolas,Reemplaza en una lista todos sus elementos
