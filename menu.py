@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import os
-from merge import analiza_codigo
-from archivos import abrir_archivos
+from merge import archivos
 from panel_general_de_funciones import panel_general
 from informacion_desarrollador import informacion_desarrolladores
 from reutilizacion_codigo import imprimir_analizador
@@ -29,9 +28,9 @@ def menu():
     """
     vacio=validacion_archivo_programas()
     if vacio!=True:
-        analiza_codigo()
-        fuente_codigo = abrir_archivos("fuente_unico.csv","r")
-        comentarios = abrir_archivos("comentarios.csv","r")
+        archivos()
+        fuente_codigo = open("fuente_unico.csv","r")
+        comentarios = open("comentarios.csv","r")
         texto_menu()
         opcion =input("Ingrese una opcion: ")
         while opcion:
@@ -59,9 +58,8 @@ def menu():
             os.system("clear")
             texto_menu()
             opcion=ingresar("Ingrese una opción o en blanco para salir: ")
+        fuente_codigo.close()
+        comentarios.close()
     else:
         print("\n\t\tATENCION [!]\n\n\tProgramas.txt ESTA VACIO\n")
 
-menu()
-
-""""""

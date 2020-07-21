@@ -26,13 +26,6 @@ def formateo_linea(lista):
     lista=" ".join(nueva_lista)
     return lista
 
-
-def abrir_archivos (nombre_archivo,modo):
-    """[Autor : Nicolas]"""
-    """[Ayuda : Abre un archivo]"""
-    archivo = open(nombre_archivo,modo)
-    return archivo
-
 def grabar_archivo (archivo,leyenda) :
     
     """[Autor : Nicolas]"""
@@ -82,5 +75,3 @@ def leer_linea_clasico (archivo,corte) :
         devolver = "","",""
     """[Autor : N/N]"""
     return devolver
-
-""""""

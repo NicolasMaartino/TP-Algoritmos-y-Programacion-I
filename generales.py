@@ -104,15 +104,15 @@ def reemplazar_string (reemplazar,reemplazo,string):
 def validacion_archivo_programas ():
 
     """ [ Autor : Alejandro] """
-    """ [Ayuda : Con la funcion replace reemplazaremos los datos del parametro reemplazar
-        con otro parametro reemplazo] """
+    """ [Ayuda : Preguntaremos si hay alguna ruta en programas.txt] """
 
-    programas_txt = open("programas.txt")
-    linea = programas_txt.readline()
+    archivo = open("programas.txt")
+    linea = archivo.readline()
     validacion = False
     if not linea:
         validacion = True
-    programas_txt.close()
+    archivo.seek(0)
+    archivo.close()
     return validacion
 
 

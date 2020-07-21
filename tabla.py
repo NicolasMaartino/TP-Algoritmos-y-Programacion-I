@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from archivos import leer_linea_string, leer_linea, leer_linea_clasico
+from archivos import leer_linea_string, leer_linea, leer_linea_clasico,formateo_linea
 dic = {'generar_archivo': {'Nombre': 'generar_archivo.archivos.py', 'Parametros': 'lista ruta',
                            'Lineas': 6, 'Invocaciones': 0, 'return': 0, 'if': 1, 'elif':3, 'for': 0, 'while': 0, 'break': 0, 'exit': 0,
                            'Coment': 0, 'Ayuda': 'Si', 'Autor': 'Nicolas'}, 'grabar_archivo': {'Nombre': 'grabar_archivo.archivos.py',
@@ -67,24 +67,7 @@ def formato_interrogacion(lista_funciones, lista_comentarios):
     """[Ayuda : Un formato visual para las opciones con interrogacion]"""
     print("-------------------------------------------------")
     print("Función: {0}\r\nAyuda: {1}\r\nParametros: {2}\r\nModulo: {3}\r\nAutor: {4}".format(lista_funciones[0], lista_comentarios[2], lista_funciones[1], lista_funciones[2], lista_comentarios[1]))
-    print("-------------------------------------------------")
-    return
-
-
-def formato_numeral(lista_funciones, lista_comentarios):
-    """[Autor : Juan Godoy]"""
-    """[Ayuda : Formato visual para las opciones numeral]"""
-    n=3
-    m=2
-    print("-------------------------------------------------")
-    print("Función: {0}\nParametros: {1}\nModulo: {2}\nAutor: {3}\nDescripcion:{4}\nExtra: ".format(lista_funciones[0],lista_funciones[1],lista_funciones[2],lista_comentarios[1],lista_comentarios[2]))
-    while (len(lista_funciones)!=n):
-        print(lista_funciones[n])
-        n+=1
-    while len(lista_comentarios)!=m:
-        print(lista_comentarios[m])
-        m+=1
-    return
+    print("----------------------------------")
 
 def imprimir_todo(archivo, lista_funcion, lista_comentarios):
     """[Autor : Juan Godoy]"""
@@ -95,16 +78,6 @@ def imprimir_todo(archivo, lista_funcion, lista_comentarios):
     archivo.write("-------------------------------------------------\n")
     archivo.write("Función: {0}\r\nAyuda: {1}\r\nParametros: {2}\r\nModulo: {3}\r\nAutor: {4}\n".format(lista_funcion[0], lista_comentarios[2], lista_funcion[1], lista_funcion[2], lista_comentarios[1]))
     archivo.write("-------------------------------------------------\n")
-
-
-def formato_interrogacion(lista_funciones, lista_comentarios):
-    """[Autor: Juan Godoy]"""
-    """[Ayuda : Un formato visual para las opciones con interrogacion]"""
-    print("-------------------------------------------------")
-    print("Función: {0}\r\nAyuda: {1}\r\nParametros: {2}\r\nModulo: {3}\r\nAutor: {4}".format(lista_funciones[0], lista_comentarios[2], lista_funciones[1], lista_funciones[2], lista_comentarios[1]))
-    print("-------------------------------------------------")
-    return
-
 
 def formato_numeral(lista_funciones, lista_comentarios):
     """[Autor : Juan Godoy]"""
@@ -122,6 +95,8 @@ def formato_numeral(lista_funciones, lista_comentarios):
     return
 
 def imprimir_tabla_desarrollador(participacion):
+    """[Autor : Alejandro]
+       [Ayuda : Imprime la tabla para desarrollador]"""
     informacion = open(participacion,'r')
     linea = informacion.readline()
     print(linea)
@@ -131,6 +106,7 @@ def imprimir_tabla_desarrollador(participacion):
     informacion.close()
             
 def carga_informacion_desarrollador(dicc_desarrolladores,total_lineas):
+    """[Autor : Alejandro]"""
     total_desarrollador = 0
     participacion = "participacion.txt"
     with open(participacion,"w") as informe:
