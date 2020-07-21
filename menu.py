@@ -37,7 +37,6 @@ def menu():
             if opcion=="1":
                 panel_general(fuente_codigo,comentarios)
             elif opcion=="2":
-                pass
                 panel_consultas(fuente_codigo, comentarios)
             elif opcion=="3":
                 imprimir_analizador()

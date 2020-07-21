@@ -13,7 +13,6 @@ def organizar_archivo(lista_ar):
         donde las claves son los atributos de las columnas]"""
     funciones = {}
     for funcion in lista_ar:
-        print(funcion)
         funciones[funcion[0]] = {}
         funciones[funcion[0]]["Nombre"] = "{}.{}".format(funcion[0], funcion[2])
         funciones[funcion[0]]["Parametros"] = funcion[1].strip('()')
