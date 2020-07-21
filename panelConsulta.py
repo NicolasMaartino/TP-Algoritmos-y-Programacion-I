@@ -1,32 +1,26 @@
-
-from archivos import leer_linea,buscar_funciones
+#!/usr/bin/env python3
+from archivos import leer_linea_clasico,buscar_funciones
 from tabla import formato_interrogacion,formato_numeral,imprimir_todo,tabla_consultas
 
 def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
-    """[Autor: Juan]"""
+    """[Autor: Juan Godoy]"""
     """[Ayuda : Funcion que imprime todo lo relacionado con las funciones ?todo, #todo, e imprimir ?todo]"""
     ayuda_funciones=open("ayuda_funciones.txt", "w") 
-    contador=0
     archivo_funciones.seek(0)
     archivo_comentarios.seek(0)
     
-    linea=leer_linea(archivo_funciones, ",")
-    
-    while linea[0]!="":
-        nombre_funcion=linea[0]
-        archivo_funciones.seek(contador)
-        archivo_comentarios.seek(contador)
-        
-        lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
-        lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
-        contador+=1
+    lista_funciones=leer_linea_clasico(archivo_funciones, ",")
+    lista_comentarios=leer_linea_clasico(archivo_comentarios, ",")
+    while lista_funciones[0]!="":
+        nombre_funcion=lista_funciones[0]
         if nombre == "?todo":
             formato_interrogacion(lista_funciones, lista_comentarios)
         elif nombre=="imprimir ?todo":
             imprimir_todo(ayuda_funciones, lista_funciones, lista_comentarios)
         else:
             formato_numeral(lista_funciones, lista_comentarios)
-        linea=leer_linea(archivo_funciones, ",")
+        lista_comentarios = leer_linea_clasico(archivo_comentarios, ",")
+        lista_funciones = leer_linea_clasico(archivo_funciones, ",")
     ayuda_funciones.close()
     return 
     
@@ -57,7 +51,7 @@ def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
         
         
 def panel_consultas(fuente_unico, comentarios):
-    """[Autor : Juan]"""
+    """[Autor : Juan Godoy]"""
     """[Ayuda : Funcion principal que pide el ingreso de una funcion y segun la opcion que elijas, imprime diversas cosas]"""
     
     tabla_consultas(comentarios)

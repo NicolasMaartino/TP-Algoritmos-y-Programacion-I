@@ -1,5 +1,4 @@
-
-#!/usr/bin/env python3
+#!/usrbin/env python3 
 """
 Panel general de Funciones
 Mediante esta opción se debe mostrar por pantalla, una tabla con la siguiente información
@@ -14,6 +13,7 @@ def organizar_archivo(lista_ar):
         donde las claves son los atributos de las columnas]"""
     funciones = {}
     for funcion in lista_ar:
+        print(funcion)
         funciones[funcion[0]] = {}
         funciones[funcion[0]]["Nombre"] = "{}.{}".format(funcion[0], funcion[2])
         funciones[funcion[0]]["Parametros"] = funcion[1].strip('()')
@@ -138,11 +138,7 @@ def panel_general(fuente_unico,comentarios):
 
     lista_fuente_unico = listar_archivo(fuente_unico) # Cambiarle el parametro de listar_archivo
     lista_comentarios = listar_archivo(comentarios) # importar el archivo
-    diccionario = org_archivo(lista_fuente_unico)
+    diccionario = organizar_archivo(lista_fuente_unico)
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
     generar_archivo(dic_final)
     tabla.imprimir_panel(dic_final)
-
-
-""""""
-    

@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 
 def buscar_funciones (archivo, funcion):
-    """[Autor : Juan]"""
+    """[Autor : Juan Godoy]"""
     """[Ayuda : Va buscando en los archivos la funcion que necesito]"""
-    linea=leer_linea(archivo,",")
+    linea=leer_linea_clasico(archivo,",")
     while funcion!= linea[0]:
         if linea[0] !="":
-            linea=leer_archivo(archivo)
-        if linea !=[""]:
-            linea=leer_linea(archivo,",")
-
+            linea=leer_linea_clasico(archivo, ",")
         else:
             funcion=""
     return linea
@@ -57,11 +54,33 @@ def generar_archivo (lista,ruta) :
 def leer_linea_string (archivo) :
     """[ Autor : Nicolas]"""
     """[Ayuda : lee una linea de un archivo y devuelve un string]"""
+
     return archivo.readline().strip()
 
-def leer_linea(archivo):
-    """ Autor : Alejandro """
-    """ Ayuda : leer archivos .csv y devuelve una lista de cada linea del archivo """
-
+def leer_linea (archivo,corte) :
+    
+    """[Ayuda : lee una linea del archivo y devuelve una lista]"""
+    
+    # Esta a diferencia de la otra leer_linea ya corta por espacio con el split()
+    
     linea = archivo.readline()
-    return linea.rstrip('\n').split(',') if linea else ""
+    if linea:
+        devolver = linea
+    else:
+        devolver = ""
+    """[Autor : Nicolas]"""
+    return devolver
+
+def leer_linea_clasico (archivo,corte) :
+    
+    """[Ayuda : lee una linea del archivo y devuelve una tupla]"""
+    
+    linea = archivo.readline().strip("\n").split(corte)
+    if linea[0]!="":
+        devolver = linea
+    else:
+        devolver = "","",""
+    """[Autor : N/N]"""
+    return devolver
+
+""""""
