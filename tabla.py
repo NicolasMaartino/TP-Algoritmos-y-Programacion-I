@@ -1,4 +1,4 @@
-from archivos import leer_linea_string, leer_linea, leer_linea_clasico
+from archivos import leer_linea_string, leer_linea, leer_linea_clasico,formateo_linea
 dic = {'generar_archivo': {'Nombre': 'generar_archivo.archivos.py', 'Parametros': 'lista ruta',
                            'Lineas': 6, 'Invocaciones': 0, 'return': 0, 'if': 1, 'elif':3, 'for': 0, 'while': 0, 'break': 0, 'exit': 0,
                            'Coment': 0, 'Ayuda': 'Si', 'Autor': 'Nicolas'}, 'grabar_archivo': {'Nombre': 'grabar_archivo.archivos.py',
