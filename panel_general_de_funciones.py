@@ -5,13 +5,8 @@ por columna.
 """
 import tabla
 from generales import listar_archivo
-<<<<<<< HEAD
-
-def org_archivo(lista_ar):
-=======
 from archivos import grabar_archivo
 def organizar_archivo(lista_ar):
->>>>>>> ed6f3191aa8306ba0c983659805f40688df02b2b
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
         donde las claves son los atributos de las columnas]"""

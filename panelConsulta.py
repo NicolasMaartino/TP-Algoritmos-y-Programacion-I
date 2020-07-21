@@ -9,10 +9,23 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
     archivo_funciones.seek(0)
     archivo_comentarios.seek(0)
     
+<<<<<<< HEAD
     lista_funciones=leer_linea(archivo_funciones, ",")
     lista_comentarios=leer_linea(archivo_comentarios, ",")
     while lista_funciones[0]!="":
         nombre_funcion=lista_funciones[0]
+=======
+    linea=leer_linea(archivo_funciones, ",")
+    
+    while linea[0]!="":
+        nombre_funcion=linea[0]
+        archivo_funciones.seek(contador)
+        archivo_comentarios.seek(contador)
+        
+        lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
+        lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
+        contador+=1
+>>>>>>> fae5f9cec5d5b8e74bcfc9462e3fb10c71a386a0
         if nombre == "?todo":
             formato_interrogacion(lista_funciones, lista_comentarios)
         elif nombre=="imprimir ?todo":
@@ -27,21 +40,26 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
 
 def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
     """[Autor : Juan Godoy]"""
-    """[ayuda : Segun la opcion que se elija, se imprime diferente informacion sobre las funciones]"""
-    nombre_funcion=valor.replace(valor[-1], "")
-        
-    archivo_comentarios.seek(0)
-    archivo_funciones.seek(0)
-        
-    lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
-    lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
-        
-    if (valor.endswith("?")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
-        formato_interrogacion(lista_funciones, lista_comentarios)
-    elif (valor.endswith("#")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
-        formato_numeral(lista_funciones, lista_comentarios)
+    """[Ayuda : Segun la opcion que se elija, se imprime diferente informacion sobre las funciones]"""
+
+    if valor == "?todo" or valor == "#todo" or valor =="imprimir ?todo":
+        print("loop")
+        opcion_todo (valor, archivo_funciones, archivo_comentarios)
     else:
-        print("\nPorfavor ingrese un nombre de funcion valido seguido de ? o #. \n")
+        nombre_funcion=valor.replace(valor[-1], "")
+        
+        archivo_comentarios.seek(0)
+        archivo_funciones.seek(0)
+        
+        lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
+        lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
+        
+        if (valor.endswith("?")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
+            formato_interrogacion(lista_funciones, lista_comentarios)
+        elif (valor.endswith("#")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
+            formato_numeral(lista_funciones, lista_comentarios)
+        else:
+            print("\nPorfavor ingrese un nombre de funcion valido seguido de ? o #. \n")
     return 
         
         
@@ -57,13 +75,6 @@ def panel_consultas(fuente_unico, comentarios):
         else:
             opciones_funcion(valor_solicitado,fuente_unico, comentarios)
         valor_solicitado=input("\nFunción: ")
-        
-
-""""""
-
-
-
-
 
 
 

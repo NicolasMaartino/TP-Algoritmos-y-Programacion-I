@@ -1,5 +1,19 @@
 #!/usr/bin/env python3
-from archivos import leer_linea
+def leo_archivo(archivo,corte) :
+    
+    """
+    [Autor : Sofia Marchesini]
+    [Ayuda : lee una linea del archivo y devuelve una lista]
+    """
+    
+    linea = archivo.readline().strip().split(corte)
+    if linea[0]!="":
+        devolver = linea
+    else:
+        devolver = "","",""
+    
+    return devolver
+
 
 def lista_de_funciones():
     """
@@ -9,11 +23,11 @@ def lista_de_funciones():
     en el primer elemento de las lineas del archivo ]
     """
     fuente=open("fuente_unico.csv","r")
-    linea = leer_linea(fuente,",")
+    linea = leo_archivo(fuente,",")
     funciones = []
     while linea!=("","",""):
         funciones.append(linea[0])
-        linea = leer_linea(fuente,",")
+        linea = leo_archivo(fuente,",")
     fuente.close()
     return funciones
 
@@ -46,12 +60,12 @@ def funciones_invocadas(fuente):
     funcion1 {funcion2 : n veces} , funcion 1 llama a funcion 2 n veces]
     
     """
-    linea = leer_linea(fuente,",")
+    linea = leo_archivo(fuente,",")
     invocaciones = {}
     while linea !=("","",""):
         funcion_1 = linea[0]   
         invocaciones[funcion_1] = veces_invocadas(linea)
-        linea = leer_linea(fuente,",")
+        linea = leo_archivo(fuente,",")
 
     return invocaciones
 
@@ -74,6 +88,7 @@ def crear_filas(invocaciones, funciones, total):
                 total[funcion] += invocaciones[funciones[x-1]][funcion]
             else:
                 filas.append("{:^4}|".format(""))
+    
     return nueva_fila,total
 
 def crear_tabla(invocaciones,tabla,funciones):
@@ -125,5 +140,3 @@ def imprimir_analizador():
         fila = analizador.readline().rstrip()
     analizador.close()
     fuente.close()
-
-""""""
