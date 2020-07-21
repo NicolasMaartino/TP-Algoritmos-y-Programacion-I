@@ -44,12 +44,11 @@ def parametros(lista_ar, dic):
     """[Autor: Lucia]"""
     """[Ayuda: Cuenta la cantidad de parametros]"""
     for key in dic:
-        for funcion in lista_ar:
-            if dic[key]["Parametros"] == "":
-                 dic[key]["Parametros"] = 0
-            else:
-                cant = dic[key]["Parametros"].count(" ")
-                dic[key]["Parametros"] = cant + 1
+        if dic[key]["Parametros"] == "":
+            dic[key]["Parametros"] = 0
+        else:
+            cant = dic[key]["Parametros"].count(" ")
+            dic[key]["Parametros"] = cant + 1
 
 def invocaciones(lista_ar, dic):
     """[Autor: Lucia]
@@ -99,8 +98,9 @@ def unir(dic, lista_fu, lista_com):
     return dic
 
 def procesa_linea(valor,nombre,if_elif,archivo,valor_final):
-    """[Autor : Nicolas]
-       [Ayuda : Funcion que graba la linea segun condiciones]"""
+    """[Autor : Nicolas]"""
+    """[Ayuda : Funcion que graba la linea segun condiciones]"""
+    print(valor)
     if nombre == "if" or nombre == "elif":
         valor_final += valor
         if_elif.remove(nombre)
@@ -135,13 +135,12 @@ def generar_archivo(dic):
         if_elif = ["if","elif"]
         valor_final = 0
         for valores in dic[funcion_principal]:
+            print(dic[funcion_principal])
             valor = dic[funcion_principal][valores]
             # Esta funcion ejecutara todo el proceso para meter la linea en el archivo
             if_elif = procesa_linea(valor,valores,if_elif,archivo,valor_final)
         archivo.write("\n")
     archivo.close()
-
-
 
 
 def panel_general(fuente_unico,comentarios):
@@ -155,3 +154,4 @@ def panel_general(fuente_unico,comentarios):
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
     generar_archivo(dic_final)
     tabla.imprimir_panel(dic_final)
+
