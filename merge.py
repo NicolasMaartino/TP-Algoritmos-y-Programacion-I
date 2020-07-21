@@ -4,7 +4,7 @@ from os import remove
 from generales import buscar_dato,unir_linea,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,tipo_archivos,item_necesario,agregar_linea_especifica
 from archivos import *
 
-def guarda_archivo_mezcla(archivo_aux, lista_archivos):
+def guardar_archivo(archivo_aux, lista_archivos):
     """[Autor : Alejandro] 
      Ayuda : Lee archivo_aux.csv, extrae la informacion y realiza la mezcla respectiva 
     para luego eliminar archivo_aux.csv 
@@ -31,9 +31,9 @@ def mezcla(lista_archivos):
                     entrada = csv.writer(unificado)
                     entrada.writerow(linea)
                     linea = leer_linea(arch,",").strip().split(",")
-    guarda_archivo_mezcla(archivo_aux,lista_archivos)
+    guardar_archivo(archivo_aux,lista_archivos)
 
-def separa_comentarios_fuentes(lista_archivos):
+def separador_archivos(lista_archivos):
     """ Autor : Alejandro """
     """ Ayuda : Esta función recibe una lista con comentarios y fuente, divide en dos listas acorde al nombre respectivo """
     comentarios = []
@@ -47,7 +47,7 @@ def separa_comentarios_fuentes(lista_archivos):
     mezcla(comentarios)
     mezcla(fuente_unico)
 
-def indice_lista_vacia(lista_datos, lista_borrar):
+def indice_vaciado(lista_datos, lista_borrar):
     """[Autor : Nicolas]
         Ayuda : Esta funcion recibira una lista con datos que podra
             ir borrando y cuando este vacia devolvera el indice donde se
@@ -67,7 +67,7 @@ def linea_ayuda_autor(linea, linea_comentarios , linea_fuente,palabras_buscadas,
     if "Autor" in palabras_buscadas and "Ayuda" in palabras_buscadas:
         palabras_faltantes.append("Autor")
         palabras_faltantes.append("Ayuda")
-        i = indice_lista_vacia(linea,["Ayuda","Autor"])
+        i = indice_vaciado(linea,["Ayuda","Autor"])
         linea_segunda=linea[i-1:len(linea)]
         linea_primera = linea[0:i-1]
         linea_primera = reemplazar_toda_la_lista(linea_primera,["Autor","Ayuda",'"""',","],"")
@@ -89,7 +89,7 @@ def linea_ayuda_autor(linea, linea_comentarios , linea_fuente,palabras_buscadas,
 
 def reunir_parametros(linea):
     """ [Autor : Nicolas] """
-    """ [Ayuda : reune parametros ja 
+    """ [Ayuda : Reune los parametros necesarios]
         """
 
     nueva_lista=[]
@@ -101,7 +101,7 @@ def reunir_parametros(linea):
             
 
             
-def validar_linea(nombre_modulo, archivo) :
+def proceso_archivos(nombre_modulo, archivo) :
     """ [Autor : Nicolas] """
     """ [Ayuda : Va a validar las lineas del archivo para saber 
         a cual de las dos salidas (comentarios y fuente unico) va a ir] 
@@ -120,14 +120,14 @@ def validar_linea(nombre_modulo, archivo) :
             parametros = reemplazar_string(","," ",parametros)
             linea_fuente = [nombre_funcion,parametros,nombre_modulo]
             linea_comentarios = [nombre_funcion]
-            linea_comentarios,linea_fuente,ultima_lectura = analizo_funcion(linea_fuente,linea_comentarios,archivo)
+            linea_comentarios,linea_fuente,ultima_lectura = analizador_funcion(linea_fuente,linea_comentarios,archivo)
             funciones_fuente.append(linea_fuente)
             funciones_comentarios.append(linea_comentarios)
         else:#Si no es un def no es una funcion.Probablemente sea un from o un bloque principal.El enunciado no pide analizarlo.
             ultima_lectura=leer_linea(archivo," ")
     return ordenamiento_insercion(funciones_fuente),ordenamiento_insercion(funciones_comentarios)
 
-def analizo_funcion(linea_fuente,linea_comentarios,archivo):
+def analizador_funcion(linea_fuente,linea_comentarios,archivo):
     """
     [Autor : Nicolas ] 
     """
@@ -170,18 +170,13 @@ def analizo_funcion(linea_fuente,linea_comentarios,archivo):
         if len(encontradas) == 0 and lectura:
             linea_fuente.append(unir_linea(lectura," "))
         lectura = leer_linea(archivo," ")
-    linea_comentarios =hay_autor_ayuda(palabras_faltantes,linea_comentarios)
+    linea_comentarios = encontrar_palabras(palabras_faltantes,linea_comentarios)
     
     return linea_comentarios,linea_fuente,lectura
 
-def detectar_autor_ayuda(palabras_encontradas, palabras_faltantes):
-    if "Autor" in palabras_encontradas:
-        palabras_faltantes.append("Autor")
-    elif "Ayuda" in palabras_encontradas:
-        palabras_faltantes.append("Ayuda")
-    return palabras_faltantes
-
-def hay_autor_ayuda(palabras,linea_comentarios):
+def encontrar_palabras(palabras,linea_comentarios):
+    """ [Autor : Nicolas]
+        [Ayuda : Encuentra las palabras autor o ayuda o le pone N/N para que se note que falta autor]"""
     if "Autor" not in palabras:
         linea_comentarios.insert(1,"N/N")
     if "Ayuda" not in palabras:
@@ -217,9 +212,17 @@ def seccion_comentarios(lectura, lista_comentarios, lista_fuente) :
         i+=1
     
     return lista_fuente,lista_comentarios
-def analiza_codigo () :
+
+def eliminar_archivos(archivos):
+    """ [Autor : Nicolas]
+        [Ayuda : Elimina archivos del directorio]"""
+    
+    for archivo in archivos:
+        remove(archivo)
+
+def archivos () :
     """ [Autor : Nicolas]"""
-    """[Ayuda : Guardara codigo como lo pide el enunciado] """
+    """[Ayuda : Guardara el codigo como lo pide el enunciado] """
     
     # Esta funcion guardará cada archivo ordenado en una lista
     
@@ -230,11 +233,12 @@ def analiza_codigo () :
     while ruta: #aaj
         i+=1 # Este indice lo creo para distinguir los archivos
         nombre_archivo = ruta.split("/").pop()
-        
+        nombre_archivo=nombre_archivo[0:len(nombre_archivo)-3]
+
         #Abro ruta dentro de programas.txt
         
         codigo = open(ruta,'r',newline="\n")
-        fuente_unico,comentarios = validar_linea(nombre_archivo,codigo)
+        fuente_unico,comentarios = proceso_archivos(nombre_archivo,codigo)
         ruta_fuente = "fuente_unico"+str(i) +".csv"
         ruta_comentarios= "comentarios"+str(i) +".csv"
         generar_archivo(fuente_unico,ruta_fuente)
@@ -242,7 +246,5 @@ def analiza_codigo () :
         lista_archivos.append(ruta_fuente)
         lista_archivos.append(ruta_comentarios)
         ruta = leer_linea_string(rutas)
-    separa_comentarios_fuentes(lista_archivos)
-    for archivo in lista_archivos:
-        #Elimino los archivos del merge para dejar solo el final
-        remove(archivo)
+    separador_archivos(lista_archivos)
+    eliminar_archivos(lista_archivos)
