@@ -6,7 +6,7 @@ def leer_linea(archivo) :
     [Ayuda : lee una linea del archivo y devuelve una lista]
     """
     
-    linea = archivo.readline().strip().split()
+    linea = archivo.readline().strip("\n").split(",")
     if linea:
         devolver = linea
     else:

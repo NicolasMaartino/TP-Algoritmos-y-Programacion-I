@@ -1,4 +1,4 @@
-from reutilizacion_codigo import funciones_invocadas, crear_filas 
+from reutilizacion import funciones_invocadas, crear_filas 
 from generales import listar_archivo
 
 
@@ -37,8 +37,15 @@ def cant_lineas(lista_ar_fu, dic):
         
     return dic
 
-def esquema(dic, lista_ar, main):
-    print("{}({}) --> {}  ".format(main[0], dic[main[0]]["lineas"], list(dic[main[0]].keys())[0]))
+def esquema(dic, main):
+    for i in range(0, len(main)):
+        for key in dic[main[i]].keys():
+            if key != "lineas":
+                print("{}({}) --> {}({})".format(main[i], dic[main[i]]["lineas"], key, dic[key]["lineas"]))
+                for n in range(0, dic[main[i]][key]-1):
+                    print("                       {}({}) --> {}".format(key, dic[key]["lineas"], list(dic[key].keys())[0]))
+            else:
+                print("{}({})".format(main[i], dic[main[i]]["lineas"]))
     
     
 fuente_unico = open("fuente_unico.csv", "r") # Borrar y pasar como parametro
@@ -49,6 +56,6 @@ diccionario = funciones_invocadas(fuente_unico)
 dic2 = cant_lineas(lista_ar, diccionario)
 fuente_unico.close()
 main_2 = busca_main(dic2)
-esquema(dic2,lista_ar, main_2)
+esquema(dic2, main_2)
 
 """"""
