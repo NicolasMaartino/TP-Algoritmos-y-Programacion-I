@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-def leo_archivo(archivo,corte) :
+def leer_linea(archivo) :
     
     """
     [Autor : Sofia Marchesini]
     [Ayuda : lee una linea del archivo y devuelve una lista]
     """
     
-    linea = archivo.readline().strip().split(corte)
-    if linea[0]!="":
+    linea = archivo.readline().strip().split()
+    if linea:
         devolver = linea
     else:
-        devolver = "","",""
+        devolver = ""
     
     return devolver
 
@@ -23,7 +23,7 @@ def lista_de_funciones():
     en el primer elemento de las lineas del archivo 
     """
     fuente=open("fuente_unico.csv","r")
-    linea = leer_linea(fuente)
+    linea = leer_linea(fuente,)
     funciones = []
     while linea:
         funciones.append(linea[0])
