@@ -74,4 +74,16 @@ def leer_linea (archivo,corte) :
     """[Autor : Nicolas]"""
     return devolver
 
+def leer_linea_clasico (archivo,corte) :
+    
+    """[Ayuda : lee una linea del archivo y devuelve una tupla]"""
+    
+    linea = archivo.readline().strip("\n").split(corte)
+    if linea[0]!="":
+        devolver = linea
+    else:
+        devolver = "","",""
+    """[Autor : N/N]"""
+    return devolver
+
 """"""

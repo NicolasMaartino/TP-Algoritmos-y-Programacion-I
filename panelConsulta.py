@@ -1,5 +1,5 @@
 
-from archivos import leer_linea,buscar_funciones
+from archivos import leer_linea_clasico,buscar_funciones,
 from tabla import formato_interrogacion,formato_numeral,imprimir_todo,tabla_consultas
 
 def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
@@ -9,31 +9,18 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
     archivo_funciones.seek(0)
     archivo_comentarios.seek(0)
     
-<<<<<<< HEAD
-    lista_funciones=leer_linea(archivo_funciones, ",")
-    lista_comentarios=leer_linea(archivo_comentarios, ",")
+    lista_funciones=leer_linea_clasico(archivo_funciones, ",")
+    lista_comentarios=leer_linea_clasico(archivo_comentarios, ",")
     while lista_funciones[0]!="":
         nombre_funcion=lista_funciones[0]
-=======
-    linea=leer_linea(archivo_funciones, ",")
-    
-    while linea[0]!="":
-        nombre_funcion=linea[0]
-        archivo_funciones.seek(contador)
-        archivo_comentarios.seek(contador)
-        
-        lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
-        lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
-        contador+=1
->>>>>>> fae5f9cec5d5b8e74bcfc9462e3fb10c71a386a0
         if nombre == "?todo":
             formato_interrogacion(lista_funciones, lista_comentarios)
         elif nombre=="imprimir ?todo":
             imprimir_todo(ayuda_funciones, lista_funciones, lista_comentarios)
         else:
             formato_numeral(lista_funciones, lista_comentarios)
-        lista_comentarios = leer_linea(archivo_comentarios, ",")
-        lista_funciones = leer_linea(archivo_funciones, ",")
+        lista_comentarios = leer_linea_clasico(archivo_comentarios, ",")
+        lista_funciones = leer_linea_clasico(archivo_funciones, ",")
     ayuda_funciones.close()
     return 
     
