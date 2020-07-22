@@ -100,26 +100,17 @@ def unir(dic, lista_fu, lista_com):
 def procesa_linea(valor,nombre,if_elif,archivo,valor_final):
     """[Autor : Nicolas]"""
     """[Ayuda : Funcion que graba la linea segun condiciones]"""
-    print(valor)
     if nombre == "if" or nombre == "elif":
         valor_final += valor
         if_elif.remove(nombre)
         if len(if_elif)==0:
             leyenda = str(valor_final) + ","
             grabar_archivo(archivo,leyenda)
-    elif nombre == "Parametros":
-        if len(valor) == 0:
-            valor = 0
-            leyenda = str(valor) + ","
-            grabar_archivo(archivo,leyenda)
-        else:
-            parametros = valor.count(" ")+1
-            leyenda = str(parametros) + ","
-            grabar_archivo(archivo,leyenda)
     else:
             
         leyenda = str(valor) + ","
         grabar_archivo(archivo,leyenda)
+    
     return if_elif
 
 

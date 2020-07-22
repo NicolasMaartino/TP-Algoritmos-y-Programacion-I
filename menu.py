@@ -63,4 +63,4 @@ def menu():
     else:
         print("\n\t\tATENCION [!]\n\n\tProgramas.txt ESTA VACIO\n")
 
-
+menu()
