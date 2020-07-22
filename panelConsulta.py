@@ -12,7 +12,6 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
     lista_funciones=leer_linea_clasico(archivo_funciones, ",")
     lista_comentarios=leer_linea_clasico(archivo_comentarios, ",")
     while lista_funciones[0]!="":
-        nombre_funcion=lista_funciones[0]
         if nombre == "?todo":
             formato_interrogacion(lista_funciones, lista_comentarios)
         elif nombre=="imprimir ?todo":
@@ -30,7 +29,6 @@ def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
     """[Ayuda : Segun la opcion que se elija, se imprime diferente informacion sobre las funciones]"""
 
     if valor == "?todo" or valor == "#todo" or valor =="imprimir ?todo":
-        print("loop")
         opcion_todo (valor, archivo_funciones, archivo_comentarios)
     else:
         nombre_funcion=valor.replace(valor[-1], "")
