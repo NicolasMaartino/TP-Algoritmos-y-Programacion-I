@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import csv
 from os import remove
 from generales import buscar_dato,unir_linea,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,tipo_archivos,item_necesario,agregar_linea_especifica
@@ -28,11 +27,11 @@ def mezcla(lista_archivos):
     with open(archivo_aux,"w") as unificado:
         for archivo in lista_archivos:
             with open(archivo,'r') as arch:
-                linea = leer_linea(arch,",").strip().split(",")
+                linea = leer_linea(arch).strip().split(",")
                 while linea[0]!="":
                     entrada = csv.writer(unificado)
                     entrada.writerow(linea)
-                    linea = leer_linea(arch,",").strip().split(",")
+                    linea = leer_linea(arch).strip().split(",")
     guardar_archivo(archivo_aux,lista_archivos)
 
 def separador_archivos(lista_archivos):
@@ -110,7 +109,7 @@ def proceso_archivos(nombre_modulo, archivo) :
         """
     funciones_fuente = [] # Aca iran a parar las funciones para fuente codigo 
     funciones_comentarios = [] # Y aca las funciones para comentarios
-    ultima_lectura = leer_linea(archivo," ")
+    ultima_lectura = leer_linea(archivo)
     while ultima_lectura:
         ultima_lectura = ultima_lectura.strip().split()
         if len(ultima_lectura)>0 and ultima_lectura[0] == "def":
@@ -126,13 +125,13 @@ def proceso_archivos(nombre_modulo, archivo) :
             funciones_fuente.append(linea_fuente)
             funciones_comentarios.append(linea_comentarios)
         else:#Si no es un def no es una funcion.Probablemente sea un from o un bloque principal.El enunciado no pide analizarlo.
-            ultima_lectura=leer_linea(archivo," ")
+            ultima_lectura=leer_linea(archivo)
     return ordenamiento_insercion(funciones_fuente),ordenamiento_insercion(funciones_comentarios)
 
 def analizador_funcion(linea_fuente,linea_comentarios,archivo):
     """[Autor : Nicolas ]"""
     """[Ayuda : Analizara la funcion para enviarla a las listas correspondientes]"""
-    lectura = leer_linea(archivo," ")
+    lectura = leer_linea(archivo)
     
     #Si sale de este while, esta por empezar otra funcion o leyo el fin de archivo.
     
@@ -157,7 +156,7 @@ def analizador_funcion(linea_fuente,linea_comentarios,archivo):
             de la triple comilla y en caso de que no haya corchete dejar un 
             espacio antes de la triple comilla.
             """
-            segunda_lectura=leer_linea(archivo," ").strip().split()
+            segunda_lectura=leer_linea(archivo).strip().split()
             segunda_lectura = item_necesario(segunda_lectura,",","")
             segunda_lectura = item_necesario(segunda_lectura,"]"," ")
             segunda_lectura = item_necesario(segunda_lectura,"["," ")
@@ -168,7 +167,7 @@ def analizador_funcion(linea_fuente,linea_comentarios,archivo):
         linea_fuente,linea_comentarios,palabras_faltantes = linea_ayuda_autor(lectura,linea_comentarios,linea_fuente,encontradas,palabras_faltantes)
         if len(encontradas) == 0 and lectura:
             linea_fuente.append(unir_linea(lectura," "))
-        lectura = leer_linea(archivo," ")
+        lectura = leer_linea(archivo)
     linea_comentarios = encontrar_palabras(palabras_faltantes,linea_comentarios)
     
     return linea_comentarios,linea_fuente,lectura
@@ -226,7 +225,7 @@ def archivos () :
     
     lista_archivos = []
     rutas = open("programas.txt", 'r')
-    ruta = leer_linea_string(rutas)
+    ruta = leer_linea(rutas).strip()
     i = 0
     while ruta: #aaj
         i+=1 # Este indice lo creo para distinguir los archivos
@@ -243,6 +242,6 @@ def archivos () :
         generar_archivo(comentarios,ruta_comentarios)
         lista_archivos.append(ruta_fuente)
         lista_archivos.append(ruta_comentarios)
-        ruta = leer_linea_string(rutas)
+        ruta = leer_linea(rutas).strip()
     separador_archivos(lista_archivos)
     eliminar_archivos(lista_archivos)

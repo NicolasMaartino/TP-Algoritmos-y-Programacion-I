@@ -44,13 +44,7 @@ def generar_archivo (lista,ruta) :
 
     archivo.close()
 
-def leer_linea_string (archivo) :
-    """[ Autor : Nicolas]"""
-    """[Ayuda : lee una linea de un archivo y devuelve un string]"""
-
-    return archivo.readline().strip()
-
-def leer_linea (archivo,corte) :
+def leer_linea (archivo) :
     
     """[Ayuda : lee una linea del archivo y devuelve una lista]"""
     
