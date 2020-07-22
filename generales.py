@@ -3,10 +3,10 @@ def listar_archivo (archivo):
     """ [Autor : Lucia] """
     """ [Ayuda : convierte al archivo en una lista donde cada elemento es una linea del mismo] """
     lista_ar = []
-    linea = (leer_linea(archivo,","))
+    linea = (leer_linea(archivo))
     while linea:
         lista_ar.append(linea.rstrip("\n").split(","))
-        linea = leer_linea(archivo,",")
+        linea = leer_linea(archivo)
     return lista_ar
 
 def agregar_linea_especifica(indice,linea,lista):
@@ -20,7 +20,7 @@ def agregar_linea_especifica(indice,linea,lista):
 def item_necesario(linea,eliminar,condicion):
     """[Autor : Nicolas]
        [Ayuda : Esta funcion va a buscar un dato exacto y hara lo que necesites con el.
-          Convertira todo a un nuevo strin y una nueva lista que con el metodo extend
+          Convertira todo a un nuevo string y una nueva lista que con el metodo extend
           se unira a la lista final]
     """
     i=0

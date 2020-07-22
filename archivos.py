@@ -35,22 +35,16 @@ def grabar_archivo (archivo,leyenda) :
 
 def generar_archivo (lista,ruta) :
     """[Autor : Nicolas]"""
-    """[Ayuda : Genera un archivo a traves de un iterable, y si lo necesitas te lo devuelve abierto]"""
+    """[Ayuda : Genera un archivo a traves de un iterable y si lo necesitas te lo devuelve abierto]"""
     
-    archivo = open(ruta,"w")
+    archivo = open(ruta,"w",newline='\n')
     for funcion in lista:
         leyenda = ",".join(funcion)+"\n"
         grabar_archivo(archivo,leyenda)
 
     archivo.close()
 
-def leer_linea_string (archivo) :
-    """[ Autor : Nicolas]"""
-    """[Ayuda : lee una linea de un archivo y devuelve un string]"""
-
-    return archivo.readline().strip()
-
-def leer_linea (archivo,corte) :
+def leer_linea (archivo) :
     
     """[Ayuda : lee una linea del archivo y devuelve una lista]"""
     
