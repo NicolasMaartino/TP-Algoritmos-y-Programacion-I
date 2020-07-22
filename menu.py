@@ -34,7 +34,7 @@ def menu():
         texto_menu()
         opcion =input("Ingrese una opcion: ")
         while opcion:
-            os.system("clear")
+            os.system("cls")
             while opcion not in "12345":
                 texto_menu()
                 opcion=input("Ingrese una opcion valida o enter para salir: ")
@@ -55,10 +55,12 @@ def menu():
             elif opcion=="5":
                 informacion_desarrolladores()
                 enter = input("Ingrese enter para continuar")
-            os.system("clear")
+            os.system("cls")
             texto_menu()
             opcion=ingresar("Ingrese una opción o en blanco para salir: ")
         fuente_codigo.close()
         comentarios.close()
     else:
         print("\n\t\tATENCION [!]\n\n\tProgramas.txt ESTA VACIO\n")
+        
+menu()
