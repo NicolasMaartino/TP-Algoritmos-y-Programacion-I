@@ -4,7 +4,7 @@ from tabla import formato_interrogacion,formato_numeral,imprimir_todo,tabla_cons
 
 def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
     """[Autor: Juan Godoy]"""
-    """[Ayuda : Funcion que imprime todo lo relacionado con las funciones ?todo, #todo, e imprimir ?todo]"""
+    """[Ayuda : Funcion que imprime todo lo relacionado con las funciones ?todo, #todo,e imprimir ?todo]"""
     ayuda_funciones=open("ayuda_funciones.txt", "w") 
     archivo_funciones.seek(0)
     archivo_comentarios.seek(0)
