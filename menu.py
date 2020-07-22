@@ -34,7 +34,7 @@ def menu():
         texto_menu()
         opcion =input("Ingrese una opcion: ")
         while opcion:
-            os.system("cls")
+            os.system("cls") #En Linux el comando sería "clear"
             while opcion not in "12345":
                 texto_menu()
                 opcion=input("Ingrese una opcion valida o enter para salir: ")
