@@ -228,7 +228,7 @@ def archivos () :
     ruta = leer_linea(rutas).strip()
     i = 0
     while ruta: #aaj
-        i+=1 # Este indice lo creo para distinguir los archivos
+        i+=1 #Este indice lo creo para distinguir los archivos
         nombre_archivo = ruta.split("/").pop()
         nombre_archivo=nombre_archivo[0:len(nombre_archivo)-3]
 
