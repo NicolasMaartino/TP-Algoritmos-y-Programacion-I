@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import csv
 from os import remove
 from generales import buscar_dato,unir_linea,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,tipo_archivos,item_necesario,agregar_linea_especifica
@@ -6,21 +7,22 @@ from archivos import *
 
 def guardar_archivo(archivo_aux, lista_archivos):
     """[Autor : Alejandro] 
-     Ayuda : Lee archivo_aux.csv, extrae la informacion y realiza la mezcla respectiva 
+    Ayuda : Lee archivo_aux.csv, extrae la informacion y realiza la mezcla respectiva 
     para luego eliminar archivo_aux.csv 
-     """
+    """
     archivo_mezcla = tipo_archivos(lista_archivos[0])
-    with open(archivo_mezcla,"w") as prestaciones:
+    with open(archivo_mezcla,"w", newline='') as prestaciones:
         with open(archivo_aux,"r") as auxiliar:
             entrada = csv.reader(auxiliar)
-            ordenado = sorted(entrada, key=lambda fila: fila[0])
+            data = [fila for fila in entrada if fila]
+            ordenado = sorted(data, key=lambda fila: fila[0])
             for fila in ordenado:
-                salida = csv.writer(prestaciones)
+                salida = csv.writer(prestaciones,delimiter=",")
                 salida.writerow(fila)
-    remove(archivo_aux) 
+    remove(archivo_aux)
 
 def mezcla(lista_archivos):
-    """[Autor : Alejandro] """
+    """[Autor : Alejandro]"""
     """[Ayuda : Mezcla Archivos CSV's] """
     archivo_aux = "archivo_aux.csv"
     with open(archivo_aux,"w") as unificado:
@@ -128,11 +130,8 @@ def proceso_archivos(nombre_modulo, archivo) :
     return ordenamiento_insercion(funciones_fuente),ordenamiento_insercion(funciones_comentarios)
 
 def analizador_funcion(linea_fuente,linea_comentarios,archivo):
-    """
-    [Autor : Nicolas ] 
-    """
-    """[Ayuda : Analizara la funcion para enviarla a las listas correspondientes] """
-
+    """[Autor : Nicolas ]"""
+    """[Ayuda : Analizara la funcion para enviarla a las listas correspondientes]"""
     lectura = leer_linea(archivo," ")
     
     #Si sale de este while, esta por empezar otra funcion o leyo el fin de archivo.
@@ -210,7 +209,6 @@ def seccion_comentarios(lectura, lista_comentarios, lista_fuente) :
             lectura = reemplazar_toda_la_lista(lectura,['"""'],"")
             lista_comentarios.append(unir_linea(lectura," "))
         i+=1
-    
     return lista_fuente,lista_comentarios
 
 def eliminar_archivos(archivos):
