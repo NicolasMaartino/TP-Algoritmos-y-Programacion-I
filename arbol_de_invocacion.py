@@ -5,7 +5,7 @@ from generales import listar_archivo
 dic_prueba = {'analiza_codigo': {'generar_archivo': 2, 'leer_linea_string': 2, 'validar_linea': 1},
            'generar_archivo': {'grabar_archivo': 1},
            'grabar_archivo': {},
-           'leer_linea': {},
+           'leer_linea': {"unir_linea" : 1},
            'leer_linea_string': {},
            'ordenamiento_insercion': {},
            'reemplazar_string': {},
@@ -43,9 +43,15 @@ def esquema(dic, main):
             if key != "lineas":
                 print("{}({}) --> {}({})".format(main[i], dic[main[i]]["lineas"], key, dic[key]["lineas"]))
                 for n in range(0, dic[main[i]][key]-1):
-                    print("                       {}({}) --> {}".format(key, dic[key]["lineas"], list(dic[key].keys())[0]))
+                    if ((list(dic[key].keys()))[0] != "lineas"):
+                        print("                       {}({}) --> {}".format(key, dic[key]["lineas"], list(dic[key].keys())[0]))
+                    else:
+                        print("                       {}({})".format(key, dic[key]["lineas"]))
             else:
                 print("{}({})".format(main[i], dic[main[i]]["lineas"]))
+
+
+  
     
     
 fuente_unico = open("fuente_unico.csv", "r") # Borrar y pasar como parametro
@@ -54,8 +60,8 @@ fuente_unico.close()
 fuente_unico = open("fuente_unico.csv", "r")
 diccionario = funciones_invocadas(fuente_unico)
 dic2 = cant_lineas(lista_ar, diccionario)
-fuente_unico.close()
 main_2 = busca_main(dic2)
 esquema(dic2, main_2)
 
+fuente_unico.close()
 """"""
