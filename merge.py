@@ -13,6 +13,7 @@ def guardar_archivo(archivo_aux, lista_archivos):
     with open(archivo_mezcla,"w") as prestaciones:
         with open(archivo_aux,"r") as auxiliar:
             entrada = csv.reader(auxiliar)
+            print(entrada)
             ordenado = sorted(entrada, key=lambda fila: fila[0])
             for fila in ordenado:
                 salida = csv.writer(prestaciones)
