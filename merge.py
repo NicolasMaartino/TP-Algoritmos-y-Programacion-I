@@ -235,7 +235,7 @@ def archivos () :
 
         #Abro ruta dentro de programas.txt
         
-        codigo = open(ruta,'r',newline="\n")
+        codigo = open(ruta,'r',encoding="utf8")
         fuente_unico,comentarios = proceso_archivos(nombre_archivo,codigo)
         ruta_fuente = "fuente_unico"+str(i) +".csv"
         ruta_comentarios= "comentarios"+str(i) +".csv"
