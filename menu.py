@@ -62,6 +62,3 @@ def menu():
         comentarios.close()
     else:
         print("\n\t\tATENCION [!]\n\n\tProgramas.txt ESTA VACIO\n")
-
-menu()
-
