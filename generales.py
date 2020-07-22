@@ -20,7 +20,7 @@ def agregar_linea_especifica(indice,linea,lista):
 def item_necesario(linea,eliminar,condicion):
     """[Autor : Nicolas]
        [Ayuda : Esta funcion va a buscar un dato exacto y hara lo que necesites con el.
-          Convertira todo a un nuevo strin y una nueva lista que con el metodo extend
+          Convertira todo a un nuevo string y una nueva lista que con el metodo extend
           se unira a la lista final]
     """
     i=0
