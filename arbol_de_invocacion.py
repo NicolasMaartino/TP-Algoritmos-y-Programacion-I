@@ -61,7 +61,6 @@ def esquema_arbol(dic, main):
     
   
     
-    
 fuente_unico = open("fuente_unico.csv", "r") # Borrar y pasar como parametro
 lista_ar = listar_archivo(fuente_unico)
 fuente_unico.close()
