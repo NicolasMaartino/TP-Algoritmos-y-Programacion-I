@@ -1,8 +1,8 @@
 agregar_linea_especifica,Nicolas,Agrega una linea especifica a una lista
 analizador_funcion,Nicolas,Analizara la funcion para enviarla a las listas correspondientes,# Si sale de este while esta por empezar otra funcion o leyo el fin de archivo.,# Las comas molestan en la lectura del archivo. Las eliminamos y ponemos un espacio en su lugar.,# Esta funcion es clave me simplifica la lectura de las lineas., Preguntare si abrio una triple comillas y nunca lo cerro. Eso nos estaria diciendo que el comentario no finalizo. , Guarda aca el codigo esta preparado para detectar un corchete para separar de la triple comilla y en caso de que no haya corchete dejar un espacio antes de la triple comilla.
-archivos,Nicolas,Guardara el codigo como lo pide el enunciado,# Esta funcion guardar· cada archivo ordenado en una lista,# aaj,# Este indice lo creo para distinguir los archivos,# Abro ruta dentro de programas.txt
-autor,Lucia,Indica el nombre del autor de la funciÛn
-ayuda,Lucia,verifica si hay o no un comentario de ayuda dentro de la funciÛn
+archivos,Nicolas,Guardara el codigo como lo pide el enunciado,# Esta funcion guardar√° cada archivo ordenado en una lista,# aaj,# Este indice lo creo para distinguir los archivos,# Abro ruta dentro de programas.txt
+autor,Lucia,Indica el nombre del autor de la funci√≥n
+ayuda,Lucia,verifica si hay o no un comentario de ayuda dentro de la funci√≥n
 buscar_dato,Nicolas,Se le pasa una lista con datos a buscar en la linea del archivo
 buscar_funciones,Juan Godoy,Va buscando en los archivos la funcion que necesito
 carga_informacion_desarrollador,Alejandro,N/N
@@ -20,7 +20,7 @@ generar_archivo,Nicolas,Genera la escritura del archivo panel_general,# Esta fun
 grabar_archivo,Nicolas,Graba linea en un archivo pasado por parametro
 guardar_archivo,Alejandro,Lee archivo_aux.csv extrae la informacion y realiza la mezcla respectiva para luego eliminar archivo_aux.csv
 imprimir_analizador,Sofia Marchesini,imprimo la tabla y la copio al archivo analizador.txt
-imprimir_panel,Lucia,Crea la una tabla,Tabla =  \ +-----------------------------------------------------------------------------------------------------------------------------------------------+ | FUNCION Parametros---LÌneas---Invocaciones---Returns---If/elif---for---while---Break---Exit---Coment---Ayuda---Autor | ------------------------------------------------------------------------------------------------------------------------------------------------| {} +-----------------------------------------------------------------------------------------------------------------------------------------------+\
+imprimir_panel,Lucia,Crea la una tabla,Tabla =  \ +-----------------------------------------------------------------------------------------------------------------------------------------------+ | FUNCION Parametros---L√≠neas---Invocaciones---Returns---If/elif---for---while---Break---Exit---Coment---Ayuda---Autor | ------------------------------------------------------------------------------------------------------------------------------------------------| {} +-----------------------------------------------------------------------------------------------------------------------------------------------+\
 imprimir_tabla_desarrollador,Alejandro,Imprime la tabla para desarrollador
 imprimir_todo,Juan Godoy,imprime en un archivo .txt lo relacionado con la opcion ?
 imprimir_todo,Juan Godoy,imprime en un archivo .txt lo relacionado con la opcion ?
@@ -51,8 +51,8 @@ proceso_archivos,Nicolas,Va a validar las lineas del archivo para saber a cual d
 reemplazar_string,Nicolas,Con la funcion replace reemplazaremos los datos del parametro reemplazar con otro parametro reemplazo
 reemplazar_toda_la_lista,Nicolas,Reemplaza en una lista todos sus elementos
 reunir_parametros,Nicolas,Reune los parametros necesarios
-seccion_comentarios,Nicolas,Este es el sector que corresponderia al analisis de la linea del archivo que corresponde a comentarios,# Esto es condiciÛn para que cuando encuentre la almohadilla salga del while
-separador_archivos,Alejandro,Esta funciÛn recibe una lista con comentarios y fuente divide en dos listas acorde al nombre respectivo
+seccion_comentarios,Nicolas,Este es el sector que corresponderia al analisis de la linea del archivo que corresponde a comentarios,# Esto es condici√≥n para que cuando encuentre la almohadilla salga del while
+separador_archivos,Alejandro,Esta funci√≥n recibe una lista con comentarios y fuente divide en dos listas acorde al nombre respectivo
 tabla_consultas,Juan Godoy,Funcion que acumula nombres de funciones para luego dibujarlas en una tabla
 texto_menu,N/N,N/N
 tipo_archivos,Alejandro,valida si el archivo recibido es comentarios o fuente_unico
