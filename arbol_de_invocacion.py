@@ -17,13 +17,13 @@ dic_prueba = {'analiza_codigo': {'generar_archivo': 2, 'leer_linea_string': 2, '
 def busca_main(dic):
     """[Autor: Sofia y Lucia]"""
     """[Ayuda: Busca funciones que sea la función principal]"""
-    main = []   
+    main = ""   
     valores = list(dic.values())
     for key in dic.keys():
         contador = 0
         while (len(valores) > contador) and (key not in list(valores[contador].keys())):
-            if (key not in main) and (contador == len(valores) - 1):
-                main.append(key)
+            if (contador == len(valores) - 1):
+                main = key
             contador += 1
 
     return main
@@ -38,19 +38,27 @@ def cant_lineas(lista_ar_fu, dic):
     return dic
 
 def esquema(dic, main):
-    for i in range(0, len(main)):
-        for key in dic[main[i]].keys():
-            if key != "lineas":
-                print("{}({}) --> {}({})".format(main[i], dic[main[i]]["lineas"], key, dic[key]["lineas"]))
-                for n in range(0, dic[main[i]][key]-1):
-                    if ((list(dic[key].keys()))[0] != "lineas"):
-                        print("                       {}({}) --> {}".format(key, dic[key]["lineas"], list(dic[key].keys())[0]))
-                    else:
-                        print("                       {}({})".format(key, dic[key]["lineas"]))
-            else:
-                print("{}({})".format(main[i], dic[main[i]]["lineas"]))
+    
+    for key in dic[main].keys():
+        if key != "lineas":
+            print("{}({}) --> {}({})".format(main, dic[main]["lineas"], key, dic[key]["lineas"]))
+            for n in range(0, dic[main][key]-1):
+                if ((list(dic[key].keys()))[0] != "lineas"):
+                    print("                       {}({}) --> {}({})".format(key, dic[key]["lineas"], list(dic[key].keys())[0]), )
+                else:
+                    print("                       {}({})".format(key, dic[key]["lineas"]))
 
 
+def esquema_arbol(dic, main):
+    
+    for key, invocacion in dic.items():
+        print("{}({})".format(key, invocacion["lineas"]), end="")
+        for i in invocacion.items():
+            if i[0] != "lineas":
+                string = "--->" + i[0]
+                print("{:>25}({})".format(string, i[1]))
+        print("\n")
+    
   
     
     
@@ -60,8 +68,8 @@ fuente_unico.close()
 fuente_unico = open("fuente_unico.csv", "r")
 diccionario = funciones_invocadas(fuente_unico)
 dic2 = cant_lineas(lista_ar, diccionario)
-main_2 = busca_main(dic2)
-esquema(dic2, main_2)
+busca_main(dic2)
+
 
 fuente_unico.close()
 """"""
