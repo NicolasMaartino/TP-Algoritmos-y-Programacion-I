@@ -42,7 +42,7 @@ def funciones_invocadas(fuente):
     El diccionario tendra como valor como un diccionario compuesto por la funcion
     que invoco , y el valor las veces invocada.
     Si no invoca ninguna funcion aparecera la lista vacia
-    funcion1 {funcion2 : n veces} , funcion 1 llama a funcion 2 n veces]
+    funcion1 {funcion2 : n veces} ,funcion 1 llama a funcion 2 n veces]
     
     """
     linea = leer_linea_clasico(fuente,",")

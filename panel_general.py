@@ -136,7 +136,7 @@ def generar_archivo(dic):
 
 def panel_general(fuente_unico,comentarios):
     """[Autor: Lucia]"""
-    """[Ayuda: ejecuta todo, es el main del programa]"""
+    """[Ayuda: ejecuta todo,es el main del programa]"""
     fuente_unico.seek(0)
     comentarios.seek(0)
     lista_fuente_unico = listar_archivo(fuente_unico) # Cambiarle el parametro de listar_archivo
