@@ -34,7 +34,7 @@ def menu():
         texto_menu()
         opcion =input("Ingrese una opcion: ")
         while opcion:
-            os.system("cls") #En Linux el comando sería "clear"
+            borrador()
             while opcion not in "12345":
                 texto_menu()
                 opcion=input("Ingrese una opcion valida o enter para salir: ")
@@ -55,7 +55,7 @@ def menu():
             elif opcion=="5":
                 informacion_desarrolladores()
                 enter = input("Ingrese enter para continuar")
-            os.system("cls")
+            borrador()
             texto_menu()
             opcion=ingresar("Ingrese una opción o en blanco para salir: ")
         fuente_codigo.close()
@@ -63,4 +63,9 @@ def menu():
     else:
         print("\n\t\tATENCION [!]\n\n\tProgramas.txt ESTA VACIO\n")
         
+def borrador():
+    if os.name == "posix":
+        os.system ("clear")
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":
+        os.system ("cls")
 menu()
