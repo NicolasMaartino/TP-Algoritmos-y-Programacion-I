@@ -37,28 +37,28 @@ def cant_lineas(lista_ar_fu, dic):
         
     return dic
 
-def esquema(dic, main):
-    
-    for key in dic[main].keys():
-        if key != "lineas":
-            print("{}({}) --> {}({})".format(main, dic[main]["lineas"], key, dic[key]["lineas"]))
-            for n in range(0, dic[main][key]-1):
-                if ((list(dic[key].keys()))[0] != "lineas"):
-                    print("                       {}({}) --> {}({})".format(key, dic[key]["lineas"], list(dic[key].keys())[0]), )
-                else:
-                    print("                       {}({})".format(key, dic[key]["lineas"]))
-
-
-def esquema_arbol(dic, main):
-    
-    for key, invocacion in dic.items():
-        print("{}({})".format(key, invocacion["lineas"]), end="")
-        for i in invocacion.items():
-            if i[0] != "lineas":
-                string = "--->" + i[0]
-                print("{:>25}({})".format(string, i[1]))
-        print("\n")
-    
+def arbol(diccionario,dic_lineas):
+    main = "analiza_codigo"
+    print("{}({}) ".format(main,dic_lineas[main]),end = "")
+    for key in diccionario[main].keys():
+        if key != "":
+            print("{}---> {}({}) ".format(" "*len(main) + "  ",key,dic_lineas[key]),end = "")
+            for value in diccionario[key].keys():
+                print("---> {}({})".format(value,dic_lineas[value]), end = "")
+            print("\n")
+                        
+def imprimir(lista,dic_lineas):
+    main = "analiza_codigo"
+    fila_2 = ""
+    if main in lista:
+        fila_1 = ""
+        fila_1 += "{}({})".format(main,dic_lineas[main])
+        for c in lista:
+            if c not in main:
+                linea = dic_lineas[c]
+                fila_2 += "{}({})".format(c,linea)
+        print("{} ---> {}".format(fila_1, fila_2))
+        
   
     
 fuente_unico = open("fuente_unico.csv", "r") # Borrar y pasar como parametro
