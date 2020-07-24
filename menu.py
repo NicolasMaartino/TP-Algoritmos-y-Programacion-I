@@ -14,10 +14,6 @@ def texto_menu():
             4-Árbol de invocación
             5-Información por desarrollador""")
 
-def ingresar(leyenda):
-    return input(leyenda)
-
-
 def menu():
     """ [Autor : N/N]
         [Ayuda : Menu principal de nuestro programa]"""
@@ -57,7 +53,7 @@ def menu():
                 enter = input("Ingrese enter para continuar")
             borrador()
             texto_menu()
-            opcion=ingresar("Ingrese una opción o en blanco para salir: ")
+            opcion=input("Ingrese una opción o en blanco para salir: ")
         fuente_codigo.close()
         comentarios.close()
     else:
