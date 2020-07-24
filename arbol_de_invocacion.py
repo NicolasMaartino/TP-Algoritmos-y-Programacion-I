@@ -67,8 +67,7 @@ fuente_unico.close()
 fuente_unico = open("fuente_unico.csv", "r")
 diccionario = funciones_invocadas(fuente_unico)
 dic2 = cant_lineas(lista_ar, diccionario)
-busca_main(dic2)
-
+dic=busca_main(dic2)
+arbol(dic_prueba,dic2)
 
 fuente_unico.close()
-""""""
