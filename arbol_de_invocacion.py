@@ -28,14 +28,16 @@ def busca_main(dic):
 
     return main
 
-def cant_lineas(lista_ar_fu, dic):
+
+def cant_lineas(lista_ar_fu):
     """[Autor: Lucia]"""
     """[Ayuda: Cuenta la cantidad de lineas por funcion]"""
     
+    dic = {}
     for funcion in lista_ar_fu:
-        dic[funcion[0]]["lineas"] = len(funcion) - 2
+        dic[funcion[0]] = (len(funcion) - 2)
         
-    return dic
+    return dic_lineas
 
 def arbol(diccionario,dic_lineas):
     main = "analiza_codigo"
