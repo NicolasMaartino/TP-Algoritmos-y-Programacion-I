@@ -21,6 +21,7 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
         lista_comentarios = leer_linea_clasico(archivo_comentarios, ",")
         lista_funciones = leer_linea_clasico(archivo_funciones, ",")
     ayuda_funciones.close()
+    print("\n  ayuda_funciones.txt ha sido generado con exito...\n\n")
     return 
     
 
@@ -53,12 +54,14 @@ def panel_consultas(fuente_unico, comentarios):
     """[Ayuda : Funcion principal que pide el ingreso de una funcion y segun la opcion que elijas, imprime diversas cosas]"""
     
     tabla_consultas(comentarios)
+    print("  ?todo o #todo : Muestra Informacion para cada una de la funciones que se muestra en pantalla\n  imprimir ?todo: enviar contenido de funciones a un archivo, respete el espacio entre palabra y simbolo\n\n  Enter para salir")
     valor_solicitado=input("\nFunción: ")
     while valor_solicitado:
         if valor_solicitado=="imprimir ?todo" or valor_solicitado=="?todo" or valor_solicitado=="#todo":
             opcion_todo(valor_solicitado, fuente_unico, comentarios)
         else:
             opciones_funcion(valor_solicitado,fuente_unico, comentarios)
+        print("  ?todo o #todo : Muestra Informacion para cada una de la funciones que se muestra en pantalla\n  imprimir ?todo: enviar contenido de funciones a un archivo,respete el espacio entre palabra y simbolo\n\n  Enter para salir")
         valor_solicitado=input("\nFunción: ")
 
 
