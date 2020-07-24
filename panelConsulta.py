@@ -21,7 +21,6 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
         lista_comentarios = leer_linea_clasico(archivo_comentarios, ",")
         lista_funciones = leer_linea_clasico(archivo_funciones, ",")
     ayuda_funciones.close()
-    print("\n  ayuda_funciones.txt ha sido generado con exito...\n\n")
     return 
     
 
