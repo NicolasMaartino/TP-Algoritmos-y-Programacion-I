@@ -9,34 +9,6 @@ def listar_archivo (archivo):
         linea = leer_linea(archivo)
     return lista_ar
 
-def agregar_linea_especifica(indice,linea,lista):
-    """ [Autor : Nicolas]
-       [Ayuda : Agrega una linea especifica a una lista]
-    """
-    union = unir_linea(linea," ").strip()
-    lista.insert(indice,union)
-    return lista
-
-def item_necesario(linea,eliminar,condicion):
-    """[Autor : Nicolas]
-       [Ayuda : Esta funcion va a buscar un dato exacto y hara lo que necesites con el.
-          Convertira todo a un nuevo string y una nueva lista que con el metodo extend
-          se unira a la lista final]
-    """
-    i=0
-    nueva_lista=[]
-    for elementos in linea:
-        nuevo_string=""
-        for letras in elementos:
-            if eliminar == letras:
-                nuevo_string+=condicion
-            else:
-                nuevo_string+=letras
-        lista=nuevo_string.split()
-        nueva_lista.extend(lista)
-        i+=1
-    return nueva_lista
-
 def tipo_archivos (archivo):
     """ Autor : Alejandro """
     """ Ayuda : valida si el archivo recibido es comentarios o fuente_unico """
@@ -64,8 +36,8 @@ def reemplazar_toda_la_lista (lista,elementos_reemplazados,reemplazo):
     lista_reemplazada=[]
 
     for elemento in lista:
-        elemento=reemplazar_string(elementos_reemplazados,reemplazo,elemento)
-        lista_reemplazada.append(elemento)
+        elemento=reemplazar_string(elementos_reemplazados,reemplazo,elemento).split()
+        lista_reemplazada.extend(elemento)
     return lista_reemplazada
 
 def ordenamiento_insercion (lista) :
@@ -84,12 +56,6 @@ def ordenamiento_insercion (lista) :
             else:
                 variable = False
     return lista
-
-def unir_linea (linea,condicion_union) :
-
-    """ [Autor : Nicolas] """
-    """ [Ayuda : Junta las lineas con el metodo join] """
-    return condicion_union.join(linea)
 
 def reemplazar_string (reemplazar,reemplazo,string):
     

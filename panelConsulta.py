@@ -4,7 +4,7 @@ from tabla import formato_interrogacion,formato_numeral,imprimir_todo,tabla_cons
 
 def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
     """[Autor: Juan Godoy]"""
-    """[Ayuda : Funcion que imprime todo lo relacionado con las funciones ?todo, #todo,e imprimir ?todo]"""
+    """[Ayuda : Funcion que imprime todo lo relacionado con las funciones ?todo, '#'todo,e imprimir ?todo]"""
     ayuda_funciones=open("ayuda_funciones.txt", "w") 
     archivo_funciones.seek(0)
     archivo_comentarios.seek(0)
@@ -44,8 +44,7 @@ def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
         elif (valor.endswith("#")) and (lista_comentarios[0]!="") and (lista_funciones[0]!=""):
             formato_numeral(lista_funciones, lista_comentarios)
         else:
-            print("\nPorfavor ingrese un nombre de funcion valido seguido de ? o #. \n")
-    return 
+            print("\nPorfavor ingrese un nombre de funcion valido seguido de ? o '#'. \n")
         
         
 def panel_consultas(fuente_unico, comentarios):
@@ -53,14 +52,14 @@ def panel_consultas(fuente_unico, comentarios):
     """[Ayuda : Funcion principal que pide el ingreso de una funcion y segun la opcion que elijas, imprime diversas cosas]"""
     
     tabla_consultas(comentarios)
-    print("  ?todo o #todo : Muestra Informacion para cada una de la funciones que se muestra en pantalla\n  imprimir ?todo: enviar contenido de funciones a un archivo, respete el espacio entre palabra y simbolo\n\n  Enter para salir")
+    print("  ?todo o '#'todo : Muestra Informacion para cada una de la funciones que se muestra en pantalla\n  imprimir ?todo: enviar contenido de funciones a un archivo, respete el espacio entre palabra y simbolo\n\n  Enter para salir")
     valor_solicitado=input("\nFunción: ")
     while valor_solicitado:
         if valor_solicitado=="imprimir ?todo" or valor_solicitado=="?todo" or valor_solicitado=="#todo":
             opcion_todo(valor_solicitado, fuente_unico, comentarios)
         else:
             opciones_funcion(valor_solicitado,fuente_unico, comentarios)
-        print("  ?todo o #todo : Muestra Informacion para cada una de la funciones que se muestra en pantalla\n  imprimir ?todo: enviar contenido de funciones a un archivo,respete el espacio entre palabra y simbolo\n\n  Enter para salir")
+        print("  ?todo o '#'todo : Muestra Informacion para cada una de la funciones que se muestra en pantalla\n  imprimir ?todo: enviar contenido de funciones a un archivo,respete el espacio entre palabra y simbolo\n\n  Enter para salir")
         valor_solicitado=input("\nFunción: ")
 
 

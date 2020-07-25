@@ -21,6 +21,7 @@ def busca_main(dic):
     valores = list(dic.values())
     for key in dic.keys():
         contador = 0
+        print(valores[contador])
         while (len(valores) > contador) and (key not in list(valores[contador].keys())):
             if (contador == len(valores) - 1):
                 main = key
@@ -37,7 +38,7 @@ def cant_lineas(lista_ar_fu):
     for funcion in lista_ar_fu:
         dic[funcion[0]] = (len(funcion) - 2)
         
-    return dic_lineas
+    return dic
 
 def arbol(diccionario,dic_lineas):
     main = "analiza_codigo"
@@ -68,7 +69,7 @@ lista_ar = listar_archivo(fuente_unico)
 fuente_unico.close()
 fuente_unico = open("fuente_unico.csv", "r")
 diccionario = funciones_invocadas(fuente_unico)
-dic2 = cant_lineas(lista_ar, diccionario)
+dic2 = cant_lineas(lista_ar)
 dic=busca_main(dic2)
 arbol(dic_prueba,dic2)
 

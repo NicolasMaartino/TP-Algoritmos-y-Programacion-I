@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import csv
 from os import remove
-from generales import buscar_dato,unir_linea,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,tipo_archivos,item_necesario,agregar_linea_especifica
+from generales import buscar_dato,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,tipo_archivos
 from archivos import *
 
 def guardar_archivo(archivo_aux, lista_archivos):
@@ -61,30 +61,39 @@ def indice_vaciado(lista_datos, lista_borrar):
         i+=1
     return i
 
-def linea_ayuda_autor(linea, linea_comentarios , linea_fuente,palabras_buscadas,palabras_faltantes):
+def analisis_linea(linea, linea_comentarios , linea_fuente,palabras_buscadas,palabras_faltantes):
     """ [Autor : Nicolas] """
-    """ [Ayuda : Se le pasa una lista con las palabras encontradas y se fija si realmente alguna esta] """        
-    
+    """ [Ayuda : Se le pasa una lista con las palabras encontradas y se fija si realmente alguna esta] """         
     if "Autor" in palabras_buscadas and "Ayuda" in palabras_buscadas:
-        palabras_faltantes.append("Autor")
-        palabras_faltantes.append("Ayuda")
+        palabras_faltantes.extend(["Autor","Ayuda"])
+        """
+        ACLARACION : la funcion indice vaciado va a darme el indice en el cual 
+        encuentra ambas palabras en la lista, para separarlas.Ya sabiendo que 
+        ambas se van a encontrar,pero solo si estan las dos juntas en la misma 
+        lista.
+        """
         i = indice_vaciado(linea,["Ayuda","Autor"])
         linea_segunda=linea[i-1:len(linea)]
         linea_primera = linea[0:i-1]
+        # Lo hago en cada una porque sino me corre el indice anterior.
         linea_primera = reemplazar_toda_la_lista(linea_primera,["Autor","Ayuda",'"""',","],"")
         linea_segunda = reemplazar_toda_la_lista(linea_segunda,["Autor","Ayuda",'"""',","],"")
-        linea_comentarios = agregar_linea_especifica(1,linea_primera,linea_comentarios)
-        linea_comentarios = agregar_linea_especifica(2,linea_segunda,linea_comentarios)
+        linea = " ".join(linea_primera).strip()
+        linea_comentarios.insert(1,linea)
+        linea = " ".join(linea_segunda).strip()
+        linea_comentarios.insert(2,linea)
     elif "Autor" in palabras_buscadas :
         palabras_faltantes.append("Autor")
         union=reemplazar_toda_la_lista(linea,['"""','[',']',"Autor",":"],"")
-        linea_comentarios = agregar_linea_especifica(1,union,linea_comentarios)
+        linea = " ".join(union).strip()
+        linea_comentarios.insert(1,linea)
     elif "Ayuda" in palabras_buscadas:
         palabras_faltantes.append("Ayuda")
         union= reemplazar_toda_la_lista(linea,['"""','[',']',"Ayuda",":"],"")
-        linea_comentarios = agregar_linea_especifica(2,union,linea_comentarios)
-    elif "#" in palabras_buscadas or '"""' in palabras_buscadas:
-        linea_fuente,linea_comentarios=seccion_comentarios(linea,linea_comentarios,linea_fuente)
+        linea = " ".join(union).strip()
+        linea_comentarios.insert(2,linea)
+    elif "#" in palabras_buscadas or'"""'in palabras_buscadas:
+        linea_fuente,linea_comentarios = comentarios(linea,linea_comentarios,linea_fuente)
     
     return linea_fuente,linea_comentarios,palabras_faltantes
 
@@ -92,16 +101,14 @@ def reunir_parametros(linea):
     """ [Autor : Nicolas] """
     """ [Ayuda : Reune los parametros necesarios]
         """
-
     nueva_lista=[]
     for x in range (2,len(linea)):
         nueva_lista.extend([linea[x]])
-    nueva_lista=item_necesario(nueva_lista,","," ")
-    final = unir_linea(nueva_lista," ")
-    return final
-            
+    nueva_lista = reemplazar_toda_la_lista(nueva_lista,[","]," ")
+    final = " ".join(nueva_lista)
 
-            
+    return final
+      
 def proceso_archivos(nombre_modulo, archivo) :
     """ [Autor : Nicolas] """
     """ [Ayuda : Va a validar las lineas del archivo para saber 
@@ -114,13 +121,15 @@ def proceso_archivos(nombre_modulo, archivo) :
         ultima_lectura = ultima_lectura.strip().split()
         if len(ultima_lectura)>0 and ultima_lectura[0] == "def":
             # Analizaremos la funcion y la dividiremos en dos listas para saber a que archivo pertenecen.
-            ultima_lectura = item_necesario(ultima_lectura,"("," (")
-            ultima_lectura = item_necesario(ultima_lectura,":","")
+            ultima_lectura = reemplazar_toda_la_lista(ultima_lectura,["("]," (")
+            ultima_lectura = reemplazar_toda_la_lista(ultima_lectura,[":"],"")
+            #Reuno los parametros
             parametros = reunir_parametros(ultima_lectura)
             nombre_funcion = ultima_lectura[1]
             parametros = reemplazar_string(","," ",parametros)
             linea_fuente = [nombre_funcion,parametros,nombre_modulo]
             linea_comentarios = [nombre_funcion]
+            # Luego de desmenuzar los datos obligatorios, entro al analisis de la funcion.
             linea_comentarios,linea_fuente,ultima_lectura = analizador_funcion(linea_fuente,linea_comentarios,archivo)
             funciones_fuente.append(linea_fuente)
             funciones_comentarios.append(linea_comentarios)
@@ -134,55 +143,54 @@ def analizador_funcion(linea_fuente,linea_comentarios,archivo):
     lectura = leer_linea(archivo)
     
     #Si sale de este while, esta por empezar otra funcion o leyo el fin de archivo.
-    
     palabras_faltantes = []
     while lectura and "def"!= lectura[0:3] :
         lectura= lectura.strip().split()
-        lectura = reemplazar_toda_la_lista(lectura,[","]," ")
-        #Las comas molestan en la lectura del archivo. Las eliminamos y ponemos un espacio en su lugar.
-        lectura = item_necesario(lectura,"]"," ")
-        lectura = item_necesario(lectura,"["," ")
-        lectura = item_necesario(lectura,"#","# ")
-        #Esta funcion es clave, me simplifica la lectura de las lineas.
+        """ 
+        La utilidad que le doy a acomodar_lectura es a limpiar un poco el texto.
+        Se acomoda mejor en las listas y no quedan cosas pegadas a las palabras,
+        que pueden complicar la comprension del texto cuando quiera buscar datos.
+        """
+        lectura = reemplazar_toda_la_lista(lectura,[",","[","]",":"]," ")
+        lectura = reemplazar_toda_la_lista(lectura,['"""'],'""" ')
+        lectura = reemplazar_toda_la_lista(lectura,["#"],"# ")
         cuento = lectura.count('"""')
         """ 
         Preguntare si abrio una triple comillas 
         y nunca lo cerro. Eso nos estaria diciendo que el comentario
         no finalizo.
         """
+
         while cuento == 1:
-            """
-            Guarda aca, el codigo esta preparado para detectar un corchete para separar
-            de la triple comilla y en caso de que no haya corchete dejar un 
-            espacio antes de la triple comilla.
-            """
-            segunda_lectura=leer_linea(archivo).strip().split()
-            segunda_lectura = item_necesario(segunda_lectura,",","")
-            segunda_lectura = item_necesario(segunda_lectura,"]"," ")
-            segunda_lectura = item_necesario(segunda_lectura,"["," ")
+            
+            segunda_lectura = leer_linea(archivo).strip().split()
+            segunda_lectura = reemplazar_toda_la_lista(segunda_lectura,[","],"")
+            segunda_lectura = reemplazar_toda_la_lista(segunda_lectura,["]","[",":"]," ") 
+            segunda_lectura = reemplazar_toda_la_lista(segunda_lectura,['"""'],' """')
             lectura.extend(segunda_lectura)
             cuento = lectura.count('"""')
+            """ En caso que en la nueva extension de las lecturas haya una nueva triple
+                comillas, se entiende que cerro el comentario."""
         lectura = reemplazar_toda_la_lista(lectura,["[","]",":"],"")
         encontradas = buscar_dato(["Ayuda","Autor","#",'"""'],lectura)
-        linea_fuente,linea_comentarios,palabras_faltantes = linea_ayuda_autor(lectura,linea_comentarios,linea_fuente,encontradas,palabras_faltantes)
+        linea_fuente,linea_comentarios,palabras_faltantes = analisis_linea(lectura,linea_comentarios,linea_fuente,encontradas,palabras_faltantes)
         if len(encontradas) == 0 and lectura:
-            linea_fuente.append(unir_linea(lectura," "))
+            linea_fuente.append(" ".join(lectura))
         lectura = leer_linea(archivo)
     linea_comentarios = encontrar_palabras(palabras_faltantes,linea_comentarios)
     
     return linea_comentarios,linea_fuente,lectura
 
 def encontrar_palabras(palabras,linea_comentarios):
-    """ [Autor : Nicolas]
-        [Ayuda : Encuentra las palabras autor o ayuda o le pone N/N para que se note que falta autor]"""
+    """ [Autor : Nicolas]"""
     if "Autor" not in palabras:
         linea_comentarios.insert(1,"N/N")
     if "Ayuda" not in palabras:
         linea_comentarios.insert(2,"N/N")
+    """[Ayuda: Encuentra las palabras autor o ayuda o le pone N/N para que se note la falta de un autor]"""
     return linea_comentarios
 
-def seccion_comentarios(lectura, lista_comentarios, lista_fuente) :
-    """ [ Autor : Nicolas] """
+def comentarios(lectura, lista_comentarios, lista_fuente) :
     """
         [Ayuda : Este es el sector que corresponderia al analisis de la linea del archivo 
             que corresponde a comentarios]
@@ -193,21 +201,24 @@ def seccion_comentarios(lectura, lista_comentarios, lista_fuente) :
     
     while i<len(lectura) and encontro == False:
         elemento = lectura[i]
-        
         if elemento == "#" and i>0 :
+            # Si entro aca es porque el comentario es entre medio de una linea.
             encontro = True
             comentario = lectura[i:len(lectura)]
             fuente_unico = lectura[0:i]
-            lista_fuente.append(unir_linea(fuente_unico," "))
-            lista_comentarios.append(unir_linea(comentario," "))
+            comentario = reemplazar_toda_la_lista(comentario,["#"],"")
+            lista_fuente.append(" ".join(fuente_unico))
+            lista_comentarios.append(" ".join(comentario))
         
         elif elemento == "#" and i==0 :
             encontro = True
-            lista_comentarios.append(unir_linea(lectura," "))
-        elif elemento == '"""':
+            lectura = reemplazar_toda_la_lista(lectura,["#"],"")
+            lista_comentarios.append(" ".join(lectura))
+        elif elemento == '"""' and i==0:
             lectura = reemplazar_toda_la_lista(lectura,['"""'],"")
-            lista_comentarios.append(unir_linea(lectura," "))
+            lista_comentarios.append(" ".join(lectura))
         i+=1
+    """ [Autor : Nicolas]"""
     return lista_fuente,lista_comentarios
 
 def eliminar_archivos(archivos):
@@ -219,7 +230,7 @@ def eliminar_archivos(archivos):
 
 def archivos () :
     """ [Autor : Nicolas]"""
-    """[Ayuda : Guardara el codigo como lo pide el enunciado] """
+    """[Ayuda : Esta funcion inicia el proceso de archivos]"""
     
     # Esta funcion guardará cada archivo ordenado en una lista
     
@@ -243,5 +254,9 @@ def archivos () :
         lista_archivos.append(ruta_fuente)
         lista_archivos.append(ruta_comentarios)
         ruta = leer_linea(rutas).strip()
+    """Finalizado el proceso del codigo, entraremos a 
+        la mezcla final.
+        """
     separador_archivos(lista_archivos)
+    #Por ultimo borramos los archivos creados antes de la mezcla,
     eliminar_archivos(lista_archivos)
