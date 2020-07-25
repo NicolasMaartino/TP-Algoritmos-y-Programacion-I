@@ -9,7 +9,6 @@ def busca_main(dic):
     valores = list(dic.values())
     for key in dic.keys():
         contador = 0
-        print(valores[contador])
         while (len(valores) > contador) and (key not in list(valores[contador].keys())):
             if (contador == len(valores) - 1):
                 main = key
