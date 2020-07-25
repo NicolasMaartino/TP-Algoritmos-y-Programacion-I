@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 from archivos import  leer_linea, leer_linea_clasico,formateo_linea
 
-
-################################################################################################################################################
 def imprimir_panel(dic):
     """[Autor: Lucia]"""
     """[Ayuda: Crea la una tabla]"""
