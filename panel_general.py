@@ -126,10 +126,7 @@ def panel_csv(dic):
         if_elif = ["if","elif"]
         valor_final = 0
         for valores in dic[funcion_principal]:
-<<<<<<< HEAD
             #print(dic[funcion_principal])
-=======
->>>>>>> 8b2c8c0c040c742fd845eec1e1b6e781629a5b85
             valor = dic[funcion_principal][valores]
             # Esta funcion ejecutara todo el proceso para meter la linea en el archivo
             if_elif = procesa_linea(valor,valores,if_elif,archivo,valor_final)
