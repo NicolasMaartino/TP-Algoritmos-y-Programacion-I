@@ -2,7 +2,7 @@
 import os
 from merge import archivos
 from panel_general import panel_general
-from desarrollo_autor import informacion_desarrolladores
+from desarrollo_autor import info_desarrolladores
 from reutilizacion import imprimir_analizador
 from generales import validar_programa
 from panelConsulta import panel_consultas
@@ -49,7 +49,7 @@ def menu():
                 pass
                 #funcion_4()
             elif opcion=="5":
-                informacion_desarrolladores()
+                info_desarrolladores()
                 enter = input("Ingrese enter para continuar")
             borrador()
             texto_menu()
