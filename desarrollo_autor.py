@@ -7,7 +7,7 @@ def leer_archivos_csv (archivocsv):
     linea = archivocsv.readline()
     return linea.rstrip('\n').split(',') if linea else ""
     
-def informacion_desarrolladores():
+def info_desarrolladores():
     """ [Autor : Alejandro]
         [Ayuda : nose ]"""
     total_lineas =0
