@@ -6,6 +6,7 @@ from desarrollo_autor import info_desarrolladores
 from reutilizacion import imprimir_analizador
 from generales import validar_programa
 from panelConsulta import panel_consultas
+from arbol_de_invocacion import imprimir_diagrama
 
 def texto_menu():
     print("""            1-Panel general de funciones
