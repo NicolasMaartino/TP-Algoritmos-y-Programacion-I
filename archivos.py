@@ -55,7 +55,6 @@ def leer_linea (archivo) :
         devolver = linea
     else:
         devolver = ""
-    """[Autor : Nicolas]"""
     return devolver
 
 def leer_linea_clasico (archivo,corte) :

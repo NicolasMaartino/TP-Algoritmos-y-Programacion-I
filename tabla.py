@@ -61,23 +61,12 @@ def imprimir_todo(archivo, lista_funcion, lista_comentarios):
     archivo.write("Función: {0}\r\nAyuda: {1}\r\nParametros: {2}\r\nModulo: {3}\r\nAutor: {4}\n".format(lista_funcion[0], lista_comentarios[2], lista_funcion[1], lista_funcion[2], lista_comentarios[1]))
     archivo.write("-------------------------------------------------\n")
 
-
 def formato_interrogacion(lista_funciones, lista_comentarios):
     """[Autor: Juan Godoy]"""
     """[Ayuda : Un formato visual para las opciones con interrogacion]"""
     print("-------------------------------------------------")
     print("Función: {0}\r\nAyuda: {1}\r\nParametros: {2}\r\nModulo: {3}\r\nAutor: {4}".format(lista_funciones[0], lista_comentarios[2], lista_funciones[1], lista_funciones[2], lista_comentarios[1]))
     print("----------------------------------")
-
-def imprimir_todo(archivo, lista_funcion, lista_comentarios):
-    """[Autor : Juan Godoy]"""
-    """[Ayuda : imprime en un archivo .txt lo relacionado con la opcion ?]"""
-    if len(lista_funcion[1])>80 or len(lista_comentarios[2]):
-        lista_funcion[1]=formateo_linea(lista_funcion[1])
-        lista_comentarios[2]=formateo_linea(lista_comentarios[2])
-    archivo.write("-------------------------------------------------\n")
-    archivo.write("Función: {0}\r\nAyuda: {1}\r\nParametros: {2}\r\nModulo: {3}\r\nAutor: {4}\n".format(lista_funcion[0], lista_comentarios[2], lista_funcion[1], lista_funcion[2], lista_comentarios[1]))
-    archivo.write("-------------------------------------------------\n")
 
 def formato_numeral(lista_funciones, lista_comentarios):
     """[Autor : Juan Godoy]"""

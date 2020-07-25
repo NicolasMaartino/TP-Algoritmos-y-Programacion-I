@@ -114,7 +114,7 @@ def procesa_linea(valor,nombre,if_elif,archivo,valor_final):
     return if_elif
 
 
-def generar_archivo(dic):
+def panel_csv(dic):
     """[Autor : Nicolas]
        [Ayuda : Genera la escritura del archivo panel_general]"""
     archivo = open("panel_general.csv","w")
@@ -126,7 +126,6 @@ def generar_archivo(dic):
         if_elif = ["if","elif"]
         valor_final = 0
         for valores in dic[funcion_principal]:
-            print(dic[funcion_principal])
             valor = dic[funcion_principal][valores]
             # Esta funcion ejecutara todo el proceso para meter la linea en el archivo
             if_elif = procesa_linea(valor,valores,if_elif,archivo,valor_final)
@@ -143,6 +142,6 @@ def panel_general(fuente_unico,comentarios):
     lista_comentarios = listar_archivo(comentarios) # importar el archivo
     diccionario = organizar_archivo(lista_fuente_unico)
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
-    generar_archivo(dic_final)
+    panel_csv(dic_final)
     tabla.imprimir_panel(dic_final)
 
