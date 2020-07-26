@@ -29,7 +29,7 @@ def buscar_dato (lista_datos,linea):
             encontradas.append(palabra)
     return encontradas
 
-def reemplazar_toda_la_lista (lista,elementos_reemplazados,reemplazo):
+def acomodar_lectura (lista,elementos_reemplazados,reemplazo):
     """ [ Autor : Nicolas] """
     """  [Ayuda : Reemplaza en una lista todos sus elementos] """
 

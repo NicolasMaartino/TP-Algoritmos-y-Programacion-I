@@ -31,10 +31,9 @@ def menu():
         texto_menu()
         opcion =input("Ingrese una opcion: ")
         while opcion:
-            borrador()
             while opcion not in "12345":
-                texto_menu()
                 opcion=input("Ingrese una opcion valida o enter para salir: ")
+            borrador()
             if opcion == "":
                 print("Gracias por participar de nuestro programa")
                 exit()

@@ -1,0 +1,109 @@
+
+	Informe de Desarrollo por Autor
+
+--------------------------------------------------
+
+Autor:  Nicolas
+                       Función		Lineas
+--------------------------------------------------
+                grabar_archivo		1
+             eliminar_archivos		2
+             reemplazar_string		3
+              acomodar_lectura		5
+                   buscar_dato		5
+            encontrar_palabras		5
+               generar_archivo		5
+                indice_vaciado		6
+             reunir_parametros		6
+                 procesa_linea		10
+        ordenamiento_insercion		12
+                     panel_csv		13
+                      archivos		19
+              proceso_archivos		19
+                   comentarios		20
+            analizador_funcion		21
+                analisis_linea		24
+	17 Funcion/es - Lineas		176  28%
+--------------------------------------------------
+
+Autor:  N/N
+                       Función		Lineas
+--------------------------------------------------
+                          main		3
+                      borrador		4
+                    texto_menu		5
+                    leer_linea		6
+            leer_linea_clasico		6
+                         arbol		8
+                      imprimir		19
+                          menu		35
+	8 Funcion/es - Lineas		86  14%
+--------------------------------------------------
+
+Autor:  Lucia
+                       Función		Lineas
+--------------------------------------------------
+                         autor		3
+                   cant_lineas		4
+                 lineas_coment		4
+                      contador		5
+                  invocaciones		5
+                         ayuda		6
+                imprimir_panel		6
+                listar_archivo		6
+                    parametros		6
+                          unir		7
+                 panel_general		8
+             organizar_archivo		18
+	12 Funcion/es - Lineas		78  12%
+--------------------------------------------------
+
+Autor:  Sofia y Lucia
+                       Función		Lineas
+--------------------------------------------------
+                    busca_main		10
+	1 Funcion/es - Lineas		10  1%
+--------------------------------------------------
+
+Autor:  Juan Godoy
+                       Función		Lineas
+--------------------------------------------------
+         formato_interrogacion		3
+                 imprimir_todo		6
+              buscar_funciones		7
+               panel_consultas		10
+                formateo_linea		11
+               formato_numeral		11
+              opciones_funcion		14
+                   opcion_todo		16
+               tabla_consultas		24
+	9 Funcion/es - Lineas		102  16%
+--------------------------------------------------
+
+Autor:  Alejandro
+                       Función		Lineas
+--------------------------------------------------
+             leer_archivos_csv		2
+                 tipo_archivos		5
+  imprimir_tabla_desarrollador		7
+              validar_programa		7
+            separador_archivos		9
+               guardar_archivo		10
+                        mezcla		10
+   informacion_desarrolladores		15
+carga_informacion_desarrollador		23
+	9 Funcion/es - Lineas		88  14%
+--------------------------------------------------
+
+Autor:  Sofia Marchesini
+                       Función		Lineas
+--------------------------------------------------
+           funciones_invocadas		7
+            lista_de_funciones		8
+               veces_invocadas		9
+           imprimir_analizador		12
+                   crear_filas		14
+                   crear_tabla		22
+	6 Funcion/es - Lineas		72  11%
+
+Total Funciones 62 - Lineas 612

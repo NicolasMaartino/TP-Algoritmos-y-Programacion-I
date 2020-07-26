@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import csv
 from os import remove
-from generales import buscar_dato,reemplazar_toda_la_lista,reemplazar_string,ordenamiento_insercion,tipo_archivos
+from generales import buscar_dato,acomodar_lectura,reemplazar_string,ordenamiento_insercion,tipo_archivos
 from archivos import *
 
 def guardar_archivo(archivo_aux, lista_archivos):
@@ -76,20 +76,20 @@ def analisis_linea(linea, linea_comentarios , linea_fuente,palabras_buscadas,pal
         linea_segunda=linea[i-1:len(linea)]
         linea_primera = linea[0:i-1]
         # Lo hago en cada una porque sino me corre el indice anterior.
-        linea_primera = reemplazar_toda_la_lista(linea_primera,["Autor","Ayuda",'"""',","],"")
-        linea_segunda = reemplazar_toda_la_lista(linea_segunda,["Autor","Ayuda",'"""',","],"")
+        linea_primera = acomodar_lectura(linea_primera,["Autor","Ayuda",'"""',","],"")
+        linea_segunda = acomodar_lectura(linea_segunda,["Autor","Ayuda",'"""',","],"")
         linea = " ".join(linea_primera).strip()
         linea_comentarios.insert(1,linea)
         linea = " ".join(linea_segunda).strip()
         linea_comentarios.insert(2,linea)
     elif "Autor" in palabras_buscadas :
         palabras_faltantes.append("Autor")
-        union=reemplazar_toda_la_lista(linea,['"""','[',']',"Autor",":"],"")
+        union=acomodar_lectura(linea,['"""','[',']',"Autor",":"],"")
         linea = " ".join(union).strip()
         linea_comentarios.insert(1,linea)
     elif "Ayuda" in palabras_buscadas:
         palabras_faltantes.append("Ayuda")
-        union= reemplazar_toda_la_lista(linea,['"""','[',']',"Ayuda",":"],"")
+        union= acomodar_lectura(linea,['"""','[',']',"Ayuda",":"],"")
         linea = " ".join(union).strip()
         linea_comentarios.insert(2,linea)
     elif "#" in palabras_buscadas or'"""'in palabras_buscadas:
@@ -104,7 +104,7 @@ def reunir_parametros(linea):
     nueva_lista=[]
     for x in range (2,len(linea)):
         nueva_lista.extend([linea[x]])
-    nueva_lista = reemplazar_toda_la_lista(nueva_lista,[","]," ")
+    nueva_lista = acomodar_lectura(nueva_lista,[","]," ")
     final = " ".join(nueva_lista)
 
     return final
@@ -121,8 +121,8 @@ def proceso_archivos(nombre_modulo, archivo) :
         ultima_lectura = ultima_lectura.strip().split()
         if len(ultima_lectura)>0 and ultima_lectura[0] == "def":
             # Analizaremos la funcion y la dividiremos en dos listas para saber a que archivo pertenecen.
-            ultima_lectura = reemplazar_toda_la_lista(ultima_lectura,["("]," (")
-            ultima_lectura = reemplazar_toda_la_lista(ultima_lectura,[":"],"")
+            ultima_lectura = acomodar_lectura(ultima_lectura,["("]," (")
+            ultima_lectura = acomodar_lectura(ultima_lectura,[":"],"")
             #Reuno los parametros
             parametros = reunir_parametros(ultima_lectura)
             nombre_funcion = ultima_lectura[1]
@@ -151,9 +151,9 @@ def analizador_funcion(linea_fuente,linea_comentarios,archivo):
         Se acomoda mejor en las listas y no quedan cosas pegadas a las palabras,
         que pueden complicar la comprension del texto cuando quiera buscar datos.
         """
-        lectura = reemplazar_toda_la_lista(lectura,[",","[","]",":"]," ")
-        lectura = reemplazar_toda_la_lista(lectura,['"""'],'""" ')
-        lectura = reemplazar_toda_la_lista(lectura,["#"],"# ")
+        lectura = acomodar_lectura(lectura,[",","[","]",":"]," ")
+        lectura = acomodar_lectura(lectura,['"""'],'""" ')
+        lectura = acomodar_lectura(lectura,["#"],"# ")
         cuento = lectura.count('"""')
         """ 
         Preguntare si abrio una triple comillas 
@@ -164,14 +164,14 @@ def analizador_funcion(linea_fuente,linea_comentarios,archivo):
         while cuento == 1:
             
             segunda_lectura = leer_linea(archivo).strip().split()
-            segunda_lectura = reemplazar_toda_la_lista(segunda_lectura,[","],"")
-            segunda_lectura = reemplazar_toda_la_lista(segunda_lectura,["]","[",":"]," ") 
-            segunda_lectura = reemplazar_toda_la_lista(segunda_lectura,['"""'],' """')
+            segunda_lectura = acomodar_lectura(segunda_lectura,[","],"")
+            segunda_lectura = acomodar_lectura(segunda_lectura,["]","[",":"]," ") 
+            segunda_lectura = acomodar_lectura(segunda_lectura,['"""'],' """')
             lectura.extend(segunda_lectura)
             cuento = lectura.count('"""')
             """ En caso que en la nueva extension de las lecturas haya una nueva triple
                 comillas, se entiende que cerro el comentario."""
-        lectura = reemplazar_toda_la_lista(lectura,["[","]",":"],"")
+        lectura = acomodar_lectura(lectura,["[","]",":"],"")
         encontradas = buscar_dato(["Ayuda","Autor","#",'"""'],lectura)
         linea_fuente,linea_comentarios,palabras_faltantes = analisis_linea(lectura,linea_comentarios,linea_fuente,encontradas,palabras_faltantes)
         if len(encontradas) == 0 and lectura:
@@ -206,16 +206,16 @@ def comentarios(lectura, lista_comentarios, lista_fuente) :
             encontro = True
             comentario = lectura[i:len(lectura)]
             fuente_unico = lectura[0:i]
-            comentario = reemplazar_toda_la_lista(comentario,["#"],"")
+            comentario = acomodar_lectura(comentario,["#"],"")
             lista_fuente.append(" ".join(fuente_unico))
             lista_comentarios.append(" ".join(comentario))
         
         elif elemento == "#" and i==0 :
             encontro = True
-            lectura = reemplazar_toda_la_lista(lectura,["#"],"")
+            lectura = acomodar_lectura(lectura,["#"],"")
             lista_comentarios.append(" ".join(lectura))
         elif elemento == '"""' and i==0:
-            lectura = reemplazar_toda_la_lista(lectura,['"""'],"")
+            lectura = acomodar_lectura(lectura,['"""'],"")
             lista_comentarios.append(" ".join(lectura))
         i+=1
     """ [Autor : Nicolas]"""
