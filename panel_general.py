@@ -36,7 +36,7 @@ def contador (elementos, lista_ar, dic):
     for elemento in elementos:
         for funcion in lista_ar:
             for i in range(3, len(funcion)): 
-                dic[funcion[0]][elemento] += funcion[i].count(elemento)
+                dic[funcion[0]][elemento] += funcion[i].count(elemento + " ")
 
     return dic
 
