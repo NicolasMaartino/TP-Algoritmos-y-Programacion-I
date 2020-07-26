@@ -3,7 +3,7 @@ from generales import listar_archivo
 
 def busca_main(dic):
     """[Autor: Sofia y Lucia]"""
-    """[Ayuda: Busca funciones que sea la función principal]"""
+    """[Ayuda: Busca la función principal]"""
            
     main = ""   
     valores = list(dic.values())
@@ -28,19 +28,19 @@ def cant_lineas(lista_ar_fu):
     return dic
 
 def imprimir_diagrama():
-        """
+    """
     [Autor : Sofia Marchesini]
     [ayuda : este codigo permite imprimir las funciones main
      con sus respectivas funciones invocadas y las funciones que a su vez
-     estas invocan y asi sucesivamente]
-    """       
-    fuente_unico = open("fuente_unico.csv", "r")
+     estas invocan y asi sucesivamente]"""
+        
+    fuente_unico = open("fuente_unico.csv","r")
     lista_ar = listar_archivo(fuente_unico)
     fuente_unico.close()
-    fuente_unico = open("fuente_unico.csv", "r")
+    fuente_unico = open("fuente_unico.csv","r")
     diccionario = funciones_invocadas(fuente_unico)
     dic_lineas = cant_lineas(lista_ar)
-    main =busca_main(diccionario)       
+    main = busca_main(diccionario)       
     
     print("{}({}) ".format(main,dic_lineas[main]),end = "")
     for key in diccionario[main].keys():
@@ -49,4 +49,5 @@ def imprimir_diagrama():
             for value in diccionario[key].keys():
                 print(" ---> {}({})".format(value,dic_lineas[value]), end = "")
             print("\n")
-                        
+            
+imprimir_diagrama()               
