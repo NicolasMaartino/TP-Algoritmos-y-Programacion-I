@@ -145,4 +145,3 @@ def panel_general(fuente_unico,comentarios):
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
     panel_csv(dic_final)
     tabla.imprimir_panel(dic_final)
-
