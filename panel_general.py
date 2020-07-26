@@ -146,8 +146,3 @@ def panel_general(fuente_unico,comentarios):
     panel_csv(dic_final)
     tabla.imprimir_panel(dic_final)
 
-fu = open("fuente_unico.csv","r")
-com = open("comentarios.csv", "r")
-panel_general(fu, com)
-fu.close()
-com.close()
