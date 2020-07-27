@@ -154,6 +154,7 @@ def analizador_funcion(linea_fuente,linea_comentarios,archivo):
         lectura = acomodar_lectura(lectura,[",","[","]",":"]," ")
         lectura = acomodar_lectura(lectura,['"""'],'""" ')
         lectura = acomodar_lectura(lectura,["#"],"# ")
+        lectura = acomodar_lectura(lectura,["main()"],"")
         cuento = lectura.count('"""')
         """ 
         Preguntare si abrio una triple comillas 

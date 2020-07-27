@@ -45,9 +45,10 @@ def menu():
             elif opcion=="3":
                 imprimir_analizador()
                 enter = input("Ingrese enter para continuar")
-            elif opcion == "4":
+            elif opcion=="4":
                 imprimir_diagrama()
-            elif opcion == "5":
+                enter = input("Ingrese enter para continuar")
+            elif opcion=="5":
                 info_desarrolladores()
                 enter = input("Ingrese enter para continuar")
             borrador()
