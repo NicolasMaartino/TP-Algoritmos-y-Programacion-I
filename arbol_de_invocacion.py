@@ -1,19 +1,17 @@
 from reutilizacion import funciones_invocadas, crear_filas 
 from generales import listar_archivo
+from archivos import leer_linea_clasico
 
 def busca_main(dic):
     """[Autor: Sofia y Lucia]"""
-    """[Ayuda: Busca funciones que sea la función principal]"""
-           
+    """[Ayuda: Busca funciones que sea la función principal]"""       
     main = ""   
     valores = list(dic.values())
+    contador = 0
     for key in dic.keys():
-        contador = 0
         while (len(valores) > contador) and (key not in list(valores[contador].keys())):
-            if (contador == len(valores) - 1):
-                main = key
-            contador += 1
-
+            main = key
+            contador += 1   
     return main
 
 
@@ -28,25 +26,25 @@ def cant_lineas(lista_ar_fu):
     return dic
 
 def imprimir_diagrama():
-        """
-    [Autor : Sofia Marchesini]
-    [ayuda : este codigo permite imprimir las funciones main
+    """[Autor : Sofia Marchesini]"""
+    """[Ayuda : este codigo permite imprimir las funciones main
      con sus respectivas funciones invocadas y las funciones que a su vez
-     estas invocan y asi sucesivamente]
-    """       
+     estas invocan y asi sucesivamente]"""
+    
     fuente_unico = open("fuente_unico.csv", "r")
     lista_ar = listar_archivo(fuente_unico)
     fuente_unico.close()
     fuente_unico = open("fuente_unico.csv", "r")
     diccionario = funciones_invocadas(fuente_unico)
     dic_lineas = cant_lineas(lista_ar)
-    main =busca_main(diccionario)       
-    
+    main=busca_main(diccionario)
+
     print("{}({}) ".format(main,dic_lineas[main]),end = "")
     for key in diccionario[main].keys():
-        if key != "":
-            print(" ---> {}({}) ".format(key,dic_lineas[key]),end = "")
+        if key:
+            print("---> {}({}) ".format(key,dic_lineas[key]),end="")
             for value in diccionario[key].keys():
-                print(" ---> {}({})".format(value,dic_lineas[value]), end = "")
+                if value != key:
+                    print("")
+                    print("\t---> {}({})".format(value,dic_lineas[value]), end = "")
             print("\n")
-                        
