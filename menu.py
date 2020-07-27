@@ -23,38 +23,43 @@ def menu():
     """ Esta es la funcion de menu principal de nuestro programa.
         Todo estara ejecutado desde aca.
     """
-    vacio=validar_programa()
+    vacio = validar_programa()
     if vacio!=True:
         archivos()
         fuente_codigo = open("fuente_unico.csv","r")
         comentarios = open("comentarios.csv","r")
         texto_menu()
-        opcion =input("Ingrese una opcion: ")
+        opcion = input("Ingrese una opcion: ")
         while opcion:
-            borrador()
             while opcion not in "12345":
-                texto_menu()
-                opcion=input("Ingrese una opcion valida o enter para salir: ")
+                opcion = input("Ingrese una opcion valida o enter para salir: ")
+            borrador()
             if opcion == "":
                 print("Gracias por participar de nuestro programa")
                 exit()
-            elif opcion=="1":
+            elif opcion == "1":
                 panel_general(fuente_codigo,comentarios)
                 enter = input("Ingrese enter para continuar")
-            elif opcion=="2":
+            elif opcion == "2":
                 panel_consultas(fuente_codigo, comentarios)
             elif opcion=="3":
                 imprimir_analizador()
                 enter = input("Ingrese enter para continuar")
+<<<<<<< HEAD
             elif opcion=="4":
                 imprimir_diagrama()
                 enter = input("Ingrese enter para continuar")
             elif opcion=="5":
+=======
+            elif opcion == "4":
+                imprimir_diagrama()
+            elif opcion == "5":
+>>>>>>> 10f83d7daf47b6618683dee8f6749ed686687054
                 info_desarrolladores()
                 enter = input("Ingrese enter para continuar")
             borrador()
             texto_menu()
-            opcion=input("Ingrese una opción o enter para salir: ")
+            opcion = input("Ingrese una opción o enter para salir: ")
         fuente_codigo.close()
         comentarios.close()
     else:

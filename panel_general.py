@@ -4,19 +4,19 @@ Panel general de Funciones
 Mediante esta opción se debe mostrar por pantalla, una tabla con la siguiente información
 por columna.
 """
-import tabla
-from generales import listar_archivo
+from tabla import imprimir_panel
+from generales import listar_archivo,acomodar_lectura
 from archivos import grabar_archivo
 def organizar_archivo(lista_ar):
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
         donde las claves son los atributos de las columnas]"""
-    funciones ={}
+    funciones = {}
     for funcion in lista_ar:
         funciones[funcion[0]] = {}
         funciones[funcion[0]]["Nombre"] = "{}.{}".format(funcion[0], funcion[2])
         funciones[funcion[0]]["Parametros"] = funcion[1].strip('()')
-        funciones[funcion[0]]["Lineas"] = len(funcion) - 2 #Por los parametros y el modulo
+        funciones[funcion[0]]["Lineas"] = len(funcion) - 3 #Por los parametros,el modulo y el nombre
         funciones[funcion[0]]["Invocaciones"] = 0
         funciones[funcion[0]]["return"] = 0
         funciones[funcion[0]]["if"] = 0
@@ -36,7 +36,7 @@ def contador (elementos, lista_ar, dic):
     for elemento in elementos:
         for funcion in lista_ar:
             for i in range(3, len(funcion)): 
-                dic[funcion[0]][elemento] += funcion[i].count(elemento)
+                dic[funcion[0]][elemento] += funcion[i].count(elemento + " ")
 
     return dic
 
@@ -50,15 +50,25 @@ def parametros(lista_ar, dic):
             cant = dic[key]["Parametros"].count(" ")
             dic[key]["Parametros"] = cant + 1
 
+def extraigo_linea(funcion,key,dic):
+    funcion = funcion[3:len(funcion)]
+    for linea in funcion:
+        linea = linea.split()
+        texto = ""+key+"("
+        for elemento in linea:
+            final = elemento[0:len(texto)]
+            if final == texto:
+                dic[key]["Invocaciones"] +=1 
+    return dic
+
 def invocaciones(lista_ar, dic):
     """[Autor: Lucia]
        [Ayuda: Cuenta la cantidad de veces que fue invocada cada funcion]"""
-
     for key in dic:
-        for funcion in lista_ar: 
-            for i in range(2, len(funcion)):
-                dic[key]["Invocaciones"] += funcion[i].count(key)
-
+        # agarro una funcion
+        for funcion in lista_ar:  
+            funcion = acomodar_lectura(funcion,["="]," = ")
+            extraigo_linea(funcion,key,dic)
     return dic
 
 def lineas_coment(lista_ar, dic):
@@ -103,7 +113,7 @@ def procesa_linea(valor,nombre,if_elif,archivo,valor_final):
     if nombre == "if" or nombre == "elif":
         valor_final += valor
         if_elif.remove(nombre)
-        if len(if_elif)==0:
+        if len(if_elif) == 0:
             leyenda = str(valor_final) + ","
             grabar_archivo(archivo,leyenda)
     else:
@@ -144,5 +154,4 @@ def panel_general(fuente_unico,comentarios):
     diccionario = organizar_archivo(lista_fuente_unico)
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
     panel_csv(dic_final)
-    tabla.imprimir_panel(dic_final)
-
+    imprimir_panel(dic_final)

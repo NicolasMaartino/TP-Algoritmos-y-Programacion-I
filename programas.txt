@@ -8,3 +8,7 @@
 ../TP1/archivos.py
 ../TP1/panel_general.py
 ../TP1/reutilizacion.py
+<<<<<<< HEAD
+=======
+../TP1/arbol_de_invocacion.py
+>>>>>>> 10f83d7daf47b6618683dee8f6749ed686687054

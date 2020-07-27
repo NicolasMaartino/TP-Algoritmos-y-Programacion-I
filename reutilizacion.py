@@ -113,7 +113,7 @@ def imprimir_analizador():
     [Autor : Sofia Marchesini]
     [Ayuda : imprimo la tabla y la copio al archivo analizador.txt]
     """
-    fuente=open("fuente_unico.csv","r")
+    fuente = open("fuente_unico.csv","r")
     analizador = open('analizador.txt','w+')
     invocaciones = funciones_invocadas(fuente)
     funciones = lista_de_funciones()
