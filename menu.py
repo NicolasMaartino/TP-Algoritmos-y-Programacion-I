@@ -46,8 +46,7 @@ def menu():
                 imprimir_analizador()
                 enter = input("Ingrese enter para continuar")
             elif opcion == "4":
-                pass
-                #funcion_4()
+                imprimir_diagrama()
             elif opcion == "5":
                 info_desarrolladores()
                 enter = input("Ingrese enter para continuar")

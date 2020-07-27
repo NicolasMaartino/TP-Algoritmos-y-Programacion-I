@@ -4,7 +4,7 @@ Panel general de Funciones
 Mediante esta opción se debe mostrar por pantalla, una tabla con la siguiente información
 por columna.
 """
-import tabla
+from tabla import imprimir_panel
 from generales import listar_archivo,acomodar_lectura
 from archivos import grabar_archivo
 def organizar_archivo(lista_ar):
@@ -16,7 +16,7 @@ def organizar_archivo(lista_ar):
         funciones[funcion[0]] = {}
         funciones[funcion[0]]["Nombre"] = "{}.{}".format(funcion[0], funcion[2])
         funciones[funcion[0]]["Parametros"] = funcion[1].strip('()')
-        funciones[funcion[0]]["Lineas"] = len(funcion) - 2 #Por los parametros y el modulo
+        funciones[funcion[0]]["Lineas"] = len(funcion) - 3 #Por los parametros y el modulo
         funciones[funcion[0]]["Invocaciones"] = 0
         funciones[funcion[0]]["return"] = 0
         funciones[funcion[0]]["if"] = 0
@@ -150,4 +150,4 @@ def panel_general(fuente_unico,comentarios):
     diccionario = organizar_archivo(lista_fuente_unico)
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
     panel_csv(dic_final)
-    tabla.imprimir_panel(dic_final)
+    imprimir_panel(dic_final)
