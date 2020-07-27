@@ -39,6 +39,7 @@ def generar_archivo (lista,ruta) :
     
     archivo = open(ruta,"w",newline='\n')
     for funcion in lista:
+        
         leyenda = ",".join(funcion)+"\n"
         grabar_archivo(archivo,leyenda)
 

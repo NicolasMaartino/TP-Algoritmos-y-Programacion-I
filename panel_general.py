@@ -51,6 +51,10 @@ def parametros(lista_ar, dic):
             dic[key]["Parametros"] = cant + 1
 
 def extraigo_linea(funcion,key,dic):
+    """ [Autor : Lucia]
+        [Ayuda : Analizara las lineas de la funcion y devolvera
+        un dic modificado]
+        """
     funcion = funcion[3:len(funcion)]
     for linea in funcion:
         linea = linea.split()
@@ -100,7 +104,7 @@ def unir(dic, lista_fu, lista_com):
     """[Autor: Lucia]"""
     """[Ayuda: Une todas las funciones contadoras con el diccionario]"""
     invocaciones(lista_fu, dic)
-    contador(["for","while","break","exit","return","if","elif"], lista_fu, dic)
+    contador(['for','while','break','exit','return','if','elif'], lista_fu, dic)
     parametros(lista_fu, dic)
     lineas_coment(lista_com, dic)
     ayuda(lista_com, dic)
@@ -136,7 +140,6 @@ def panel_csv(dic):
         if_elif = ["if","elif"]
         valor_final = 0
         for valores in dic[funcion_principal]:
-            #print(dic[funcion_principal])
             valor = dic[funcion_principal][valores]
             # Esta funcion ejecutara todo el proceso para meter la linea en el archivo
             if_elif = procesa_linea(valor,valores,if_elif,archivo,valor_final)
