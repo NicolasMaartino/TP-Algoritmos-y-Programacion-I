@@ -48,7 +48,7 @@ def imprimir_diagrama():
             for value in diccionario[key].keys():
                 if value != key:
                     print("")
-                    print("\t---> {}({})".format(value,dic_lineas[value]), end = "")
+                    print("\t               ---> {}({})".format(value,dic_lineas[value]), end = "")
             print("\n")
 
 
