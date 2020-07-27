@@ -28,11 +28,11 @@ def cant_lineas(lista_ar_fu):
     return dic
 
 def imprimir_diagrama():
-    """
-    [Autor : Sofia Marchesini]
-    [ayuda : este codigo permite imprimir las funciones main
-     con sus respectivas funciones invocadas y las funciones que a su vez
-     estas invocan y asi sucesivamente]"""
+    
+    """[Autor : Sofia Marchesini]"""
+    """[Ayuda : este codigo permite imprimir las funciones main
+        con sus respectivas funciones invocadas y las funciones que a su vez
+        estas invocan y asi sucesivamente]"""
         
     fuente_unico = open("fuente_unico.csv","r")
     lista_ar = listar_archivo(fuente_unico)
@@ -50,4 +50,4 @@ def imprimir_diagrama():
                 print(" ---> {}({})".format(value,dic_lineas[value]), end = "")
             print("\n")
             
-imprimir_diagrama()               
+               
