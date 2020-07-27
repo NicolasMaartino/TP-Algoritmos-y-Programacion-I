@@ -50,4 +50,5 @@ def imprimir_diagrama():
                 print(" ---> {}({})".format(value,dic_lineas[value]), end = "")
 
             print("\n")
-            
+
+
