@@ -23,7 +23,25 @@ Autor:  Nicolas
                    comentarios		20
             analizador_funcion		21
                 analisis_linea		24
-	17 Funcion/es - Lineas		176  28%
+	17 Funcion/es - Lineas		176  29%
+--------------------------------------------------
+
+Autor:  Lucia
+                       Función		Lineas
+--------------------------------------------------
+                         autor		3
+                   cant_lineas		4
+                 lineas_coment		4
+                      contador		5
+                         ayuda		6
+                    parametros		6
+                listar_archivo		7
+                          unir		7
+                 panel_general		8
+                imprimir_panel		9
+                  invocaciones		11
+             organizar_archivo		18
+	12 Funcion/es - Lineas		88  14%
 --------------------------------------------------
 
 Autor:  N/N
@@ -34,35 +52,15 @@ Autor:  N/N
                     texto_menu		5
                     leer_linea		6
             leer_linea_clasico		6
-                         arbol		8
-                      imprimir		19
-                          menu		35
-	8 Funcion/es - Lineas		86  14%
---------------------------------------------------
-
-Autor:  Lucia
-                       Función		Lineas
---------------------------------------------------
-                         autor		3
-                   cant_lineas		4
-                 lineas_coment		4
-                      contador		5
-                  invocaciones		5
-                         ayuda		6
-                imprimir_panel		6
-                listar_archivo		6
-                    parametros		6
-                          unir		7
-                 panel_general		8
-             organizar_archivo		18
-	12 Funcion/es - Lineas		78  12%
+                          menu		34
+	6 Funcion/es - Lineas		58  9%
 --------------------------------------------------
 
 Autor:  Sofia y Lucia
                        Función		Lineas
 --------------------------------------------------
-                    busca_main		10
-	1 Funcion/es - Lineas		10  1%
+                    busca_main		9
+	1 Funcion/es - Lineas		9  1%
 --------------------------------------------------
 
 Autor:  Juan Godoy
@@ -76,8 +74,8 @@ Autor:  Juan Godoy
                formato_numeral		11
               opciones_funcion		14
                    opcion_todo		16
-               tabla_consultas		24
-	9 Funcion/es - Lineas		102  16%
+               tabla_consultas		23
+	9 Funcion/es - Lineas		101  16%
 --------------------------------------------------
 
 Autor:  Alejandro
@@ -90,7 +88,7 @@ Autor:  Alejandro
             separador_archivos		9
                guardar_archivo		10
                         mezcla		10
-   informacion_desarrolladores		15
+          info_desarrolladores		15
 carga_informacion_desarrollador		23
 	9 Funcion/es - Lineas		88  14%
 --------------------------------------------------
@@ -103,7 +101,8 @@ Autor:  Sofia Marchesini
                veces_invocadas		9
            imprimir_analizador		12
                    crear_filas		14
+             imprimir_diagrama		14
                    crear_tabla		22
-	6 Funcion/es - Lineas		72  11%
+	7 Funcion/es - Lineas		86  14%
 
-Total Funciones 62 - Lineas 612
+Total Funciones 61 - Lineas 606

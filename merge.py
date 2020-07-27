@@ -73,7 +73,7 @@ def analisis_linea(linea, linea_comentarios , linea_fuente,palabras_buscadas,pal
         lista.
         """
         i = indice_vaciado(linea,["Ayuda","Autor"])
-        linea_segunda=linea[i-1:len(linea)]
+        linea_segunda = linea[i-1:len(linea)]
         linea_primera = linea[0:i-1]
         # Lo hago en cada una porque sino me corre el indice anterior.
         linea_primera = acomodar_lectura(linea_primera,["Autor","Ayuda",'"""',","],"")
@@ -84,12 +84,12 @@ def analisis_linea(linea, linea_comentarios , linea_fuente,palabras_buscadas,pal
         linea_comentarios.insert(2,linea)
     elif "Autor" in palabras_buscadas :
         palabras_faltantes.append("Autor")
-        union=acomodar_lectura(linea,['"""','[',']',"Autor",":"],"")
+        union = acomodar_lectura(linea,['"""','[',']',"Autor",":"],"")
         linea = " ".join(union).strip()
         linea_comentarios.insert(1,linea)
     elif "Ayuda" in palabras_buscadas:
         palabras_faltantes.append("Ayuda")
-        union= acomodar_lectura(linea,['"""','[',']',"Ayuda",":"],"")
+        union = acomodar_lectura(linea,['"""','[',']',"Ayuda",":"],"")
         linea = " ".join(union).strip()
         linea_comentarios.insert(2,linea)
     elif "#" in palabras_buscadas or'"""'in palabras_buscadas:
@@ -134,7 +134,7 @@ def proceso_archivos(nombre_modulo, archivo) :
             funciones_fuente.append(linea_fuente)
             funciones_comentarios.append(linea_comentarios)
         else:#Si no es un def no es una funcion.Probablemente sea un from o un bloque principal.El enunciado no pide analizarlo.
-            ultima_lectura=leer_linea(archivo)
+            ultima_lectura = leer_linea(archivo)
     return ordenamiento_insercion(funciones_fuente),ordenamiento_insercion(funciones_comentarios)
 
 def analizador_funcion(linea_fuente,linea_comentarios,archivo):
@@ -145,7 +145,7 @@ def analizador_funcion(linea_fuente,linea_comentarios,archivo):
     #Si sale de este while, esta por empezar otra funcion o leyo el fin de archivo.
     palabras_faltantes = []
     while lectura and "def"!= lectura[0:3] :
-        lectura= lectura.strip().split()
+        lectura = lectura.strip().split()
         """ 
         La utilidad que le doy a acomodar_lectura es a limpiar un poco el texto.
         Se acomoda mejor en las listas y no quedan cosas pegadas a las palabras,
@@ -241,14 +241,14 @@ def archivos () :
     while ruta: #aaj
         i+=1 #Este indice lo creo para distinguir los archivos
         nombre_archivo = ruta.split("/").pop()
-        nombre_archivo=nombre_archivo[0:len(nombre_archivo)-3]
+        nombre_archivo = nombre_archivo[0:len(nombre_archivo)-3]
 
         #Abro ruta dentro de programas.txt
         
         codigo = open(ruta,'r',encoding="utf8")
         fuente_unico,comentarios = proceso_archivos(nombre_archivo,codigo)
         ruta_fuente = "fuente_unico"+str(i) +".csv"
-        ruta_comentarios= "comentarios"+str(i) +".csv"
+        ruta_comentarios = "comentarios"+str(i) +".csv"
         generar_archivo(fuente_unico,ruta_fuente)
         generar_archivo(comentarios,ruta_comentarios)
         lista_archivos.append(ruta_fuente)

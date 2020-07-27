@@ -28,11 +28,19 @@ def cant_lineas(lista_ar_fu):
     return dic
 
 def imprimir_diagrama():
+<<<<<<< HEAD
     
     """[Autor : Sofia Marchesini]"""
     """[Ayuda : este codigo permite imprimir las funciones main
         con sus respectivas funciones invocadas y las funciones que a su vez
         estas invocan y asi sucesivamente]"""
+=======
+    """
+    [Autor : Sofia Marchesini]
+    [Ayuda : este codigo permite imprimir las funciones main
+     con sus respectivas funciones invocadas y las funciones que a su vez
+     estas invocan y asi sucesivamente]"""
+>>>>>>> 49e2ebdf92307134008d6d8a34e1649d04d96483
         
     fuente_unico = open("fuente_unico.csv","r")
     lista_ar = listar_archivo(fuente_unico)
@@ -48,6 +56,10 @@ def imprimir_diagrama():
             print(" ---> {}({}) ".format(key,dic_lineas[key]),end = "")
             for value in diccionario[key].keys():
                 print(" ---> {}({})".format(value,dic_lineas[value]), end = "")
+<<<<<<< HEAD
             print("\n")
             
                
+=======
+            print("\n")               
+>>>>>>> 49e2ebdf92307134008d6d8a34e1649d04d96483
