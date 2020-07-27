@@ -3,7 +3,8 @@ def listar_archivo (archivo):
     """ [Autor : Lucia] """
     """ [Ayuda : convierte al archivo en una lista donde cada elemento es una linea del mismo] """
     lista_ar = []
-    linea = (leer_linea(archivo))
+    linea = leer_linea(archivo)
+    linea = (linea)
     while linea:
         lista_ar.append(linea.rstrip("\n").split(","))
         linea = leer_linea(archivo)
@@ -33,10 +34,10 @@ def acomodar_lectura (lista,elementos_reemplazados,reemplazo):
     """ [ Autor : Nicolas] """
     """  [Ayuda : Reemplaza en una lista todos sus elementos] """
 
-    lista_reemplazada=[]
+    lista_reemplazada = []
 
     for elemento in lista:
-        elemento=reemplazar_string(elementos_reemplazados,reemplazo,elemento).split()
+        elemento = reemplazar_string(elementos_reemplazados,reemplazo,elemento).split()
         lista_reemplazada.extend(elemento)
     return lista_reemplazada
 

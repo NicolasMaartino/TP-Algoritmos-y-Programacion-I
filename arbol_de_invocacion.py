@@ -30,7 +30,7 @@ def cant_lineas(lista_ar_fu):
 def imprimir_diagrama():
     """
     [Autor : Sofia Marchesini]
-    [ayuda : este codigo permite imprimir las funciones main
+    [Ayuda : este codigo permite imprimir las funciones main
      con sus respectivas funciones invocadas y las funciones que a su vez
      estas invocan y asi sucesivamente]"""
         
@@ -48,6 +48,4 @@ def imprimir_diagrama():
             print(" ---> {}({}) ".format(key,dic_lineas[key]),end = "")
             for value in diccionario[key].keys():
                 print(" ---> {}({})".format(value,dic_lineas[value]), end = "")
-            print("\n")
-            
-imprimir_diagrama()               
+            print("\n")               

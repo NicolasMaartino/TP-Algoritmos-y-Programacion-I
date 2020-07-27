@@ -5,13 +5,13 @@ Mediante esta opción se debe mostrar por pantalla, una tabla con la siguiente i
 por columna.
 """
 import tabla
-from generales import listar_archivo
+from generales import listar_archivo,acomodar_lectura
 from archivos import grabar_archivo
 def organizar_archivo(lista_ar):
     """[Autor: Lucia]"""
     """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
         donde las claves son los atributos de las columnas]"""
-    funciones ={}
+    funciones = {}
     for funcion in lista_ar:
         funciones[funcion[0]] = {}
         funciones[funcion[0]]["Nombre"] = "{}.{}".format(funcion[0], funcion[2])
@@ -55,7 +55,8 @@ def invocaciones(lista_ar, dic):
        [Ayuda: Cuenta la cantidad de veces que fue invocada cada funcion]"""
 
     for key in dic:
-        for funcion in lista_ar: 
+        for funcion in lista_ar:
+            funcion = acomodar_lectura(funcion,["="]," = ")
             for i in range(2, len(funcion)):
                 texto = ""+key+"("
                 elemento = funcion[i].split()
@@ -108,7 +109,7 @@ def procesa_linea(valor,nombre,if_elif,archivo,valor_final):
     if nombre == "if" or nombre == "elif":
         valor_final += valor
         if_elif.remove(nombre)
-        if len(if_elif)==0:
+        if len(if_elif) == 0:
             leyenda = str(valor_final) + ","
             grabar_archivo(archivo,leyenda)
     else:

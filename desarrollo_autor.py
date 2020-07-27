@@ -10,7 +10,7 @@ def leer_archivos_csv (archivocsv):
 def info_desarrolladores():
     """ [Autor : Alejandro]
         [Ayuda : nose ]"""
-    total_lineas =0
+    total_lineas = 0
     dicc_desarrolladores = {}
     with open("comentarios.csv","r") as comentarios,\
         open("fuente_unico.csv","r") as fuente_unico:

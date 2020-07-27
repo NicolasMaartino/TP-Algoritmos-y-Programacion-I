@@ -24,7 +24,7 @@ generar_archivo,Nicolas,Genera un archivo a traves de un iterable y si lo necesi
 grabar_archivo,Nicolas,Graba linea en un archivo pasado por parametro
 guardar_archivo,Alejandro,Lee archivo_aux.csv extrae la informacion y realiza la mezcla respectiva para luego eliminar archivo_aux.csv
 imprimir_analizador,Sofia Marchesini,imprimo la tabla y la copio al archivo analizador.txt
-imprimir_diagrama,Sofia Marchesini ayuda este codigo permite imprimir las funciones main con sus respectivas funciones invocadas y las funciones que a su vez estas invocan y asi sucesivamente,N/N
+imprimir_diagrama,Sofia Marchesini,este codigo permite imprimir las funciones main con sus respectivas funciones invocadas y las funciones que a su vez estas invocan y asi sucesivamente
 imprimir_panel,Lucia,Crea la una tabla
 imprimir_tabla_desarrollador,Alejandro,Imprime la tabla para desarrollador
 imprimir_todo,Juan Godoy,imprime en un archivo .txt lo relacionado con la opcion ?
@@ -41,7 +41,7 @@ main,N/N,Funcion que arrancara el programa.
 menu,N/N,Menu principal de nuestro programa,Esta es la funcion de menu principal de nuestro programa. Todo estara ejecutado desde aca.,funcion_4()
 mezcla,Alejandro,Mezcla Archivos CSV's
 opcion_todo,Juan Godoy,Funcion que imprime todo lo relacionado con las funciones ?todo '# 'todo e imprimir ?todo
-opciones_funcion,Juan Godoy,Segun la opcion que se elija se imprime diferente informacion sobre las funciones
+opciones_funcion,Juan Godoy,Segun la opcion que se elija se imprime diferente informacion sobre las funciones,"nombre_funcion = valor.replace(valor -1 """")"
 ordenamiento_insercion,Nicolas,Algoritmo de ordenamiento por insercion visto en clase
 organizar_archivo,Lucia,Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro donde las claves son los atributos de las columnas,Por los parametros y el modulo
 panel_consultas,Juan Godoy,Funcion principal que pide el ingreso de una funcion y segun la opcion que elijas imprime diversas cosas
