@@ -57,7 +57,12 @@ def invocaciones(lista_ar, dic):
     for key in dic:
         for funcion in lista_ar: 
             for i in range(2, len(funcion)):
-                dic[key]["Invocaciones"] += (funcion[i]).count("" + key + "(")
+                texto = ""+key+"("
+                elemento = funcion[i].split()
+                for algo in elemento:
+                    final = algo[0:len(texto)]
+                    if final == texto:
+                        dic[key]["Invocaciones"] += 1
 
     return dic
 
