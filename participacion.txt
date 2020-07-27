@@ -23,7 +23,7 @@ Autor:  Nicolas
                    comentarios		20
             analizador_funcion		21
                 analisis_linea		24
-	17 Funcion/es - Lineas		176  29%
+	17 Funcion/es - Lineas		176  28%
 --------------------------------------------------
 
 Autor:  Lucia
@@ -33,15 +33,15 @@ Autor:  Lucia
                    cant_lineas		4
                  lineas_coment		4
                       contador		5
+                  invocaciones		5
                          ayuda		6
                     parametros		6
                 listar_archivo		7
                           unir		7
                  panel_general		8
                 imprimir_panel		9
-                  invocaciones		11
              organizar_archivo		18
-	12 Funcion/es - Lineas		88  14%
+	12 Funcion/es - Lineas		82  13%
 --------------------------------------------------
 
 Autor:  N/N
@@ -52,8 +52,9 @@ Autor:  N/N
                     texto_menu		5
                     leer_linea		6
             leer_linea_clasico		6
+                extraigo_linea		9
                           menu		34
-	6 Funcion/es - Lineas		58  9%
+	7 Funcion/es - Lineas		67  11%
 --------------------------------------------------
 
 Autor:  Sofia y Lucia
@@ -105,4 +106,4 @@ Autor:  Sofia Marchesini
                    crear_tabla		22
 	7 Funcion/es - Lineas		86  14%
 
-Total Funciones 61 - Lineas 606
+Total Funciones 62 - Lineas 609

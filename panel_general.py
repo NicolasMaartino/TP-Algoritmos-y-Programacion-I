@@ -16,7 +16,7 @@ def organizar_archivo(lista_ar):
         funciones[funcion[0]] = {}
         funciones[funcion[0]]["Nombre"] = "{}.{}".format(funcion[0], funcion[2])
         funciones[funcion[0]]["Parametros"] = funcion[1].strip('()')
-        funciones[funcion[0]]["Lineas"] = len(funcion) - 3 #Por los parametros y el modulo
+        funciones[funcion[0]]["Lineas"] = len(funcion) - 3 #Por los parametros,el modulo y el nombre
         funciones[funcion[0]]["Invocaciones"] = 0
         funciones[funcion[0]]["return"] = 0
         funciones[funcion[0]]["if"] = 0
@@ -50,21 +50,25 @@ def parametros(lista_ar, dic):
             cant = dic[key]["Parametros"].count(" ")
             dic[key]["Parametros"] = cant + 1
 
+def extraigo_linea(funcion,key,dic):
+    funcion = funcion[3:len(funcion)]
+    for linea in funcion:
+        linea = linea.split()
+        texto = ""+key+"("
+        for elemento in linea:
+            final = elemento[0:len(texto)]
+            if final == texto:
+                dic[key]["Invocaciones"] +=1 
+    return dic
+
 def invocaciones(lista_ar, dic):
     """[Autor: Lucia]
        [Ayuda: Cuenta la cantidad de veces que fue invocada cada funcion]"""
-
     for key in dic:
-        for funcion in lista_ar:
+        # agarro una funcion
+        for funcion in lista_ar:  
             funcion = acomodar_lectura(funcion,["="]," = ")
-            for i in range(2, len(funcion)):
-                texto = ""+key+"("
-                elemento = funcion[i].split()
-                for algo in elemento:
-                    final = algo[0:len(texto)]
-                    if final == texto:
-                        dic[key]["Invocaciones"] += 1
-
+            extraigo_linea(funcion,key,dic)
     return dic
 
 def lineas_coment(lista_ar, dic):
