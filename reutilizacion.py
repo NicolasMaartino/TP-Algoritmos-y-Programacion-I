@@ -27,7 +27,7 @@ def veces_invocadas(linea):
     funciones = lista_de_funciones()
     cant_invocaciones = {}
     for funcion in funciones:
-        for palabras in linea[3:-1]:
+        for palabras in linea[3:]:
             if "{}(".format(funcion) in palabras and funcion not in cant_invocaciones:
                 cant_invocaciones[funcion] = 1
             elif "{}(".format(funcion) in palabras and funcion in cant_invocaciones:
