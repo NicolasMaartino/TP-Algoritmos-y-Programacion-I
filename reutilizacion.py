@@ -126,5 +126,3 @@ def imprimir_analizador():
     analizador.close()
     fuente.close()
     
-
-imprimir_analizador()
