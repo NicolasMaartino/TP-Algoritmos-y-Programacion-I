@@ -154,6 +154,7 @@ def analizador_funcion(linea_fuente,linea_comentarios,archivo):
         lectura = acomodar_lectura(lectura,[",","[","]",":"]," ")
         lectura = acomodar_lectura(lectura,['"""'],'""" ')
         lectura = acomodar_lectura(lectura,["#"],"# ")
+        lectura = acomodar_lectura(lectura,["main()"],"")
         cuento = lectura.count('"""')
         """ 
         Preguntare si abrio una triple comillas 
@@ -238,14 +239,14 @@ def archivos () :
     rutas = open("programas.txt", 'r')
     ruta = leer_linea(rutas).strip()
     i = 0
-    while ruta: #aaj
+    while ruta :
         i+=1 #Este indice lo creo para distinguir los archivos
         nombre_archivo = ruta.split("/").pop()
         nombre_archivo = nombre_archivo[0:len(nombre_archivo)-3]
 
         #Abro ruta dentro de programas.txt
         
-        codigo = open(ruta,'r',encoding="utf8")
+        codigo = open(ruta,'r',encoding = "utf8")
         fuente_unico,comentarios = proceso_archivos(nombre_archivo,codigo)
         ruta_fuente = "fuente_unico"+str(i) +".csv"
         ruta_comentarios = "comentarios"+str(i) +".csv"

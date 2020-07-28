@@ -28,6 +28,7 @@ def cant_lineas(lista_ar_fu):
         
     return dic
 
+<<<<<<< HEAD
 def imprimir_diagrama(fuente_unico):
     """[Autor : Sofia Marchesini]"""
     """[Ayuda : este codigo permite imprimir las funciones main
@@ -36,6 +37,16 @@ def imprimir_diagrama(fuente_unico):
 
     fuente_unico.seek(0)
     lista_ar = listar_archivo(fuente_unico)
+=======
+def imprimir_diagrama(fuente_unico): 
+    """[Autor : Sofia Marchesini]"""
+    """[Ayuda : este codigo permite imprimir las funciones main
+        con sus respectivas funciones invocadas y las funciones que a su vez
+        estas invocan y asi sucesivamente]"""
+    fuente_unico.seek(0)
+    lista_ar = listar_archivo(fuente_unico)
+    fuente_unico.seek(0)
+>>>>>>> 8004d499be3c47c4da4a280f1c6184fb7dcd04a4
     diccionario = funciones_invocadas(fuente_unico)
     dic_lineas = cant_lineas(lista_ar)
     principal = busca_principal(diccionario)
@@ -46,5 +57,12 @@ def imprimir_diagrama(fuente_unico):
             for value in diccionario[key].keys():
                 if value != key:
                     print("")
+<<<<<<< HEAD
                     print("\t               ---> {}({})".format(value,dic_lineas[value]), diccionario[value], end = "")
             print("\n")
+=======
+                    print("\t               ---> {}({})".format(value,dic_lineas[value]), end = "")
+            print("\n")
+
+
+>>>>>>> 8004d499be3c47c4da4a280f1c6184fb7dcd04a4

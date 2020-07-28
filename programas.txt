@@ -1,9 +1,23 @@
+<<<<<<< HEAD
 ../TP1/generales.py
+=======
+../TP1/main.py
+../TP1/reutilizacion.py
+../TP1/panel_general.py
+>>>>>>> 8004d499be3c47c4da4a280f1c6184fb7dcd04a4
 ../TP1/merge.py
-../TP1/panelConsulta.py
 ../TP1/menu.py
+<<<<<<< HEAD
 ../TP1/desarrollo_autor.py
 ../TP1/tabla.py
 ../TP1/archivos.py
 ../TP1/panel_general.py
 ../TP1/reutilizacion.py
+=======
+../TP1/arbol_de_invocacion.py
+../TP1/panelConsulta.py
+../TP1/tabla.py
+../TP1/generales.py
+../TP1/desarrollo_autor.py
+
+>>>>>>> 8004d499be3c47c4da4a280f1c6184fb7dcd04a4
