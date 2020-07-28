@@ -26,8 +26,12 @@ def veces_invocadas(linea):
     """
     funciones = lista_de_funciones()
     cant_invocaciones = {}
+    
+    #recorro todas las funciones y me fijo una a una si estan en la linea leida por funciones_invocadas
     for funcion in funciones:
+        #recorro todas las funciones de la lista de funciones
         for palabras in linea[3:]:
+            #recorro todos los elementos de la linea que lei antes 
             if "{}(".format(funcion) in palabras and funcion not in cant_invocaciones:
                 cant_invocaciones[funcion] = 1
             elif "{}(".format(funcion) in palabras and funcion in cant_invocaciones:
@@ -62,6 +66,7 @@ def crear_filas(invocaciones, funciones, total):
     """
     nueva_fila = []
     y = len(funciones)
+    
     for x in range(1, y+1):
         filas = []
         nueva_fila.append(filas)  
