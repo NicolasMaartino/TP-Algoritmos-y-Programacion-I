@@ -70,15 +70,12 @@ def esquema(fuente_unico):
             tira = ['{}({}) ---> {}({})'.format(funcion, dic_lineas[funcion], funcion_invocada, dic_lineas[funcion_invocada])]
             tira_final.append(tira)
         if tira_final != []:
-            pass
-            #print(concatenar(tira_final, principal))
+            print(concatenar(tira_final, principal))
 def concatenar(tira_final, principal):
     imprimir = ''
-    tira_completa = []
-    tira_completa.append(tira_final)
     for i in range(0, len(tira_final)):
         imprimir += tira_final[i][0] + ' ---> '
-    print(tira_completa)
+    print(imprimir)
     return imprimir
 
 fu = open('fuente_unico.csv','r')           
