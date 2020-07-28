@@ -53,7 +53,7 @@ def menu():
                 enter = input("Ingrese enter para continuar")
             borrador()
             texto_menu()
-            opcion = input('Ingrese una opción o enter para salir: ')
+            opcion = input('Ingrese una  opción o enter para salir: ')
         fuente_codigo.close()
         comentarios.close()
     else:
