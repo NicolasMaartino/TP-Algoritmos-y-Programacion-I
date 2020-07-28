@@ -12,6 +12,7 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
     
     lista_funciones = leer_linea_clasico(archivo_funciones, ',')
     lista_comentarios = leer_linea_clasico(archivo_comentarios, ',')
+    #Se recorre todo el archivo secuencialmente para ir imprimiendo linea por linea segun el formato elegido.
     while lista_funciones[0] != '':
         if nombre == '?todo':
             formato_interrogacion(lista_funciones, lista_comentarios)
@@ -36,7 +37,7 @@ def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
         
     lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
     lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
-        
+    #Mira con que finaliza la funcion e imprime el formato que corresponda.
     if (valor.endswith('?')) and (lista_comentarios[0]!='') and (lista_funciones[0]!=''):
         formato_interrogacion(lista_funciones, lista_comentarios)
     elif (valor.endswith('#')) and (lista_comentarios[0]!='') and (lista_funciones[0]!=''):
@@ -52,6 +53,7 @@ def panel_consultas(fuente_unico, comentarios):
     tabla_consultas(comentarios)
     print('  ?todo o #todo : Muestra Informacion para cada una de la funciones que se muestra en pantalla\n  imprimir ?todo: enviar contenido de funciones a un archivo, respete el espacio entre palabra y simbolo\n\n  Enter para salir')
     valor_solicitado = input('\nFunción: ')
+    #Mientras no se de enter, se va iterando en dos conjuntos de opciones, las que imprimen todo el archivo o la que busca funciones especificas.
     while valor_solicitado:
         if valor_solicitado == 'imprimir ?todo' or valor_solicitado == '?todo' or valor_solicitado == '#todo':
             opcion_todo(valor_solicitado, fuente_unico, comentarios)
