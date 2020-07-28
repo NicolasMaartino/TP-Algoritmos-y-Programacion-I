@@ -229,7 +229,7 @@ def eliminar_archivos(archivos):
     for archivo in archivos:
         remove(archivo)
 
-def inicio_archivos () :
+def archivos () :
     """ [Autor : Nicolas]"""
     """[Ayuda : Esta funcion inicia el proceso de archivos]"""
     
