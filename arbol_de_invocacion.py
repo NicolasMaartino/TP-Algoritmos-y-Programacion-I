@@ -33,20 +33,24 @@ def imprimir_diagrama(fuente_unico):
     """[Ayuda : este codigo permite imprimir las funciones main
         con sus respectivas funciones invocadas y las funciones que a su vez
         estas invocan y asi sucesivamente]"""
+    
     fuente_unico.seek(0)
     lista_ar = listar_archivo(fuente_unico)
     fuente_unico.seek(0)
     diccionario = funciones_invocadas(fuente_unico)
     dic_lineas = cant_lineas(lista_ar)
     principal = busca_principal(diccionario)
+    
     print("{}({}) ".format(principal,dic_lineas[principal]),end = "")
     for key in diccionario[principal].keys():
-        if key:
+        if key != "":
             print("---> {}({}) ".format(key,dic_lineas[key]),end="")
             for value in diccionario[key].keys():
                 if value != key:
                     print("")
-                    print("\t               ---> {}({})".format(value,dic_lineas[value]), end = "")
-            print("\n")
-
+                    print("\t                ---> {}({})".format(value,dic_lineas[value]),end = "")
+                    for i in diccionario[value].keys():
+                        if i!= "":
+                            print("")
+                            print("{}                          ---> {}({})".format(" "*len(value)+ " "*len(key)+" "*len(principal),i,dic_lineas[i]))
 
