@@ -91,23 +91,25 @@ def crear_tabla(invocaciones,tabla,funciones):
     for funcion in funciones:
         total[funcion] = 0
     nueva_fila,total = crear_filas(invocaciones, funciones,total)
-    #
+    
     for i in range(1,x+1):
         primera_fila += "{:^4}|".format(i)
-    
     tabla.write("-"*41 + "-----"*x + "\n")
     tabla.write("|{:<40}|".format("FUNCIONES") + primera_fila + "\n")
+    #creo la primera fila con "funciones" y los numeros que indican las funciones en las columnas
         
     for filas,funcion in zip(nueva_fila,invocaciones.keys()):
         t+=1
         tabla.write("|" + "-"*40 + "|----"*x + "|\n")
         tabla.write("|{:<40}|".format(str(t)+ "-" + funcion.replace("$","")) +"".join(filas)+ "\n" )
     tabla.write("|" + "-"*40 + "|----"*x + "|\n")
+    #meto todas las filas creadas en crear_filas dentro de la tabla central
     
     for valor in total.values():
         nuevo += "{:^4}|".format(str(valor))        
     tabla.write("|{:40}|".format("Total Invocaciones")  + nuevo + "\n")
     tabla.write("|" + "-"*40 + "|----"*x + "|\n")
+    #finalizo la tabla con la ultima fila que contiene el total de invocaciones
 
 def imprimir_analizador():
     """
