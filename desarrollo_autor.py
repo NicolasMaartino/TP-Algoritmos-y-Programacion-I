@@ -10,6 +10,8 @@ def leer_archivos_csv (archivocsv):
 def info_desarrolladores(fuente_unico,comentarios):
     """ [Autor : Alejandro]
         [Ayuda : nose ]"""
+    fuente_unico.seek(0)
+    comentarios.seek(0)
     total_lineas = 0
     dicc_desarrolladores = {}
     linea_comentarios = leer_archivos_csv(comentarios)
@@ -23,6 +25,4 @@ def info_desarrolladores(fuente_unico,comentarios):
         linea_fuente_unico = leer_archivos_csv(fuente_unico)
         linea_comentarios = leer_archivos_csv(comentarios)
     carga_informacion_desarrollador(dicc_desarrolladores,total_lineas)
-    fuente_unico.close()
-    comentarios.close()
 
