@@ -68,16 +68,28 @@ def crear_filas(invocaciones, funciones, total):
     y = len(funciones)
     
     for x in range(1, y+1):
+        #marco el rango para que finalice al terminar la cantidad de funciones
         filas = []
         nueva_fila.append(filas)  
+        #agrego la fila a la lista nueva_fila y reinicio la fila cada vez que es terminada la referida a una funcion en particular
+        #creo la fila de cada una de las funciones referidas por el rango:
         for funcion in invocaciones:
+            #recorro todas las funciones que tiene como clave el diccionario creado previamente
+            #como recorro en a todas en el mismo  orden la fila saldra siempre ordenada
             if funciones[x-1] in invocaciones[funcion]: 
                 filas.append('{:^4}|'.format('x'))
+                #veo si la funcion del primer for esta en las funciones llamadas de la funcion del segundo for 
+                #si es llamada agrego una x a la fila 
             elif funcion in invocaciones[funciones[x-1]]:
                 filas.append('{:^4}|'.format(invocaciones[funciones[x-1]][funcion]))
                 total[funcion] += invocaciones[funciones[x-1]][funcion]
+                #veo si la funcion del segundo for es llamada por la  funcion del primer for
+                #si la llama agrego la cantidad de veces que la llama a la fila
+                #voy sumando al total de la funcion recorrida las veces que llama a la funcion en la que estoy parada
             else:
                 filas.append('{:^4}|'.format(''))
+                #si no es llamada ni llama agrego un string vacio
+         
     
     return nueva_fila,total
 
@@ -101,14 +113,14 @@ def crear_tabla(invocaciones,tabla,funciones):
         primera_fila += '{:^4}|'.format(i)
     tabla.write('-'*41 + '-----'*x + '\n')
     tabla.write('|{:<40}|'.format('FUNCIONES') + primera_fila + '\n')
-    #creo la primera fila con "funciones" y los numeros que indican las funciones en las columnas
+    #creo la primera fila con el string "funciones" y los numeros que indican las funciones en las columnas
         
     for filas,funcion in zip(nueva_fila,invocaciones.keys()):
         t+=1
         tabla.write('|' + '-'*40 + '|----'*x + '|\n')
         tabla.write('|{:<40}|'.format(str(t)+ '-' + funcion.replace('$','')) +''.join(filas)+ '\n' )
     tabla.write('|' + '-'*40 + '|----'*x + '|\n')
-    #meto todas las filas creadas en crear_filas dentro de la tabla central
+    #incluyo todas las filas creadas en crear_filas dentro de la tabla central
     
     for valor in total.values():
         nuevo += '{:^4}|'.format(str(valor))        
