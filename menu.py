@@ -26,24 +26,25 @@ def menu():
     vacio = validar_programa()
     if vacio != True:
         archivos()
-        fuente_codigo = open("fuente_unico.csv","r")
-        comentarios = open("comentarios.csv","r")
+        fuente_codigo = open('fuente_unico.csv','r')
+        comentarios = open('comentarios.csv','r')
         texto_menu()
-        opcion = input("Ingrese una opcion: ")
+        opcion = input('Ingrese una opcion: ')
         while opcion:
-            while opcion not in "12345":
-                opcion = input("Ingrese una opcion valida o enter para salir: ")
+            while opcion not in '12345':
+                opcion = input('Ingrese una opcion valida o enter para salir: ')
             borrador()
-            if opcion == "":
-                print("Gracias por participar de nuestro programa")
+            if opcion == '':
+                print('Gracias por participar de nuestro programa')
                 exit()
-            elif opcion == "1":
+            elif opcion == '1':
                 panel_general(fuente_codigo,comentarios)
-                enter = input("Ingrese enter para continuar")
-            elif opcion == "2":
+                enter = input('Ingrese enter para continuar')
+            elif opcion == '2':
                 panel_consultas(fuente_codigo, comentarios)
-            elif opcion=="3":
+            elif opcion=='3':
                 imprimir_analizador()
+<<<<<<< HEAD
                 enter = input("Ingrese enter para continuar")
             elif opcion=="4":
                 imprimir_diagrama(fuente_codigo)
@@ -51,16 +52,26 @@ def menu():
             elif opcion=="5":
                 info_desarrolladores(fuente_codigo,comentarios)
                 enter = input("Ingrese enter para continuar")
+=======
+                enter = input('Ingrese enter para continuar')
+                pass
+            elif opcion=='4':
+                imprimir_diagrama(fuente_codigo)
+                enter = input('Ingrese enter para continuar')
+            elif opcion=='5':
+                info_desarrolladores()
+                enter = input('Ingrese enter para continuar')
+>>>>>>> c8e36b4cf55748ecd258c56f2e12474110edabc0
             borrador()
             texto_menu()
-            opcion = input("Ingrese una opción o enter para salir: ")
+            opcion = input('Ingrese una opción o enter para salir: ')
         fuente_codigo.close()
         comentarios.close()
     else:
-        print("\n\t\tATENCION [!]\n\n\tProgramas.txt ESTA VACIO\n")
+        print('\n\t\tATENCION [!]\n\n\tProgramas.txt ESTA VACIO\n')
         
 def borrador():
-    if os.name == "posix":
-        os.system ("clear")
-    elif os.name == "ce" or os.name == "nt" or os.name == "dos":
-        os.system ("cls")
+    if os.name == 'posix':
+        os.system ('clear')
+    elif os.name == 'ce' or os.name == 'nt' or os.name == 'dos':
+        os.system ('cls')
