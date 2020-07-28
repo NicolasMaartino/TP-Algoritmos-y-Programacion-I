@@ -3,12 +3,12 @@
 def buscar_funciones (archivo, funcion):
     """[Autor : Juan Godoy]"""
     """[Ayuda : Va buscando en los archivos la funcion que necesito]"""
-    linea=leer_linea_clasico(archivo,",")
+    linea=leer_linea_clasico(archivo,',')
     while funcion!= linea[0]:
-        if linea[0] !="":
-            linea=leer_linea_clasico(archivo, ",")
+        if linea[0] !='':
+            linea=leer_linea_clasico(archivo, ',')
         else:
-            funcion=""
+            funcion=''
     return linea
 
 def formateo_linea(lista):
@@ -21,9 +21,9 @@ def formateo_linea(lista):
         acumulador+=len(nueva_lista[n])
         n+=1
         if acumulador<=70 and acumulador>50:
-            nueva_lista.insert(n, "\n")
+            nueva_lista.insert(n, '\n')
             acumulador=0
-    lista=" ".join(nueva_lista)
+    lista=' '.join(nueva_lista)
     return lista
 
 def grabar_archivo (archivo,leyenda) :
@@ -37,10 +37,10 @@ def generar_archivo (lista,ruta) :
     """[Autor : Nicolas]"""
     """[Ayuda : Genera un archivo a traves de un iterable y si lo necesitas te lo devuelve abierto]"""
     
-    archivo = open(ruta,"w",newline='\n')
+    archivo = open(ruta,'w',newline='\n')
     for funcion in lista:
         
-        leyenda = ",".join(funcion)+"\n"
+        leyenda = ','.join(funcion)+'\n'
         grabar_archivo(archivo,leyenda)
 
     archivo.close()
@@ -55,17 +55,17 @@ def leer_linea (archivo) :
     if linea:
         devolver = linea
     else:
-        devolver = ""
+        devolver = ''
     return devolver
 
 def leer_linea_clasico (archivo,corte) :
     
     """[Ayuda : lee una linea del archivo y devuelve una tupla]"""
     
-    linea = archivo.readline().strip("\n").split(corte)
-    if linea[0]!="":
+    linea = archivo.readline().strip('\n').split(corte)
+    if linea[0]!='':
         devolver = linea
     else:
-        devolver = "","",""
+        devolver = '','',''
     """[Autor : N/N]"""
     return devolver
