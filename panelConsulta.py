@@ -28,25 +28,21 @@ def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
 def opciones_funcion(valor, archivo_funciones, archivo_comentarios):
     """[Autor : Juan Godoy]"""
     """[Ayuda : Segun la opcion que se elija, se imprime diferente informacion sobre las funciones]"""
-
-    if valor == '?todo' or valor == '#todo' or valor =='imprimir ?todo':
-        opcion_todo (valor, archivo_funciones, archivo_comentarios)
+    nombre_funcion = reemplazar_string([valor[-1]],'',valor)
+    #nombre_funcion = valor.replace(valor[-1], '')
+        
+    archivo_comentarios.seek(0)
+    archivo_funciones.seek(0)
+        
+    lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
+    lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
+        
+    if (valor.endswith('?')) and (lista_comentarios[0]!='') and (lista_funciones[0]!=''):
+        formato_interrogacion(lista_funciones, lista_comentarios)
+    elif (valor.endswith('#')) and (lista_comentarios[0]!='') and (lista_funciones[0]!=''):
+        formato_numeral(lista_funciones, lista_comentarios)
     else:
-        nombre_funcion = reemplazar_string([valor[-1]],'',valor)
-        #nombre_funcion = valor.replace(valor[-1], '')
-        
-        archivo_comentarios.seek(0)
-        archivo_funciones.seek(0)
-        
-        lista_comentarios = buscar_funciones(archivo_comentarios, nombre_funcion)
-        lista_funciones = buscar_funciones(archivo_funciones, nombre_funcion)
-        
-        if (valor.endswith('?')) and (lista_comentarios[0]!='') and (lista_funciones[0]!=''):
-            formato_interrogacion(lista_funciones, lista_comentarios)
-        elif (valor.endswith('#')) and (lista_comentarios[0]!='') and (lista_funciones[0]!=''):
-            formato_numeral(lista_funciones, lista_comentarios)
-        else:
-            print('\nPorfavor ingrese un nombre de funcion seguido de un signo valido. \n')
+         print('\nPorfavor ingrese un nombre de funcion seguido de un signo valido. \n')
         
         
 def panel_consultas(fuente_unico, comentarios):
