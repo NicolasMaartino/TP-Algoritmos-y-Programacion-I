@@ -5,15 +5,15 @@ def leer_archivos_csv (archivocsv):
     """ Autor : Alejandro """
     """ Ayuda : leer archivos .csv y devuelve una lista de cada linea del archivo """
     linea = archivocsv.readline()
-    return linea.rstrip('\n').split(',') if linea else ""
+    return linea.rstrip('\n').split(',') if linea else ''
     
 def info_desarrolladores():
     """ [Autor : Alejandro]
         [Ayuda : nose ]"""
     total_lineas = 0
     dicc_desarrolladores = {}
-    with open("comentarios.csv","r") as comentarios,\
-        open("fuente_unico.csv","r") as fuente_unico:
+    with open('comentarios.csv','r') as comentarios,\
+        open('fuente_unico.csv','r') as fuente_unico:
             linea_comentarios = leer_archivos_csv(comentarios)
             linea_fuente_unico = leer_archivos_csv(fuente_unico)
             while linea_comentarios and linea_fuente_unico:
