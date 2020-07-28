@@ -140,6 +140,7 @@ def imprimir_analizador():
     crear_tabla(invocaciones,analizador,funciones)
     analizador.seek(0)
     fila = analizador.readline().strip()
+    #leo las lineas del analizador ylas imprimo
     while fila != '':
         print(fila)
         fila = analizador.readline().rstrip()
