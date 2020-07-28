@@ -47,7 +47,7 @@ def parametros(lista_ar, dic):
         if dic[key]["Parametros"] == "":
             dic[key]["Parametros"] = 0
         else:
-            cant = dic[key]["Parametros"].count(" ")
+            cant = dic[key]["Parametros"].count(" ") # Utiliza 
             dic[key]["Parametros"] = cant + 1
 
 def extraigo_linea(funcion,key,dic):
