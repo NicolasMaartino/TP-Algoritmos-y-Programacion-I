@@ -25,7 +25,7 @@ def menu():
     """
     vacio = validar_programa()
     if vacio != True:
-        archivos()
+        inicio_archivos()
         fuente_codigo = open("fuente_unico.csv","r")
         comentarios = open("comentarios.csv","r")
         texto_menu()
