@@ -24,7 +24,7 @@ def menu():
         Todo estara ejecutado desde aca.
     """
     vacio = validar_programa()
-    if vacio!=True:
+    if vacio != True:
         archivos()
         fuente_codigo = open("fuente_unico.csv","r")
         comentarios = open("comentarios.csv","r")
@@ -47,7 +47,7 @@ def menu():
                 enter = input("Ingrese enter para continuar")
                 pass
             elif opcion=="4":
-                imprimir_diagrama()
+                imprimir_diagrama(fuente_codigo)
                 enter = input("Ingrese enter para continuar")
             elif opcion=="5":
                 info_desarrolladores()

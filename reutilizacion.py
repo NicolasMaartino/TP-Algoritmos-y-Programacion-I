@@ -91,9 +91,10 @@ def crear_tabla(invocaciones,tabla,funciones):
     for funcion in funciones:
         total[funcion] = 0
     nueva_fila,total = crear_filas(invocaciones, funciones,total)
-
+    #
     for i in range(1,x+1):
         primera_fila += "{:^4}|".format(i)
+    
     tabla.write("-"*41 + "-----"*x + "\n")
     tabla.write("|{:<40}|".format("FUNCIONES") + primera_fila + "\n")
         

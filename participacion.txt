@@ -4,7 +4,7 @@
 --------------------------------------------------
 
 Autor:  Nicolas
-                       Funci髇		Lineas
+                       Funci贸n		Lineas
 --------------------------------------------------
              eliminar_archivos		2
              reemplazar_string		3
@@ -25,7 +25,7 @@ Autor:  Nicolas
 --------------------------------------------------
 
 Autor:  Lucia
-                       Funci髇		Lineas
+                       Funci贸n		Lineas
 --------------------------------------------------
                          autor		3
                    cant_lineas		4
@@ -39,12 +39,13 @@ Autor:  Lucia
                  panel_general		8
                 extraigo_linea		9
                 imprimir_panel		9
+               busca_principal		11
              organizar_archivo		18
-	13 Funcion/es - Lineas		91  15%
+	14 Funcion/es - Lineas		102  17%
 --------------------------------------------------
 
 Autor:  N/N
-                       Funci髇		Lineas
+                       Funci贸n		Lineas
 --------------------------------------------------
                           main		2
                       borrador		4
@@ -53,15 +54,8 @@ Autor:  N/N
 	4 Funcion/es - Lineas		47  8%
 --------------------------------------------------
 
-Autor:  Sofia y Lucia
-                       Funci髇		Lineas
---------------------------------------------------
-               busca_principal		11
-	1 Funcion/es - Lineas		11  1%
---------------------------------------------------
-
 Autor:  Alejandro
-                       Funci髇		Lineas
+                       Funci贸n		Lineas
 --------------------------------------------------
              leer_archivos_csv		2
                  tipo_archivos		5
@@ -76,20 +70,20 @@ carga_informacion_desarrollador		23
 --------------------------------------------------
 
 Autor:  Sofia Marchesini
-                       Funci髇		Lineas
+                       Funci贸n		Lineas
 --------------------------------------------------
            funciones_invocadas		7
             lista_de_funciones		8
                veces_invocadas		9
            imprimir_analizador		12
                    crear_filas		14
-             imprimir_diagrama		17
+             imprimir_diagrama		15
                    crear_tabla		22
-	7 Funcion/es - Lineas		89  15%
+	7 Funcion/es - Lineas		87  15%
 --------------------------------------------------
 
 Autor:  Juan Godoy
-                       Funci髇		Lineas
+                       Funci贸n		Lineas
 --------------------------------------------------
          formato_interrogacion		3
                  imprimir_todo		6
@@ -100,4 +94,4 @@ Autor:  Juan Godoy
                tabla_consultas		23
 	7 Funcion/es - Lineas		83  14%
 
-Total Funciones 56 - Lineas 580
+Total Funciones 56 - Lineas 578

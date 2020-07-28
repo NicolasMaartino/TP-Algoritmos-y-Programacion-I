@@ -3,7 +3,7 @@ from generales import listar_archivo
 from archivos import leer_linea_clasico
 
 def busca_principal(dic):
-    """[Autor: Sofia y Lucia]"""
+    """[Autor: Lucia]"""
     """[Ayuda: Busca la función principal de un programa]"""
     principal = ""   
     valores = list(dic.values())
@@ -28,19 +28,17 @@ def cant_lineas(lista_ar_fu):
         
     return dic
 
-def imprimir_diagrama(): 
+def imprimir_diagrama(fuente_unico): 
     """[Autor : Sofia Marchesini]"""
     """[Ayuda : este codigo permite imprimir las funciones main
         con sus respectivas funciones invocadas y las funciones que a su vez
         estas invocan y asi sucesivamente]"""
-        
-    fuente_unico = open("fuente_unico.csv","r")
+    fuente_unico.seek(0)
     lista_ar = listar_archivo(fuente_unico)
     fuente_unico.seek(0)
     diccionario = funciones_invocadas(fuente_unico)
     dic_lineas = cant_lineas(lista_ar)
     principal = busca_principal(diccionario)
-    fuente_unico.close()
     print("{}({}) ".format(principal,dic_lineas[principal]),end = "")
     for key in diccionario[principal].keys():
         if key:

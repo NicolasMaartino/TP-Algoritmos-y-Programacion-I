@@ -120,11 +120,10 @@ def procesa_linea(valor,nombre,if_elif,archivo,valor_final):
         if len(if_elif) == 0:
             leyenda = str(valor_final) + ","
             grabar_archivo(archivo,leyenda)
-    else:
-            
+    else:            
         leyenda = str(valor) + ","
         grabar_archivo(archivo,leyenda)
-    
+
     return if_elif
 
 
@@ -152,8 +151,8 @@ def panel_general(fuente_unico,comentarios):
     """[Ayuda: ejecuta todo,es el main del programa]"""
     fuente_unico.seek(0)
     comentarios.seek(0)
-    lista_fuente_unico = listar_archivo(fuente_unico) # Cambiarle el parametro de listar_archivo
-    lista_comentarios = listar_archivo(comentarios) # importar el archivo
+    lista_fuente_unico = listar_archivo(fuente_unico)
+    lista_comentarios = listar_archivo(comentarios)
     diccionario = organizar_archivo(lista_fuente_unico)
     dic_final = unir(diccionario, lista_fuente_unico, lista_comentarios)
     panel_csv(dic_final)
