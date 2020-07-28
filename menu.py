@@ -45,17 +45,11 @@ def menu():
             elif opcion=="3":
                 imprimir_analizador()
                 enter = input("Ingrese enter para continuar")
-<<<<<<< HEAD
-            elif opcion=="4":
-                imprimir_diagrama(fuente_unico)
-=======
-                pass
             elif opcion=="4":
                 imprimir_diagrama(fuente_codigo)
->>>>>>> 8004d499be3c47c4da4a280f1c6184fb7dcd04a4
                 enter = input("Ingrese enter para continuar")
             elif opcion=="5":
-                info_desarrolladores()
+                info_desarrolladores(fuente_codigo,comentarios)
                 enter = input("Ingrese enter para continuar")
             borrador()
             texto_menu()
@@ -70,6 +64,3 @@ def borrador():
         os.system ("clear")
     elif os.name == "ce" or os.name == "nt" or os.name == "dos":
         os.system ("cls")
-
-
-menu()
