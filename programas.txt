@@ -1,3 +1,0 @@
-../TP1/punto1.py
-../TP1/mezcla.py
-
