@@ -18,7 +18,7 @@ def imprimir_panel(dic):
                                                                                                                             dic[funcion]['while'], dic[funcion]['break'], 
                                                                                                                             dic[funcion]['exit'], dic[funcion]['Coment'],
                                                                                                                             dic[funcion]['Ayuda'], dic[funcion]['Autor'])
-     for funcion in dic)))
+    for funcion in dic)))
     print (Tabla)
 
 def tabla_consultas(archivo):

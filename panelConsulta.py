@@ -4,7 +4,7 @@ from archivos import leer_linea_clasico,buscar_funciones
 from tabla import formato_interrogacion,formato_numeral,imprimir_todo,tabla_consultas
 
 def opcion_todo (nombre, archivo_funciones, archivo_comentarios):
-    """[Autor: Juan Godoy]"""
+    """[Autor : Juan Godoy]"""
     """[Ayuda : Funcion que imprime todo lo relacionado con las funciones ?todo, '#'todo,e imprimir ?todo]"""
     ayuda_funciones = open('ayuda_funciones.txt', 'w') 
     archivo_funciones.seek(0)

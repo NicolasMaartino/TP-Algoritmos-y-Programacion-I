@@ -8,8 +8,8 @@ from tabla import imprimir_panel
 from generales import listar_archivo,acomodar_lectura
 from archivos import grabar_archivo
 def organizar_archivo(lista_ar):
-    """[Autor: Lucia]"""
-    """[Ayuda: Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
+    """[Autor : Lucia]"""
+    """[Ayuda : Crea un diccionario donde la calve es el nombre de la funcion que a su vez tiene un diccionario adentro
         donde las claves son los atributos de las columnas]"""
     funciones = {}
     for funcion in lista_ar:

@@ -21,7 +21,7 @@ formato_numeral,Juan Godoy,Formato visual para las opciones numeral
 funciones_invocadas,Sofia Marchesini,esta funcion crea un diccionario con todas las funciones como claves. El diccionario tendra como valor como un diccionario compuesto por la funcion que invoco y el valor las veces invocada. Si no invoca ninguna funcion aparecera la lista vacia funcion1 {funcion2 n veces} funcion 1 llama a funcion 2 n veces
 generar_archivo,Nicolas,Genera un archivo a traves de un iterable y si lo necesitas te lo devuelve abierto
 grabar_archivo,Nicolas,Graba linea en un archivo pasado por parametro
-guardar_archivo,Alejandro,Lee archivo_aux.csv extrae la informacion y realiza la mezcla respectiva para luego eliminar archivo_aux.csv
+guardar_archivo,Alejandroo,Lee archivo_aux.csv extrae la informacion y realiza la mezcla respectiva para luego eliminar archivo_aux.csv
 imprimir_analizador,Sofia Marchesini,imprimo la tabla y la copio al archivo analizador.txt,leo las lineas del analizador ylas imprimo
 imprimir_panel,Lucia,Crea la una tabla
 imprimir_tabla_desarrollador,Alejandro,Imprime la tabla para desarrollador
@@ -55,5 +55,5 @@ tabla_consultas,Juan Godoy,Funcion que acumula nombres de funciones para luego d
 texto_menu,N/N,N/N
 tipo_archivos,Alejandro,valida si el archivo recibido es comentarios o fuente_unico
 unir,Lucia,Une todas las funciones contadoras con el diccionario
-validar_programa,Alejandro,Preguntaremos si hay alguna ruta en programas.txt
+validar_programa,Alejandroo,Preguntaremos si hay alguna ruta en programas.txt
 veces_invocadas,Sofia Marchesini,esta funcion crea un dicionario compuesto por la clave como la funcion invocada y el valor como las veces que esta funcion fue invocada,recorro todas las funciones y me fijo una a una si estan en la linea leida por funciones_invocadas,recorro todas las funciones de la lista de funciones,recorro todos los elementos de la linea que lei antes

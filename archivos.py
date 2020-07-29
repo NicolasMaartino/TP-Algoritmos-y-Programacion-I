@@ -35,7 +35,7 @@ def grabar_archivo (archivo,leyenda) :
 
 def generar_archivo (lista,ruta) :
     """[Autor : Nicolas]"""
-    """[Ayuda : Genera un archivo a traves de un iterable y si lo necesitas te lo devuelve abierto]"""
+    """[Ayuda : Genera  un archivo a traves de un iterable y si lo necesitas te lo devuelve abierto]"""
     
     archivo = open(ruta,'w',newline='\n')
     for funcion in lista:

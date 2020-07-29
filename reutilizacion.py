@@ -89,8 +89,6 @@ def crear_filas(invocaciones, funciones, total):
             else:
                 filas.append('{:^4}|'.format(''))
                 #si no es llamada ni llama agrego un string vacio
-         
-    
     return nueva_fila,total
 
 def crear_tabla(invocaciones,tabla,funciones):

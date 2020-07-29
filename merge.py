@@ -5,7 +5,7 @@ from generales import buscar_dato,acomodar_lectura,reemplazar_string,ordenamient
 from archivos import *
 
 def guardar_archivo(archivo_aux, lista_archivos):
-    """[Autor : Alejandro] 
+    """[Autor : Alejandroo] 
     Ayuda : Lee archivo_aux.csv, extrae la informacion y realiza la mezcla respectiva 
     para luego eliminar archivo_aux.csv 
     """

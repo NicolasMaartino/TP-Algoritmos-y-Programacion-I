@@ -70,7 +70,7 @@ def reemplazar_string (reemplazar,reemplazo,string):
 
 def validar_programa ():
 
-    """ [ Autor : Alejandro] """
+    """ [ Autor : Alejandroo] """
     """ [Ayuda : Preguntaremos si hay alguna ruta en programas.txt] """
 
     archivo = open('programas.txt')
