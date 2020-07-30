@@ -37,19 +37,30 @@ def imprimir_diagrama(fuente_unico):
     fuente_unico.seek(0)
     lista_ar = listar_archivo(fuente_unico)
     fuente_unico.seek(0)
-    diccionario = funciones_invocadas(fuente_unico)
     dic_lineas = cant_lineas(lista_ar)
+    diccionario = funciones_invocadas(fuente_unico)
     principal = busca_principal(diccionario)
-    print('{}({}) '.format(principal,dic_lineas[principal]),end = '')
-    for key in diccionario[principal].keys():
-        if key != '':
-            print('---> {}({}) '.format(key,dic_lineas[key]),end='')
-            for value in diccionario[key].keys():
-                if value != key:
-                    print("\n")
-                    print('')
-                    print('\t                ---> {}({})'.format(value,dic_lineas[value]),end = '')
-                    for i in diccionario[value].keys():
-                        if i!= '':
-                            print('')
-                            print('{}                          ---> {}({})'.format(' '*len(value)+ ' '*len(key)+' '*len(principal),i,dic_lineas[i]))
+    string = ""
+    
+    string_principal = " {} ({})".format(principal,dic_lineas[principal])
+    for i in range (len(diccionario[principal].keys())):
+        if i == 0:
+            recursiva(diccionario,string_principal,list(diccionario[principal].keys())[i],dic_lineas,principal,string)
+        elif list(diccionario[principal].keys())[i]:
+            recursiva(diccionario," "*len(string_principal),list(diccionario[principal].keys())[i],dic_lineas,principal,string)
+        
+def recursiva(diccionario,espaciado,funcion,dic_lineas,principal,string):
+
+    string = "{} --> {} ({})".format(espaciado,funcion,dic_lineas[funcion])
+    
+    if len(list(diccionario[funcion].keys())) == 0:
+        print(string)
+    
+    for c in range(len(diccionario[funcion].keys())):
+        if list(diccionario[funcion].keys())[c] == funcion:
+            print("{} --> {} ({})".format(string,funcion,dic_lineas[funcion]))
+        elif c == 0:
+            recursiva(diccionario,string,list(diccionario[funcion].keys())[c],dic_lineas,principal,string)
+        else:
+            recursiva(diccionario," "*len(string),list(diccionario[funcion].keys())[c],dic_lineas,principal,string)
+
