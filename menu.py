@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import os
-from merge import archivos
+from merge import archivos_merge
 from panel_general import panel_general
 from desarrollo_autor import info_desarrolladores
 from reutilizacion import imprimir_analizador
@@ -25,7 +25,7 @@ def menu():
     """
     vacio = validar_programa()
     if vacio != True:
-        archivos()
+        archivos_merge()
         fuente_codigo = open('fuente_unico.csv','r')
         comentarios = open('comentarios.csv','r')
         texto_menu()

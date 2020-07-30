@@ -229,7 +229,7 @@ def eliminar_archivos(archivos):
     for archivo in archivos:
         remove(archivo)
 
-def archivos () :
+def archivos_merge () :
     """ [Autor : Nicolas]"""
     """[Ayuda : Esta funcion inicia el proceso de archivos]"""
     
