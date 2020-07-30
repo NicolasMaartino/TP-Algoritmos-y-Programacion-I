@@ -50,13 +50,6 @@ Modulo: menu
 Autor: N/N
 -------------------------------------------------
 -------------------------------------------------
-Función: busca_principal
-Ayuda: Busca la función principal de un programa
-Parametros: (dic)
-Modulo: arbol_de_invocacion
-Autor: Lucia
--------------------------------------------------
--------------------------------------------------
 Función: buscar_dato
 Ayuda: Se le pasa una lista con datos a buscar en la linea del archivo
 Parametros: (lista_datos linea)
@@ -64,11 +57,11 @@ Modulo: generales
 Autor: Nicolas
 -------------------------------------------------
 -------------------------------------------------
-Función: cant_lineas
-Ayuda: Cuenta la cantidad de lineas por funcion
-Parametros: (lista_ar_fu)
-Modulo: arbol_de_invocacion
-Autor: Lucia
+Función: buscar_funciones
+Ayuda: Va buscando en los archivos la funcion que necesito
+Parametros: (archivo funcion)
+Modulo: archivos
+Autor: Juan Godoy
 -------------------------------------------------
 -------------------------------------------------
 Función: carga_informacion_desarrollador
@@ -130,6 +123,13 @@ Modulo: panel_general
 Autor: Lucia
 -------------------------------------------------
 -------------------------------------------------
+Función: formateo_linea
+Ayuda: Funcion que hace que cada linea no tenga mas de 80 caracteres
+Parametros: (lista)
+Modulo: archivos
+Autor: Juan Godoy
+-------------------------------------------------
+-------------------------------------------------
 Función: formato_interrogacion
 Ayuda: Un formato visual para las opciones con interrogacion
 Parametros: (lista_funciones lista_comentarios)
@@ -155,6 +155,21 @@ Modulo: reutilizacion
 Autor: Sofia Marchesini
 -------------------------------------------------
 -------------------------------------------------
+Función: generar_archivo
+Ayuda: Genera un archivo a traves de un iterable y si lo necesitas te lo 
+ devuelve abierto
+Parametros: (lista ruta)
+Modulo: archivos
+Autor: Nicolas
+-------------------------------------------------
+-------------------------------------------------
+Función: grabar_archivo
+Ayuda: Graba linea en un archivo pasado por parametro
+Parametros: (archivo leyenda)
+Modulo: archivos
+Autor: Nicolas
+-------------------------------------------------
+-------------------------------------------------
 Función: guardar_archivo
 Ayuda: Lee archivo_aux.csv extrae la informacion y realiza la mezcla 
  respectiva para luego eliminar archivo_aux.csv
@@ -167,15 +182,6 @@ Función: imprimir_analizador
 Ayuda: imprimo la tabla y la copio al archivo analizador.txt
 Parametros: ()
 Modulo: reutilizacion
-Autor: Sofia Marchesini
--------------------------------------------------
--------------------------------------------------
-Función: imprimir_diagrama
-Ayuda: este codigo permite imprimir las funciones main con sus respectivas 
- funciones invocadas y las funciones que a su vez estas invocan 
- y asi sucesivamente
-Parametros: ()
-Modulo: arbol_de_invocacion
 Autor: Sofia Marchesini
 -------------------------------------------------
 -------------------------------------------------
@@ -211,7 +217,7 @@ Autor: Nicolas
 -------------------------------------------------
 Función: info_desarrolladores
 Ayuda: nose
-Parametros: ()
+Parametros: (fuente_unico comentarios)
 Modulo: desarrollo_autor
 Autor: Alejandro
 -------------------------------------------------
@@ -228,6 +234,20 @@ Ayuda: leer archivos .csv y devuelve una lista de cada linea del archivo
 Parametros: (archivocsv)
 Modulo: desarrollo_autor
 Autor: Alejandro
+-------------------------------------------------
+-------------------------------------------------
+Función: leer_linea
+Ayuda: lee una linea del archivo y devuelve una lista
+Parametros: (archivo)
+Modulo: archivos
+Autor: N/N
+-------------------------------------------------
+-------------------------------------------------
+Función: leer_linea_clasico
+Ayuda: lee una linea del archivo y devuelve una tupla
+Parametros: (archivo corte)
+Modulo: archivos
+Autor: N/N
 -------------------------------------------------
 -------------------------------------------------
 Función: lineas_coment

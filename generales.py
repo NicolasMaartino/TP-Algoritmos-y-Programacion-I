@@ -6,17 +6,17 @@ def listar_archivo (archivo):
     linea = leer_linea(archivo)
     linea = (linea)
     while linea:
-        lista_ar.append(linea.rstrip("\n").split(","))
+        lista_ar.append(linea.rstrip('\n').split(','))
         linea = leer_linea(archivo)
     return lista_ar
 
 def tipo_archivos (archivo):
     """ Autor : Alejandro """
     """ Ayuda : valida si el archivo recibido es comentarios o fuente_unico """
-    if "comentarios" in archivo:
-        archivo_unico = "comentarios.csv"
+    if 'comentarios' in archivo:
+        archivo_unico = 'comentarios.csv'
     else:
-        archivo_unico = "fuente_unico.csv"
+        archivo_unico = 'fuente_unico.csv'
     return archivo_unico
 
 def buscar_dato (lista_datos,linea):
@@ -73,7 +73,7 @@ def validar_programa ():
     """ [ Autor : Alejandro] """
     """ [Ayuda : Preguntaremos si hay alguna ruta en programas.txt] """
 
-    archivo = open("programas.txt")
+    archivo = open('programas.txt')
     linea = archivo.readline()
     validacion = False
     if not linea:
