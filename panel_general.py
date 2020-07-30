@@ -13,7 +13,6 @@ def organizar_archivo(lista_ar):
         donde las claves son los atributos de las columnas]"""
     funciones = {}
     for funcion in lista_ar:
-<<<<<<< HEAD
         funciones[funcion[0]] = {} # Estructura del dic
         funciones[funcion[0]]["Nombre"] = "{}.{}".format(funcion[0], funcion[2]) # nombre_funcion.modulo
         funciones[funcion[0]]["Parametros"] = funcion[1].strip('()')
@@ -29,23 +28,7 @@ def organizar_archivo(lista_ar):
         funciones[funcion[0]]["Coment"] = 0
         funciones[funcion[0]]["Ayuda"] = ""
         funciones[funcion[0]]["Autor"] = ""
-=======
-        funciones[funcion[0]] = {}
-        funciones[funcion[0]]['Nombre'] = '{}.{}'.format(funcion[0], funcion[2])
-        funciones[funcion[0]]['Parametros'] = funcion[1].strip('()')
-        funciones[funcion[0]]['Lineas'] = len(funcion) - 3 #Por los parametros,el modulo y el nombre
-        funciones[funcion[0]]['Invocaciones'] = 0
-        funciones[funcion[0]]['return'] = 0
-        funciones[funcion[0]]['if'] = 0
-        funciones[funcion[0]]['elif'] = 0
-        funciones[funcion[0]]['for'] = 0
-        funciones[funcion[0]]['while'] = 0
-        funciones[funcion[0]]['break'] = 0
-        funciones[funcion[0]]['exit'] = 0
-        funciones[funcion[0]]['Coment'] = 0
-        funciones[funcion[0]]['Ayuda'] = ''
-        funciones[funcion[0]]['Autor'] = ''
->>>>>>> c2b47ebc6c00dc057a1f88d36131d772f593c7ea
+
     return funciones
 
 def contador (elementos, lista_ar, dic):
@@ -65,13 +48,10 @@ def parametros(lista_ar, dic):
         if dic[key]['Parametros'] == '':
             dic[key]['Parametros'] = 0
         else:
-<<<<<<< HEAD
             cant = dic[key]["Parametros"].count(" ") # Utiliza 
             dic[key]["Parametros"] = cant + 1
-=======
-            cant = dic[key]['Parametros'].count(' ')
-            dic[key]['Parametros'] = cant + 1
->>>>>>> c2b47ebc6c00dc057a1f88d36131d772f593c7ea
+    return dic
+
 
 def extraigo_linea(funcion,key,dic):
     """ [Autor : Lucia]
